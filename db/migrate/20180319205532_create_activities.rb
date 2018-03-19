@@ -10,7 +10,7 @@ class CreateActivities < ActiveRecord::Migration[5.1]
       t.datetime :opens_at
       t.datetime :closes_at
       t.integer :duration
-      t.boolean :mark_as-done
+      t.boolean :mark_as_done
       t.references :category, foreign_key: true
       t.references :city, foreign_key: true
 

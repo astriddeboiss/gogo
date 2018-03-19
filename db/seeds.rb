@@ -5,35 +5,35 @@ puts 'Creating categories...'
 categories_attributes = [
   {
     name: "Museums & Galleries"
-    description:
+    description: "A museum is an institution that cares for (conserves) a collection of artifacts and other objects of artistic, cultural, historical, or scientific importance."
   },
   {
     name: "Parks & Gardens"
-    description:
+    description: "A park is an area of natural, semi-natural or planted space set aside for human enjoyment and recreation or for the protection of wildlife or natural habitats."
   },
   {
     name: "Panoramic Views"
-    description:
+    description: "A panorama is any wide-angle view or representation of a physical space."
   },
   {
     name: "Monuments & Must-See"
-    description:
+    description: "A panorama is any wide-angle view or representation of a physical space."
   },
   {
-    name: "Authentic Neighbourhoods"
-    description:
+    name: "Historical Neighbourhoods"
+    description: "A neighbourhood, or neighborhood, is a geographically localised community within a larger city, town, suburb or rural area."
   },
   {
     name: "Markets"
-    description:
+    description: "A market, or marketplace, is a location where people regularly gather for the purchase and sale of provisions, livestock, and other goods."
   },
   {
     name: "Shows & Concerts"
-    description:
+    description: "A concert is a live music performance in front of an audience. The performance may be by a single musician, sometimes then called a recital, or by a musical ensemble, such as an orchestra, choir, or band."
   },
   {
     name: "Shopping Areas"
-    description:
+    description: " Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the intent to purchase a suitable selection of them."
   },
 ]
 Category.create!(categories_attributes)
@@ -76,8 +76,8 @@ UserPreference.destroy_all
 puts 'Creating User Preferences...'
 user_preferences_attributes = [
   {
-    user: User.create(email: "astrid@gmail.com")
-    cartegory: Category.first
+    user: User.first
+    category: Category.first
   }
 ]
 UserPreference.create!(user_preferences_attributes)
@@ -90,8 +90,8 @@ Trips.destroy_all
 puts 'Creating Trips...'
 trips_attributes = [
   {
-    city: City.first
-    user: User.first
+    city_id: City.first
+    user_d: User.first
   }
 ]
 Trips.create!(trips_attributes)
@@ -105,24 +105,65 @@ Activity.destroy_all
 puts 'Creating activities...'
 activities_attributes = [
   {
-    name:
-    description:
-    photo:
-    latitude:
-    longitude:
-    address:
-    opening_at:
-    closing_at:
-    duration:
-    mark_as_done:
-    category_id:
-    city_id:
-
-
+    name: "Colosseum"
+    description: "The Colosseum or Coliseum, also known as the Flavian Amphitheatre, is an oval amphitheatre in the centre of the city of Rome, Italy. Built of travertine, tuff, and brick-faced concrete, it is the largest amphitheatre ever built."
+    remote_photo_url: "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
+    address: "Piazza del Colosseo, 1, 00184 Roma RM, Italy"
+    opening_at: DateTime.new(2018,1,1,9)
+    closing_at: DateTime.new(2018,1,1,18)
+    duration: 60
+    mark_as_done: false
+    category_id: Category.limit(4).[3]
+    city_id: City.first
   },
   {
-
-  }
+    name: ""
+    description: ""
+    remote_photo_url: ""
+    address: ""
+    opening_at: DateTime.new(2018,1,1,9)
+    closing_at: DateTime.new(2018,1,1,18)
+    duration: 30
+    mark_as_done: false
+    category_id: Category.limit(4).[3]
+    city_id: City.first
+  },
+  {
+    name: ""
+    description: ""
+    remote_photo_url: ""
+    address: ""
+    opening_at: DateTime.new(2018,1,1,9)
+    closing_at: DateTime.new(2018,1,1,18)
+    duration: 30
+    mark_as_done: false
+    category_id: Category.limit(4).[3]
+    city_id: City.first
+  },
+  {
+    name: ""
+    description: ""
+    remote_photo_url: ""
+    address: ""
+    opening_at: DateTime.new(2018,1,1,9)
+    closing_at: DateTime.new(2018,1,1,18)
+    duration: 30
+    mark_as_done: false
+    category_id: Category.limit(4).[3]
+    city_id: City.first
+  },
+  {
+    name: ""
+    description: ""
+    remote_photo_url: ""
+    address: ""
+    opening_at: DateTime.new(2018,1,1,9)
+    closing_at: DateTime.new(2018,1,1,18)
+    duration: 30
+    mark_as_done: false
+    category_id: Category.limit(4).[3]
+    city_id: City.first
+  },
 ]
 Activity.create!(activities_attributes)
 puts 'Finished!'
