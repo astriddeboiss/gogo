@@ -1,0 +1,4 @@
+<%= simple_form_for [@trip, @trip_activity] do |f| %>
+  <%= f.association :activity, as: :check_boxes %>
+  <%= f.submit "See my itinerary", class: "btn btn-primary" %>
+<%   end %>
