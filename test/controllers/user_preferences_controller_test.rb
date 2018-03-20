@@ -30,5 +30,4 @@ class UserPreferencesControllerTest < ActionDispatch::IntegrationTest
     get user_preferences_destroy_url
     assert_response :success
   end
-
 end
