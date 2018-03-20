@@ -227,6 +227,7 @@ puts 'Finished!'
 puts 'Creating Trips...'
 trips_attributes = [
   {
+    name: "#{User.first.name}'s trip in #{City.first.name}"
     city: City.first,
     user: User.first
   }
