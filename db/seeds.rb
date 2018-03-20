@@ -1,4 +1,7 @@
 puts 'Cleaning database...'
+TripActivity.destroy_all
+
+puts 'Cleaning database...'
 Activity.destroy_all
 
 puts 'Cleaning database...'
@@ -227,7 +230,7 @@ puts 'Finished!'
 puts 'Creating Trips...'
 trips_attributes = [
   {
-    name: "#{User.first}'s trip to #{City.first}"
+    name: "#{User.first.name}'s trip in #{City.first.name}",
     city: City.first,
     user: User.first
   }
