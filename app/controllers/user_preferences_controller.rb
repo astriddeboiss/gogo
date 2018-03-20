@@ -2,21 +2,13 @@ class UserPreferencesController < ApplicationController
   def index
     @user_preferences = UserPreference.all
   end
+  def new
+  end
 
   def create
-    @user_preferences = UserPreference.new(params_user_preferences)
-    @user_preferences.user = current_user
-    @user_preferences.save
-
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    @userpreference = UserPreference.new(userpreference_params)
+    @userpreference.category = Category.find(params[:category_id])
+    @userpreference.user = current_user
   end
 
   private
