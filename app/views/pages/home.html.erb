@@ -3,3 +3,9 @@
 <% @cities.each do |city| %>
   <%= city.name %>
   <% end %>
+
+<% @trip = Trip.new %>
+<%= simple_form_for @trip do |f| %>
+  <%= f.association :city, collection: City.order("name ASC") %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
