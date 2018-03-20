@@ -1,0 +1,10 @@
+ <div class="prix">
+  <%= simple_form_for(user_preference) do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: "Accepté" } %>
+      <%= f.submit "Accepter", class: "btn btn-primary" %>
+          <% end %>
+          <%= simple_form_for(booking) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "Refusé" } %>
+            <%= f.submit "Refuser", class: "btn btn-primary" %>
+  <% end %>
+</div>
