@@ -213,6 +213,30 @@ activities_attributes = [
 Activity.create!(activities_attributes)
 puts 'Finished!'
 
+puts 'Creating Users...'
+users_attributes = [
+  {
+    first_name: "Brigitte",
+    last_name: "Macron",
+    email: "brigitte@gmail.com",
+    password: "secret"
+  },
+  {
+    first_name: "Zinedine",
+    last_name: "Zidane",
+    email: "zidane@gmail.com",
+    password: "secret"
+  },
+  {
+    first_name: "Elon",
+    last_name: "Musk",
+    email: "elon@gmail.com",
+    password: "secret"
+  }
+]
+User.create!(users_attributes)
+puts 'Finished!'
+
 
 puts 'Creating Users...'
 users_attributes = [
