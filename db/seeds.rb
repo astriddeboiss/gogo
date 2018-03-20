@@ -213,6 +213,30 @@ activities_attributes = [
 Activity.create!(activities_attributes)
 puts 'Finished!'
 
+puts 'Creating Users...'
+users_attributes = [
+  {
+    first_name: "Brigitte",
+    last_name: "Macron",
+    email: "brigitte@gmail.com",
+    password: "secret"
+  },
+  {
+    first_name: "Zinedine",
+    last_name: "Zidane",
+    email: "zidane@gmail.com",
+    password: "secret"
+  },
+  {
+    first_name: "Elon",
+    last_name: "Musk",
+    email: "elon@gmail.com",
+    password: "secret"
+  }
+]
+User.create!(users_attributes)
+puts 'Finished!'
+
 
 
 puts 'Creating User Preferences...'
@@ -230,7 +254,7 @@ puts 'Finished!'
 puts 'Creating Trips...'
 trips_attributes = [
   {
-    name: "#{User.first.name}'s trip in #{City.first.name}",
+    name: "#{User.first.first_name}'s trip in #{City.first.name}",
     city: City.first,
     user: User.first
   }
