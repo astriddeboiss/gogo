@@ -6,6 +6,6 @@
 
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
-  <%= f.input :city_name %>
-  <%= f.submit "chose a city", class: "btn btn-primary" %>
+  <%= f.association :city, collection: City.order("name ASC") %>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
