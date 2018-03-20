@@ -1,0 +1,6 @@
+<h1> All my activities for <%=@trip.name %></h1>
+
+<ul><% @trip_activities.each do |trip_activity| %>
+<li> <%= trip_activity.activity.name %></li>
+<% end %>
+</ul>

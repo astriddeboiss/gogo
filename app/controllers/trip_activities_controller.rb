@@ -1,6 +1,6 @@
 class TripActivitiesController < ApplicationController
-
   def index
+    @trip = Trip.find(params[:trip_id])
     @trip_activities = TripActivity.all
   end
 
@@ -10,9 +10,12 @@ class TripActivitiesController < ApplicationController
   end
 
   def create
-    @trip_activity = TripActivity.new(params_trip_activity)
-    @trip_activity.trip = Trip.find(params[:id])
-    @trip_activity.save
+    @trip = Trip.find(params[:trip_id])
+    params[:trip_activity][:activity_id].each do |activity_id|
+      next if activity_id == ''
+      activity = Activity.find(activity_id)
+      TripActivity.create(trip: @trip, activity: activity) if activity
+    end
     redirect_to trip_trip_activities_path
   end
 

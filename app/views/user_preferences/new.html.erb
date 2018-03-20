@@ -1,6 +1,5 @@
- <div>
-  <%= simple_form_for(user_preference) do |f| %>
-      <%= f.input :status, as: :hidden, input_html: { value: "Accepté" } %>
-      <%= f.submit "Accepter", class: "btn btn-primary" %>
-  <% end %>
-</div>
+
+<%= simple_form_for (@userpreference) do |f| %>
+  <%= f.association :category, as: :check_boxes %>
+  <%= f.submit "Save my preferences", class: "btn btn-primary" %>
+<% end %>
