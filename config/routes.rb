@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cities/index'
+
   get 'user_preferences/index'
 
   get 'user_preferences/new'
