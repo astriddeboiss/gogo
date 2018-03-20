@@ -2,10 +2,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
-    @test = @trip.valid?
-    raise
-    if @trip.save
-      raise
+    if @trip.save!
     else
       redirect_to root_path
     end
@@ -16,6 +13,5 @@ class TripsController < ApplicationController
   def trip_params
    params.require(:trip).permit(:city_id)
   end
-
 
 end
