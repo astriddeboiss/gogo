@@ -10,10 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319153912) do
+ActiveRecord::Schema.define(version: 20180319155449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "photo"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.datetime "opens_at"
+    t.datetime "closes_at"
+    t.integer "duration"
+    t.boolean "mark_as_done"
+    t.bigint "category_id"
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_activities_on_category_id"
+    t.index ["city_id"], name: "index_activities_on_city_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trip_activities", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_trip_activities_on_activity_id"
+    t.index ["trip_id"], name: "index_trip_activities_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name"
+    t.bigint "city_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_trips_on_city_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
+
+  create_table "user_preferences", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_user_preferences_on_category_id"
+    t.index ["user_id"], name: "index_user_preferences_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +95,12 @@ ActiveRecord::Schema.define(version: 20180319153912) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "categories"
+  add_foreign_key "activities", "cities"
+  add_foreign_key "trip_activities", "activities"
+  add_foreign_key "trip_activities", "trips"
+  add_foreign_key "trips", "cities"
+  add_foreign_key "trips", "users"
+  add_foreign_key "user_preferences", "categories"
+  add_foreign_key "user_preferences", "users"
 end
