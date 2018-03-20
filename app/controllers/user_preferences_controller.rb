@@ -1,4 +1,7 @@
 class UserPreferencesController < ApplicationController
+  def index
+    @user_preferences = UserPreference.all
+  end
   def new
   end
 
@@ -8,21 +11,9 @@ class UserPreferencesController < ApplicationController
     @userpreference.user = current_user
   end
 
-
-  # def update
-  #   @userpreference = UserPreference.find(params[:id]
-  #   @booking.update(booking_params)
-  #   redirect_to dashboard_path
-  # end
-
   private
 
-  def userpreference_params
-    params.require(:user_preference).permit(:start_at, :status)
+  def params_user_preferences
+    params.require(:user_preferences).permit(:category)
   end
-
 end
-
-
-
-
