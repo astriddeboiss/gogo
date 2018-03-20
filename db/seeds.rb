@@ -33,7 +33,7 @@ categories_attributes = [
   },
   {
     name: "Shopping Areas"
-    description: " Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the intent to purchase a suitable selection of them."
+    description: "Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the intent to purchase a suitable selection of them."
   },
 ]
 Category.create!(categories_attributes)
@@ -117,13 +117,13 @@ activities_attributes = [
     city_id: City.first
   },
   {
-    name: ""
-    description: ""
-    remote_photo_url: ""
-    address: ""
+    name: "Pantheon"
+    description: "The Pantheon is a former Roman temple, now a church, in Rome, Italy, on the site of an earlier temple commissioned by Marcus Agrippa during the reign of Augustus (27 BC – 14 AD)."
+    remote_photo_url: "http://www.polomusealelazio.beniculturali.it/getImage.php?id=543&w=800&h=600&f=0&.jpg"
+    address: "Piazza della Rotonda, 00186 Roma RM, Italy"
     opening_at: DateTime.new(2018,1,1,9)
     closing_at: DateTime.new(2018,1,1,18)
-    duration: 30
+    duration: 45
     mark_as_done: false
     category_id: Category.limit(4).[3]
     city_id: City.first
