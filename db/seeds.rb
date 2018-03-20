@@ -238,6 +238,29 @@ User.create!(users_attributes)
 puts 'Finished!'
 
 
+puts 'Creating Users...'
+users_attributes = [
+  {
+    first_name: "Victor",
+    last_name: "Sardet",
+    email: "victor@gmail.com",
+    password: "secret"
+  },
+  {
+    first_name: "Simone",
+    last_name: "Basse",
+    email: "simone@gmail.com",
+    password: "secret"
+  },
+  {
+    first_name: "Pierre",
+    last_name: "Collier",
+    email: "pierre@gmail.com",
+    password: "secret"
+  }
+]
+User.create!(users_attributes)
+puts 'Finished!'
 
 puts 'Creating User Preferences...'
 user_preferences_attributes = [
