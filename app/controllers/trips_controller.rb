@@ -9,6 +9,12 @@ class TripsController < ApplicationController
     end
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+    @trip_activities = TripActivity.all
+    # redirect_to trip_path
+  end
+
   private
 
   def trip_params

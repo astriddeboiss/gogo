@@ -1,0 +1,70 @@
+<div class="container-cards">
+  <div class="row">
+    <div class="col-sm-12" >
+      <div class="card">
+       <% photo_path = cl_image_path City.first.photo, height: 220, width: 280, crop: :fill%>
+        <div class="card-banner" style="background-image: url('<%= photo_path %>');"></div>
+          <ul class="item-description">
+            <div>
+              <li id="activity-name"> <%= Activity.first.name %> </li>
+              <li id="city-name"><%= Activity.first.city.name %> | Visit time: <%= Activity.first.duration %>min </li>
+              <div id="explore-button"><div id="explore-text">Explore</div></div>
+            </div>
+          </ul>
+        <div id="icon-card"><i class="fa fa-angle-down"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-cards">
+  <div class="row">
+    <div class="col-sm-12" >
+      <div class="card-plus-description">
+       <% photo_path = cl_image_path City.first.photo, height: 220, width: 280, crop: :fill%>
+        <div class="card-banner" style="background-image: url('<%= photo_path %>');"></div>
+          <ul class="item-description">
+            <div>
+              <li id="activity-name"> <%= Activity.first.name %> </li>
+              <li id="city-name"><%= Activity.first.city.name %> | Visit time: <%= Activity.first.duration %>min </li>
+              <div id="explore-button"><div id="explore-text">Explore</div></div>
+            </div>
+          </ul>
+        <div id="icon-card"><i class="fa fa-angle-up"></i></div>
+        <p id="card-description"><%= Activity.first.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+const cardDescription = document.getElementById("icon-card");
+cardDescription.addEventListener("click", (event) => {
+  event.preventDefault();
+  const card = document.querySelector(".col-sm-12");
+  const cardDetails = document.querySelector(".card");
+  const removeContent = card.removeChild(cardDetails);
+
+  console.log(removeContent);
+
+  const card.innerHtml =
+
+  console.log(card.innerHtml);
+
+});
+
+</script>
+
+
+
+
+<!-- query selector on item you want
+addeventlistener on window with scoll
+console.log(item)
+
+css properties that grow on scroll -->
+
+
+
+

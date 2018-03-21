@@ -2,7 +2,7 @@
   <div class="home-wrapper-cards">
     <% City.all.each do |city| %>
       <div class="home-card">
-        <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
+        <% photo_path = cl_image_path city.photo, height: 150, width: 200 %>
         <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
 
         </div>
@@ -26,4 +26,6 @@
 </div>
 
 <h2> What are your preferences when you travel ? </h2>
+
+<%= render 'shared/card' %>
 
