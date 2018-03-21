@@ -1,18 +1,23 @@
 <div class="home-background">
-  <div class="home-wrapper-cards">
-    <% City.all.each do |city| %>
-      <div class="home-card">
-        <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
-        <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
+  <div>
+  <h2>Explore a city</h2>
+  </div>
+  <div>
+    <div class="home-wrapper-cards">
+      <% City.all.each do |city| %>
+        <div class="home-card">
+          <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
+          <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
 
-        </div>
-        <div class="home-text-container">
-          <div class="home-card-text">
-            <%= city.name %>
+          </div>
+          <div class="home-text-container">
+            <div class="home-card-text">
+              <%= city.name %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
