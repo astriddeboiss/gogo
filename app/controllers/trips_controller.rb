@@ -7,7 +7,11 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save!
-      redirect_to new_user_preference_path
+      if current_user.user_preferences
+        redirect_to new_trip_trip_activity_path(@trip)
+      else
+        redirect_to new_user_preference_path
+      end
     else
       redirect_to root_path
     end

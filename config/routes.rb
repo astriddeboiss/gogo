@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'activities/index'
 
   get 'pages/user_preferences'
-  resources :user_preferences, only: [:new, :create]
+  resources :user_preferences, only: [:new, :create, :edit, :update]
 
   get 'pages/preferences'
 
