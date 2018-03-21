@@ -4,16 +4,17 @@
   background-color: white;
   background-position: center;
   color: white;
-  min-height: calc(100vh - 60px);
+  overflow-y:hidden;
+  height: calc 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  justify-content: space-around;
-  z-index: 0;
+
+
 }
 
 .home-wrapper-cards {
   height: 100% !important;
-  overflow-y: auto !important;
+
   white-space: nowrap !important;
   overflow-x: scroll !important;
   padding-bottom: 30px !important;
@@ -29,6 +30,7 @@
   font-size: 20px;
   padding-left: 10px;
   padding-top: 20px;
+  margin-top: 0px;
 }
 
 .home-card {

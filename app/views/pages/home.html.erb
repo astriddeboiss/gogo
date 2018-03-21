@@ -22,13 +22,3 @@
 </div>
 
 
-<div class="home-banner"> <h2>Explorer une ville</h2>
-<% @trip = Trip.new %>
-<%= simple_form_for @trip do |f| %>
-  <%= f.association :city, collection: City.order("name ASC") %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
-</div>
-
-<h2> What are your preferences when you travel ? </h2>
-
