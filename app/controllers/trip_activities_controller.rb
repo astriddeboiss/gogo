@@ -6,6 +6,10 @@ class TripActivitiesController < ApplicationController
 
   def new
     @trip = Trip.find(params[:trip_id])
+    @city = @trip.city
+    @user = current_user
+    @categories = @user.categories
+    @activities = Activity.where(city: @city).where(category: @categories)
     @trip_activity = TripActivity.new
   end
 
