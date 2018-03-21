@@ -1,2 +1,5 @@
-<h1>UserPreferences#edit</h1>
-<p>Find me in app/views/user_preferences/edit.html.erb</p>
+<h1>Edit my preferences</h1>
+<%= simple_form_for (@user_preference) do |f| %>
+  <%= f.association :category, as: :check_boxes %>
+  <%= f.submit "Save my preferences", class: "btn btn-primary" %>
+<% end %>
