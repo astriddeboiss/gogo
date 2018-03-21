@@ -6,9 +6,14 @@ class TripActivitiesController < ApplicationController
   end
 
   def visited
-    @trip_activities.trip = current_user.trips.find(params[:trip_id])
-    @trip_activity.activity.mark_as_done = true
+    # @trip_activity = TripActivity.new()
+    @trip_activity.trip = current_user.trips.find(params[:trip_id])
+
+    @trip_activity = (TripActivityInstance).activity.update_attribute(:mark_as_done, true)
     @trip_activity.save
+
+    Activity.find(31).update_attribute(:mark_as_done, true)
+
     # redirect_to current_user
   end
 
