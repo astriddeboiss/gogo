@@ -1,0 +1,6 @@
+<% current = current_user %>
+<ul>
+<p> <% current.trips.all.each do |trip| %> </p>
+<li><%= trip.city_id %></li>
+<% end %>
+</ul>
