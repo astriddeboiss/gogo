@@ -16,7 +16,6 @@ class TripActivitiesController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     params[:trip_activity][:activity_id].each do |activity_id|
-      raise
       next if activity_id == ''
       activity = Activity.find(activity_id)
       TripActivity.create(trip: @trip, activity: activity) if activity
