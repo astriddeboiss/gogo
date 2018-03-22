@@ -1,2 +1,3 @@
 import "bootstrap";
-import "geoloc";
+import { display } from '../components/geoloc';
+display();
