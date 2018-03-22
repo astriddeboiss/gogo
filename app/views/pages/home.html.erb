@@ -21,6 +21,12 @@
   </div>
 </div>
 
+<div class="home-banner"> <h2>GOGO NOW</h2>
+<% @geoloc =  %>
+<%= simple_form_for @geoloc do |f| %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
+</div>
 
 <div class="home-banner"> <h2>Explorer une ville</h2>
 <% @trip = Trip.new %>
