@@ -8,6 +8,13 @@ class UserPreferencesController < ApplicationController
   end
 
   def create
+    @user = current_user
+    if @user.categories
+      variable = true
+    else
+      variable = false
+    end
+    @user.categories.destroy_all
     params[:user_preference][:category_id].each do |params|
       unless params.empty?
         @user_preference = UserPreference.new
@@ -16,14 +23,14 @@ class UserPreferencesController < ApplicationController
         @user_preference.save
       end
     end
+    if variable
+      redirect_to profile_path
+    else
      redirect_to root_path
+    end
     # @userpreference = UserPreference.new(userpreference_params)
     # @userpreference.category = Category.find(params[:category_id])
     # @userpreference.user = current_user
-  end
-
-  def edit
-    @user_preference = UserPreference.find(params[:id])
   end
 
   def update
