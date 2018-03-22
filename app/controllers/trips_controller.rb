@@ -5,6 +5,7 @@ class TripsController < ApplicationController
   end
   
   def create
+    # City.near([params[:longitude], params[:latitude]], 50)
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
