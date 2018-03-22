@@ -1,11 +1,5 @@
 <h1> All my activities for <%=@trip.city.name %></h1>
 
-<!-- <ul><% # @trip_activities.each do |trip_activity| %>
-<li> <%= # trip_activity.activity.name %></li>
-<% #end %>
-</ul>
--->
-
 <ul>
   <% @trip_activities.visited.each do |trip_activity| %>
     <li> <%= trip_activity.activity.name %> | <%= link_to "Undo", not_visited_path(trip_activity), method: :patch %></li>
@@ -15,12 +9,10 @@
   <% end %>
 </ul>
 
-
 <div
   id="map"
   style="width: 100%;
-  height: 600px;"
+  height: 300px;"
   data-markers="<%= @markers.to_json %>"
 ></div>
-<%= @trip.name %>
-<%= @trip.trip_activity %>
+

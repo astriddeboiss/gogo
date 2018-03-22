@@ -97,7 +97,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,18),
     duration: 60,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.first
   },
@@ -109,7 +108,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,18),
     duration: 45,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.first
   },
@@ -121,7 +119,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,18),
     duration: 30,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.first
   },
@@ -133,7 +130,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,16),
     duration: 120,
-    mark_as_done: false,
     category: Category.first,
     city: City.first
   },
@@ -145,7 +141,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,18),
     duration: 60,
-    mark_as_done: false,
     category: Category.first,
     city: City.first
   },
@@ -157,7 +152,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9.5),
     closes_at: DateTime.new(2018,1,1,23),
     duration: 120,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.limit(2)[1]
   },
@@ -169,7 +163,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,18),
     duration: 60,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.limit(2)[1]
   },
@@ -181,7 +174,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,9),
     closes_at: DateTime.new(2018,1,1,18),
     duration: 60,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.limit(2)[1]
   },
@@ -193,7 +185,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,0),
     closes_at: DateTime.new(2018,1,1,24),
     duration: 60,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.limit(5)[4]
   },
@@ -205,7 +196,6 @@ activities_attributes = [
     opens_at: DateTime.new(2018,1,1,0),
     closes_at: DateTime.new(2018,1,1,24),
     duration: 60,
-    mark_as_done: false,
     category: Category.limit(4)[3],
     city: City.limit(5)[4]
   }
