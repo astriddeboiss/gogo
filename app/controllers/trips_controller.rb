@@ -1,9 +1,14 @@
 class TripsController < ApplicationController
+
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
-    if @trip.save!
-      redirect_to new_user_preference_path
+    if @trip.save
+      if current_user.user_preferences
+        redirect_to new_trip_trip_activity_path(@trip)
+      else
+        redirect_to new_user_preference_path
+      end
     else
       redirect_to root_path
     end
@@ -11,10 +16,17 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @trip_activities = TripActivity.all
-    # redirect_to trip_path
+    # authorize @trip
+    @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+        # infoWindow: { content: render_to_string(partial: "/trip_activities/map_box", locals: { trip_activity: trip_activity }) }
+      }
+    end
   end
-
+  
   private
 
   def trip_params
