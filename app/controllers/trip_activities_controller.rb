@@ -2,6 +2,14 @@ class TripActivitiesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @trip_activities = TripActivity.where(trip_id: @trip)
+    # @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
+    @markers = @trip_activities.map do |trip_activity|
+      {
+        lat: trip_activity.activity.latitude,
+        lng: trip_activity.activity.longitude
+        # infoWindow: { content: render_to_string(partial: "/trip_activities/map_box", locals: { trip_activity: trip_activity }) }
+      }
+    end
   end
 
   def new
@@ -27,14 +35,14 @@ class TripActivitiesController < ApplicationController
     @trip_activity = TripActivity.find(params[:id])
     @trip_activity.mark_as_done = true
     @trip_activity.save
-    redirect_to trip_path(@trip_activity.trip)
+    redirect_to trip_trip_activities_path(@trip_activity.trip)
   end
 
   def not_visited
     @trip_activity = TripActivity.find(params[:id])
     @trip_activity.mark_as_done = false
     @trip_activity.save
-    redirect_to trip_path(@trip_activity.trip)
+    redirect_to trip_trip_activities_path(@trip_activity.trip)
   end
 
   private
