@@ -1,8 +1,9 @@
 class TripsController < ApplicationController
-  def show
-    @trip = Trip.find(params[:id])
+  def index
+    @user = current_user
+    @trip = Trip.all.where(user: @user)
   end
-
+  
   def create
     # City.near([params[:longitude], params[:latitude]], 50)
     @trip = Trip.new(trip_params)
@@ -30,6 +31,7 @@ class TripsController < ApplicationController
       }
     end
   end
+  
   private
 
   def trip_params

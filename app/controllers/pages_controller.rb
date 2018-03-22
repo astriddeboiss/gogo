@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def gogo
   end
+
+  def profile
+  end
 end
