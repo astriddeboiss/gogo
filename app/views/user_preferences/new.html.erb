@@ -6,12 +6,12 @@
         <div class="home-card">
           <span class="checkbox">
             <label for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
-              <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
+              <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
               <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
               </div>
               <div class="home-text-container">
                 <div class="home-card-text">
-                  <%= city.name %>
+                  <%= category.name %>
                 </div>
               </div>
             </label>
