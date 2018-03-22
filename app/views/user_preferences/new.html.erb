@@ -1,4 +1,31 @@
 <%= simple_form_for (@user_preference) do |f| %>
-  <%= f.association :category, as: :check_boxes %>
-  <%= f.submit "Save my preferences", class: "btn btn-primary" %>
-<% end %>
+  <%#= f.association :category, as: :check_boxes %>
+  <div>
+    <div class="home-wrapper-cards">
+      <% @categories.each do |category| %>
+        <div class="home-card">
+          <span class="checkbox">
+            <label for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
+              <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
+              <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
+              </div>
+              <div class="home-text-container">
+                <div class="home-card-text">
+                  <%= city.name %>
+                </div>
+              </div>
+            </label>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+<%= f.submit "Save my preferences", class: "btn btn-primary" %>
+  <% end %>
+
+
