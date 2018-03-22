@@ -1,0 +1,18 @@
+<h1> My profile </h1>
+
+<div>
+  <h4> My photo : </h4>
+  <h4> First name : <%= current_user.first_name %></h4>
+  <h4> Last name : <%= current_user.last_name %></h4>
+  <h4>Email : <%= current_user.email %></h4>
+  <%= link_to "Change password", edit_user_password_path %>
+</div>
+
+<div>
+  <h4> <strong> My preferences when I travel</strong></h4>
+  <% @categories = current_user.categories  %>
+  <ul><% @categories.each do |category|%>
+    <li> <%= category.name %> </li>
+  <% end %></ul>
+</div>
+ <%= link_to "Edit my preferences", new_user_preference_path %>
