@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-content" id="activity-<%= activity.id %>" data-side="recto">
+    <%= render "shared/card_recto", activity: activity %>
+  </div>
+  <div class="icon-card" id="arrow-<%= activity.id %>" data-activity-id="<%= activity.id %>"><i class="fa fa-angle-right"></i></div>
+</div>
+
+<script>
+  document.getElementById('arrow-<%= activity.id %>').addEventListener("click", (event) => {
+    event.preventDefault();
+    const card = document.getElementById("activity-" + event.currentTarget.dataset.activityId);
+    if (card.dataset.side == "recto") {
+      card.innerHTML = '<%= j render "shared/card_verso", activity: activity %>';
+      card.dataset.side = "verso"
+      event.currentTarget.children[0].classList.remove("fa-angle-right")
+      event.currentTarget.children[0].classList.add("fa-angle-left")
+    } else {
+      card.innerHTML = '<%= j render "shared/card_recto", activity: activity %>';
+      card.dataset.side = "recto"
+      event.currentTarget.children[0].classList.remove("fa-angle-left")
+      event.currentTarget.children[0].classList.add("fa-angle-right")
+    }
+  });
+
+</script>

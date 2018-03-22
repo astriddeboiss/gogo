@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320163949) do
+ActiveRecord::Schema.define(version: 20180321102916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20180320163949) do
     t.datetime "opens_at"
     t.datetime "closes_at"
     t.integer "duration"
-    t.boolean "mark_as_done"
     t.bigint "category_id"
     t.bigint "city_id"
     t.datetime "created_at", null: false
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180320163949) do
     t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "mark_as_done", default: false
     t.index ["activity_id"], name: "index_trip_activities_on_activity_id"
     t.index ["trip_id"], name: "index_trip_activities_on_trip_id"
   end
