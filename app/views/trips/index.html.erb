@@ -1,3 +1,8 @@
-<% @trips.each do |trip| %>
-<%= trip.name %>
+<% if @trips == nil %>
+  <h1> You haven't created any trips yet</h1>
+  <%= link_to "Create my first trip", root_path %>
+<% else %>
+  <% @trips.each do |trip| %>
+    <%= trip.name %>
+  <% end %>
 <% end %>
