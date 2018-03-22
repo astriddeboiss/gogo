@@ -2,10 +2,13 @@
 
 <ul>
   <% @trip_activities.visited.each do |trip_activity| %>
-    <li> <%= trip_activity.activity.name %> | <%= link_to "Undo", not_visited_path(trip_activity), method: :patch %></li>
+    <li> <%= trip_activity.activity.name %> | <%= link_to "Undo", not_visited_path(trip_activity), method: :patch %>
+    </li>
   <% end %>
+
   <% @trip_activities.not_visited.each do |trip_activity| %>
-    <li> <%= trip_activity.activity.name %> | <%= link_to "Done", visited_path(trip_activity), method: :patch %></li>
+    <li> <%= trip_activity.activity.name %> | <%= link_to "Done", visited_path(trip_activity), method: :patch %>
+    </li>
   <% end %>
 </ul>
 
@@ -15,4 +18,3 @@
   height: 300px;"
   data-markers="<%= @markers.to_json %>"
 ></div>
-
