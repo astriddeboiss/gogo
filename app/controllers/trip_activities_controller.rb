@@ -6,8 +6,8 @@ class TripActivitiesController < ApplicationController
     @markers = @trip_activities.map do |trip_activity|
       {
         lat: trip_activity.activity.latitude,
-        lng: trip_activity.activity.longitude
-        # infoWindow: { content: render_to_string(partial: "/trip_activities/map_box", locals: { trip_activity: trip_activity }) }
+        lng: trip_activity.activity.longitude,
+        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { trip_activity: trip_activity }) }
       }
     end
   end
