@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   get 'activities/index'
 
   get 'pages/user_preferences'
-  resources :user_preferences, only: [:new, :create]
+  resources :user_preferences, only: [:new, :create, :edit, :update]
 
   get 'pages/preferences'
 
   devise_for :users
   root to: 'pages#home'
 
+  get "gogo", to: "pages#gogo"
 
   resources :trips, only: [:create, :index, :show] do
 
