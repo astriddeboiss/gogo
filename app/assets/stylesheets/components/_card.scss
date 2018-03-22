@@ -2,30 +2,23 @@
   width: 290px;
   height: 350px;
   margin: 0 auto;
-  margin-bottom: 30px;
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   position: relative;
-  margin-right: 10px;
-  margin-left: 10px;
   padding-bottom: 1px;
   border-radius: 2px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.card-plus-description {
-  width: 290px;
-  height: 500px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  background-color: white;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  position: relative;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding-bottom: 1px;
-  border-radius: 2px;
+.container-cards {
+  overflow: hidden;
+  height: 100% !important;
+  overflow-y: auto !important;
+  white-space: nowrap !important;
+  overflow-x: scroll !important;
 }
 
 .card-banner {
@@ -35,15 +28,20 @@
   border-top-right-radius: 2px;
 }
 
-ul.item-description {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.item-description {
   list-style-type: none;
   padding-left: 10px;
   justify-content: space-around;
+  padding-right: 10px;
+  white-space:normal !important;
+  word-wrap: break-word;
 }
 
-li#activity-name {
+#title-space {
+  padding-top: 10px;
+}
+
+#activity-name {
   font-weight: 500;
   color: #393939;
   font-size: 23px;
@@ -104,16 +102,33 @@ li#activity-name {
   padding-left: 70px;
 }
 
-#icon-card {
+.icon-card {
   position: absolute;
-  top: 313px;
+  top: 310px;
   right: 15px;
-  font-size: 20px;
+  font-size: 24px;
+}
+
+#activity-name-description {
+  font-weight: 500;
+  color: #393939;
+  font-size: 23px;
+  font-family: $body-font;
+  letter-spacing: 0.3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 10px;
+}
+
+#activity-address-description {
+  font-size: 14px;
+  padding-right: 50px;
+  padding-top: 5px;
 }
 
 #card-description {
-  padding-left: 10px;
   padding-top: 10px;
   padding-right: 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
