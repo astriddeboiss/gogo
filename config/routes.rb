@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get "gogo", to: "pages#gogo"
 
   resources :trips, only: [:create, :index, :show] do
 

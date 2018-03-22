@@ -32,6 +32,7 @@
   </div>
 </div>
 
+
 <div class="home-banner"> <h2>Explorer une ville</h2>
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
@@ -43,5 +44,8 @@
 <h2> What are your preferences when you travel ? </h2>
 
 
+
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 
 
