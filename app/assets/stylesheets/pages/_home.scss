@@ -65,3 +65,27 @@
   font-weight: 550;
 }
 
+.trip_city .radio_buttons {
+  display: none
+}
+
+.create_trip {
+  margin: 100px;
+}
+
+.btn-create-trip{
+  border-radius: 4px;
+  background-color: #01AAC1;
+  border-width: 0px
+}
+
+.btn-create-trip:hover {
+  background-color: #01AAC1;
+}
+
+.btn-create-trip:focus {
+  background-color: #01AAC1;
+  opacity: 0.7
+}
+
+

@@ -5,6 +5,8 @@ class UserPreferencesController < ApplicationController
 
   def new
     @user_preference = UserPreference.new
+    @categories = Category.all
+    @cities = City.all
   end
 
   def create
