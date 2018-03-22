@@ -12,6 +12,7 @@ class TripActivitiesController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     params[:trip_activity][:activity_id].each do |activity_id|
+      raise
       next if activity_id == ''
       activity = Activity.find(activity_id)
       TripActivity.create(trip: @trip, activity: activity) if activity
@@ -19,9 +20,23 @@ class TripActivitiesController < ApplicationController
     redirect_to trip_trip_activities_path
   end
 
+  def visited
+    @trip_activity = TripActivity.find(params[:id])
+    @trip_activity.mark_as_done = true
+    @trip_activity.save
+    redirect_to trip_path(@trip_activity.trip)
+  end
+
+  def not_visited
+    @trip_activity = TripActivity.find(params[:id])
+    @trip_activity.mark_as_done = false
+    @trip_activity.save
+    redirect_to trip_path(@trip_activity.trip)
+  end
+
   private
 
   def params_trip_activity
-    params.require(:trip_activity).permit(:activity)
+    params.require(:trip_activity).permit(:trip, :activity)
   end
 end
