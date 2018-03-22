@@ -17,17 +17,7 @@
   <div>
     <div class="home-wrapper-cards">
       <% City.all.each do |city| %>
-        <div class="home-card">
-          <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
-          <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
 
-          </div>
-          <div class="home-text-container">
-            <div class="home-card-text">
-              <%= city.name %>
-            </div>
-          </div>
-        </div>
       <% end %>
     </div>
   </div>
@@ -45,7 +35,21 @@
 <div class="home-banner"> <h2>Explorer une ville</h2>
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
-  <%= f.association :city, collection: City.order("name ASC") %>
+  <%#= f.association :city, collection: City.order("name ASC"), as: :radio_buttons %>
+  <div class="form-group radio_buttons required trip_city">
+    <label class="control-label radio_buttons required">
+      <abbr title="required">*</abbr> City
+    </label>
+    <input type="hidden" name="trip[city_id]" value="">
+      <% City.all.each do |city| %>
+        <span class="radio">
+          <label for="trip_city_id_<%= city.id %>">
+            <input class="radio_buttons required" type="radio" value="<%= city.id %>" name="trip[city_id]" id="trip_city_id_<%= city.id %>">
+            <%= render "cities/home_card", city: city %>
+          </label>
+        </span>
+      <% end %>
+  </div>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
 </div>
