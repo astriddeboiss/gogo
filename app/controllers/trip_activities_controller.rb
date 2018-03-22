@@ -28,14 +28,14 @@ class TripActivitiesController < ApplicationController
     @trip_activity = TripActivity.find(params[:id])
     @trip_activity.mark_as_done = true
     @trip_activity.save
-    redirect_to trip_path(@trip_activity.trip)
+    redirect_to trip_trip_activities_path(@trip_activity.trip)
   end
 
   def not_visited
     @trip_activity = TripActivity.find(params[:id])
     @trip_activity.mark_as_done = false
     @trip_activity.save
-    redirect_to trip_path(@trip_activity.trip)
+    redirect_to trip_trip_activities_path(@trip_activity.trip)
   end
 
   private

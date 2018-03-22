@@ -1,9 +1,9 @@
 class TripsController < ApplicationController
   def index
     @user = current_user
-    @trip = Trip.all.where(user: @user)
+    @trips = Trip.all.where(user: @user)
   end
-  
+
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
@@ -30,7 +30,7 @@ class TripsController < ApplicationController
       }
     end
   end
-  
+
   private
 
   def trip_params

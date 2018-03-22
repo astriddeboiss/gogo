@@ -1,5 +1,19 @@
 <%= simple_form_for [@trip, @trip_activity] do |f| %>
-  <%= f.association :activity, collection: @activities, as: :check_boxes, label: "Activities" %>
+    <div class="form-group check_boxes required trip_activity_activity">
+      <label class="control-label check_boxes required">
+        <abbr title="required"></abbr> Please select your activities!
+      </label>
+      <input name="trip_activity[activity_id][]" value="" type="hidden">
+      <div class="wrapper-cards">
+      <% @activities.each do |activity| %>
+        <span class="checkbox">
+        <label for="trip_activity_activity_id_<%= activity.id %>">
+          <input class="check_boxes required" value="<%= activity.id %>" name="trip_activity[activity_id][]" id="trip_activity_activity_id_<%= activity.id %>" type="checkbox"> <%=  render "shared/card", activity: activity %>
+        </label>
+      </span>
+      <% end %>
+      </div>
+    </div>
   <%= f.submit "See my itinerary", class: "btn btn-primary" %>
 <%   end %>
 
