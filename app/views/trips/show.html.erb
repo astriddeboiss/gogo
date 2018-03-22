@@ -1,3 +1,17 @@
+
+<h1><%=@trip.name %></h1>
+
+<ul>
+  <% @trip_activities.visited.each do |trip_activity| %>
+    <li> <%= trip_activity.activity.name %> | <%= link_to "Undo", not_visited_path(trip_activity), method: :patch %></li>
+  <% end %>
+  <% @trip_activities.not_visited.each do |trip_activity| %>
+    <li> <%= trip_activity.activity.name %> | <%= link_to "Done", visited_path(trip_activity), method: :patch %></li>
+  <% end %>
+</ul>
+
+
+
 <div
   id="map"
   style="width: 100%;
@@ -6,3 +20,4 @@
 ></div>
 <%= @trip.name %>
 <%= @trip.trip_activity %>
+
