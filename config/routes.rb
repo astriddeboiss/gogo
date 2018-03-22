@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get "gogo", to: "pages#gogo"
+  get "profile", to: "pages#profile"
 
   resources :trips, only: [:create, :index, :show] do
     resources :trip_activities, only: [:index, :new, :create]
