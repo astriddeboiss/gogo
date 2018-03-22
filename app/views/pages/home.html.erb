@@ -34,6 +34,14 @@
 </div>
 
 
+<!-- <h2> Your current GPS coordinates</h2> -->
+<form action="<%= trips_path %>" method="POST" id="geoloc">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="longitude" id="longitude">
+  <input type="hidden" name="latitude" id="latitude">
+</form>
+
+
 <div class="home-banner"> <h2>Explorer une ville</h2>
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
@@ -42,9 +50,13 @@
 <% end %>
 </div>
 
-<h2> What are your preferences when you travel ? </h2>
+<div class="home-banner">
+  <h2> What are your preferences when you travel ? </h2>
+</div>
+
 
 <%= render 'shared/card_container' %>
+
 
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 
