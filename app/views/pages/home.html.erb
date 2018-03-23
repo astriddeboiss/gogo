@@ -1,4 +1,12 @@
+
 <div class="home-background">
+<div>
+    <% if !current_user %>
+      <%= link_to "Sign in to use the app",  user_session_path%>
+    <% else %>
+      <%= link_to "Sign out", destroy_user_session_path, class:"btn", method: :delete %>
+    <% end %>
+  </div>
 
 <!-- <h2> Your current GPS coordinates</h2> -->
 <form action="<%= trips_path %>" method="POST" id="geoloc">
@@ -29,7 +37,7 @@
         <% end %>
      </div>
       <div class="home-name-trip">
-        <%= f.input :name %>
+        <%= f.input :name, label: "Name of your trip"%>
         <%= f.submit class: "btn btn-primary btn-create-trip" %>
       </div>
   </div>
@@ -37,13 +45,6 @@
 </div>
 
 
- <div>
-    <% if !current_user %>
-      <%= link_to "Sign in to use the app",  user_session_path%>
-    <% else %>
-      <%= link_to "Sign out", destroy_user_session_path, class:"btn-sign-out", method: :delete %>
-    <% end %>
-  </div>
 
 
 
