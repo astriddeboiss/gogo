@@ -5,7 +5,9 @@
   <div class="col-sm-4 col-sm-offset-4">
   <h2 style="text-align: center;">Sign up</h2>
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true, label: 'Email', placeholder: 'e.g., brigitte.macron@gmail.com' %>
+    <%= f.input :first_name, placeholder: 'Brigitte' %>
+    <%= f.input :last_name, placeholder: 'Macron' %>
+    <%= f.input :email, required: true, autofocus: true, placeholder: 'e.g., brigitte.macron@gmail.com' %>
     <%= f.input :password, required: true, label: 'Password', placeholder: 'e.g., ••••••' %>
     <%= f.input :password_confirmation, required: true, label: false, placeholder: 'Confirm password' %>
   </div>
