@@ -15,7 +15,7 @@ class UserPreferences::EditProfileController < ApplicationController
        @user_preference.user = current_user
        @user_preference.save
       end
-    redirect_to profile_path
     end
+    redirect_to profile_path
   end
 end
