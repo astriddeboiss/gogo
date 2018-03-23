@@ -23,6 +23,12 @@
     display: inline-block;
     margin-top: 0px !important;
   }
+  input.required {
+    position: absolute;
+    top: 5px;
+    left: 310px;
+    z-index: 2;
+  }
 }
 
 .wrapper-card-container {
@@ -161,12 +167,6 @@ div#heart-on-card:focus {
   color: red;
 }
 
-input.required {
-  position: absolute;
-  top: 5px;
-  left: 310px;
-  z-index: 2;
-}
 
 label.required {
   font-size: 24px;
