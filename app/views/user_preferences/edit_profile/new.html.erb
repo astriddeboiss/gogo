@@ -1,6 +1,8 @@
 <%= simple_form_for (@user_preference), url: profile_user_preferences_path do |f| %>
   <%#= f.association :category, as: :check_boxes %>
   <div>
+     <h2> Edit my preferences for my next trips </h2>
+      <p> What do you like to do ? </p>
     <div class="home-wrapper-cards">
       <% @categories.each do |category| %>
         <div class="home-card">
