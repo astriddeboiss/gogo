@@ -1,4 +1,4 @@
-<%= simple_form_for (@user_preference) do |f| %>
+<%= simple_form_for (@user_preference), url: profile_user_preference_path do |f| %>
   <%#= f.association :category, as: :check_boxes %>
   <div>
     <div class="home-wrapper-cards">
@@ -20,9 +20,6 @@
       <% end %>
     </div>
   </div>
-
-
-
 
 
 <%= f.submit "Save my preferences", class: "btn btn-primary" %>

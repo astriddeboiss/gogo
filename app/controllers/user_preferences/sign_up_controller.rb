@@ -15,6 +15,7 @@ class UserPreferences::SignUpController < ApplicationController
        @user_preference.user = current_user
        @user_preference.save
      end
+    end
     redirect_to root_path
   end
 end

@@ -14,7 +14,8 @@ class UserPreferences::EditProfileController < ApplicationController
        @user_preference.category = Category.find(params)
        @user_preference.user = current_user
        @user_preference.save
-     end
+      end
     redirect_to profile_path
+    end
   end
 end
