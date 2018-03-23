@@ -3,6 +3,7 @@
     <%= render "shared/card_recto", activity: activity %>
   </div>
   <div class="icon-card" id="arrow-<%= activity.id %>" data-activity-id="<%= activity.id %>"><i class="fa fa-angle-right"></i></div>
+  <!-- <div id="heart-on-card"><i class="fa fa-heart"></i></div> -->
 </div>
 
 <script>
@@ -21,5 +22,4 @@
       event.currentTarget.children[0].classList.add("fa-angle-right")
     }
   });
-
 </script>

@@ -47,10 +47,12 @@
 
   <%= f.input :name %>
 
+
   <div class="create_trip">
     <%= f.submit class: "btn btn-primary btn-create-trip" %>
   </div>
 <% end %>
 </div>
+
 
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

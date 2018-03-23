@@ -8,16 +8,33 @@
   position: relative;
   padding-bottom: 1px;
   border-radius: 2px;
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-.container-cards {
-  overflow: hidden;
+.wrapper-cards {
   height: 100% !important;
-  overflow-y: auto !important;
   white-space: nowrap !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  span.checkbox {
+    display: inline-block;
+    margin-top: 0px !important;
+  }
+  input.required {
+    position: absolute;
+    top: 5px;
+    left: 310px;
+    z-index: 2;
+  }
+}
+
+.wrapper-card-container {
+  position: relative;
+  height: 370px;
+  overflow: hidden;
   overflow-x: scroll !important;
 }
 
@@ -27,6 +44,7 @@
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
+
 
 .item-description {
   list-style-type: none;
@@ -41,7 +59,7 @@
   padding-top: 10px;
 }
 
-#activity-name {
+p#activity-name {
   font-weight: 500;
   color: #393939;
   font-size: 23px;
@@ -50,6 +68,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-bottom: 2px;
 }
 
 #explore-button {
@@ -77,7 +96,7 @@
   font-weight: 400;
   font-family: $body-font;
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 #activity-duration {
@@ -105,7 +124,7 @@
 .icon-card {
   position: absolute;
   top: 310px;
-  right: 15px;
+  right:10px;
   font-size: 24px;
 }
 
@@ -132,6 +151,61 @@
   padding-right: 10px;
   font-size: 16px;
 }
+
+
+div#heart-on-card {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  text-decoration: none;
+}
+
+div#heart-on-card:focus {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  text-decoration: none;
+  color: red;
+}
+
+
+label.required {
+  font-size: 24px;
+  font-family: $body-font;
+  font-weight: 400;
+  margin-bottom: 0px;
+  width: 100%;
+    h1 {
+      text-align: center;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-size: 24px;
+    }
+}
+
+label {
+  padding-left: 0px;
+}
+
+i.fa.fa-angle-right {
+  width: 40px;
+  height: 35px;
+  text-align: center;
+}
+
+i.fa.fa-angle-left {
+  width: 40px;
+  height: 35px;
+  text-align: center;
+}
+
+.container-new-trip-activities {
+  margin: 0 auto;
+  label {
+    text-align: center;
+  }
+}
+
 .card-trip {
   padding-top: 10px;
   padding-right: 10px;
@@ -141,4 +215,5 @@
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
+
 
