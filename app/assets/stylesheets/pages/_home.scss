@@ -38,7 +38,7 @@
 
 .form-group {
   overflow: hidden;
-  height: 500px;
+  height: 200 px;
 }
 
 .home-card {
@@ -79,7 +79,8 @@
 
 .home-name-trip {
   margin-top:30px;
-  color:black;
+
+
 }
 
 .home-text-container {
@@ -108,6 +109,10 @@
   background-color: #01AAC1;
   border-width: 0px;
   width: 100%;
+}
+
+.btn-sign-out{
+  color: red;
 }
 
 .btn-create-trip:hover {
