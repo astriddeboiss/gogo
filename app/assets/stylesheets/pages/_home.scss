@@ -1,6 +1,8 @@
 // Specific CSS for your home-page
 
+
 .home-background {
+  text-align: center;
   background-color: white;
   background-position: center;
   color: white;
@@ -8,12 +10,14 @@
   height: calc 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+}
 
-
+.home-banner {
+  background-color: white;
 }
 
 .home-wrapper-cards {
-  height: 100% !important;
+  height: 250px !important;
 
   white-space: nowrap !important;
   overflow-x: scroll !important;
@@ -22,15 +26,28 @@
   box-sizing: border-box;
   margin-left: 8px;
   margin-right: 8px;
+  padding-top: 50px;
   background-color: white;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + .home-card-banner {
+    border: 2px solid $blue;
+  }
 }
 
-.home-background h2 {
+.home-background {
   color: black;
   font-size: 20px;
   padding-left: 10px;
-  padding-top: 20px;
   margin-top: 0px;
+}
+
+.form-group {
+  overflow: hidden;
+  height: 200 px;
 }
 
 .home-card {
@@ -43,7 +60,23 @@
   display: flex;
   flex-direction: column;
   border-radius: 3px;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.06) !important;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1) !important;
+}
+
+.home-card:focus {
+  opacity:0.5;
+}
+
+.radio {
+  display:flex;
+  margin-top: 0px;
+}
+
+.label {
+  width:100%;
+  margin: 0px;
+  padding-left: 0px !important;
+  padding: 0px;
 }
 
 .home-card-banner {
@@ -51,6 +84,12 @@
   height:120px;
   border-radius: 3px;
   background-position: center;
+}
+
+.home-name-trip {
+  margin-top:30px;
+
+
 }
 
 .home-text-container {
@@ -63,6 +102,7 @@
   text-align: left !important;
   font-size: 15px;
   font-weight: 550;
+  color: black;
 }
 
 .trip_city .radio_buttons {
@@ -70,13 +110,18 @@
 }
 
 .create_trip {
-  margin: 100px;
+  margin-top: 50px;
 }
 
 .btn-create-trip{
   border-radius: 4px;
   background-color: #01AAC1;
-  border-width: 0px
+  border-width: 0px;
+  width: 100%;
+}
+
+.btn-sign-out{
+  color: red;
 }
 
 .btn-create-trip:hover {

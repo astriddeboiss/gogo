@@ -1,19 +1,12 @@
-<div class="home-background">
 
-  <div>
+<div class="home-background">
+<div>
     <% if !current_user %>
-      <h2><%= link_to "Sign in to use the app",  user_session_path %></h2>
+      <%= link_to "Sign in to use the app",  user_session_path%>
+    <% else %>
+      <%= link_to "Sign out", destroy_user_session_path, class:"btn", method: :delete %>
     <% end %>
   </div>
-
-  <div>
-    <div class="home-wrapper-cards">
-      <% City.all.each do |city| %>
-
-      <% end %>
-    </div>
-  </div>
-</div>
 
 <!-- <h2> Your current GPS coordinates</h2> -->
 <form action="<%= trips_path %>" method="POST" id="geoloc">
@@ -23,7 +16,7 @@
 </form>
 
 
-<div class="home-banner"> <h2>Choose a city </h2>
+<div class="home-banner"> <h1>Create a trip </h1> <p>Choose your city</p>
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
   <div class="form-group radio_buttons required trip_city">
@@ -35,7 +28,7 @@
         <% City.all.each do |city| %>
          <div class="home-card">
            <span class="radio">
-             <label for="trip_city_id_<%= city.id %>">
+             <label class="label" for="trip_city_id_<%= city.id %>">
                <input class="radio_buttons required" type="radio" value="<%= city.id %>" name="trip[city_id]" id="trip_city_id_<%= city.id %>">
                <%= render "cities/home_card", city: city %>
              </label>
@@ -43,16 +36,17 @@
          </div>
         <% end %>
      </div>
-  </div>
-
-  <%= f.input :name %>
-
-
-  <div class="create_trip">
-    <%= f.submit class: "btn btn-primary btn-create-trip" %>
+      <div class="home-name-trip">
+        <%= f.input :name, label: "Name of your trip"%>
+        <%= f.submit class: "btn btn-primary btn-create-trip" %>
+      </div>
   </div>
 <% end %>
 </div>
 
 
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+
+
+
+

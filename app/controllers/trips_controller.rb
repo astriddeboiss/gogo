@@ -8,7 +8,6 @@ class TripsController < ApplicationController
     # City.near([params[:longitude], params[:latitude]], 50)
     @trip = Trip.new(trip_params)
     @trip.user = current_user
-    @trip.save
     if @trip.save
       if current_user.user_preferences
         redirect_to new_trip_trip_activity_path(@trip)

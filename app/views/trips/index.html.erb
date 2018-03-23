@@ -1,7 +1,8 @@
 
+
 <div class="col-sm-12 col-sm-offset-4 remove-padding">
 <div class="container-complete-list">
-<% if @trips == nil %>
+<% if @trips.empty? %>
   <h1> You haven't created any trips yet</h1>
   <%= link_to "Create my first trip", root_path %>
 <% else %>
