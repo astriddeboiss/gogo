@@ -1,0 +1,9 @@
+  <% photo_path = cl_image_path city.photo, height: 150, width: 200, crop: :fill%>
+  <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
+
+  </div>
+  <div class="home-text-container">
+    <div class="home-card-text">
+      <%= city.name %>
+    </div>
+  </div>

@@ -1,20 +1,51 @@
 <div class="footer">
-  <a class="footer-tab active" href= "profile">
-    <i class="fa fa-user" style="font-size:25px"></i>
-    <p>PROFIL</p>
-  </a>
-  <a class="footer-tab" href="#">
-    <i class="fa fa-search" style="font-size:25px"></i>
-    <p>EXPLORE</p>
-  </a>
-  <a class="footer-tab" href="#">
-    <i class="fa fa-globe" style="font-size:25px"></i>
-    <p>MY TRIPS</p>
-  </a>
-  <a class="footer-tab" href="#">
-    <i class="fa fa-map" style="font-size:25px"></i>
-    <p>GOGO NOW !</p>
-  </a>
+
+  <% if params[:action] == "profile" %>
+    <%= link_to profile_path, {class: "footer-tab active"} do %>
+      <i class="fa fa-user" style="font-size:25px"></i>
+      <p>PROFIL</p>
+    <% end %>
+  <% else %>
+    <%= link_to profile_path, {class: "footer-tab"} do %>
+      <i class="fa fa-user" style="font-size:25px"></i>
+      <p>PROFIL</p>
+    <% end %>
+  <% end %>
+
+<% if params[:action] == "home" %>
+    <%= link_to root_path, {class: "footer-tab active"} do %>
+      <i class="fa fa-search" style="font-size:25px"></i>
+      <p>EXPLORE</p>
+    <% end %>
+  <% else %>
+    <%= link_to root_path, {class: "footer-tab"} do %>
+      <i class="fa fa-search" style="font-size:25px"></i>
+      <p>EXPLORE</p>
+  <% end %>
+<% end %>
+
+<% if params[:controller] == "trips" %>
+    <%= link_to trips_path, {class: "footer-tab active"} do %>
+      <i class="fa fa-globe" style="font-size:25px"></i>
+      <p>MY TRIPS</p>
+    <% end %>
+  <% else %>
+    <%= link_to trips_path, {class: "footer-tab"} do %>
+      <i class="fa fa-globe" style="font-size:25px"></i>
+      <p>MY TRIPS</p>
+    <% end %>
+<% end %>
+
+<%if params[:action] == "gogo" %>
+  <%= link_to gogo_path, {class: "footer-tab active"} do %>
+      <i class="fa fa-map" style="font-size:25px"></i>
+      <p>GO NOW!</p>
+    <% end %>
+  <% else %>
+     <%= link_to gogo_path, {class: "footer-tab"} do %>
+      <i class="fa fa-map" style="font-size:25px"></i>
+      <p>GO NOW!</p>
+  <% end %>
+<% end %>
+
 </div>
-
-

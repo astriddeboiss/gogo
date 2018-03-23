@@ -2,6 +2,14 @@ class TripActivitiesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @trip_activities = TripActivity.where(trip_id: @trip)
+    # @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
+    @markers = @trip_activities.map do |trip_activity|
+      {
+        lat: trip_activity.activity.latitude,
+        lng: trip_activity.activity.longitude,
+        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { trip_activity: trip_activity }) }
+      }
+    end
   end
 
   def new
@@ -16,7 +24,6 @@ class TripActivitiesController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     params[:trip_activity][:activity_id].each do |activity_id|
-      raise
       next if activity_id == ''
       activity = Activity.find(activity_id)
       TripActivity.create(trip: @trip, activity: activity) if activity
