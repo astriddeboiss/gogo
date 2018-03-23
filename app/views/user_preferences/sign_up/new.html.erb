@@ -6,9 +6,9 @@
       <p> What do you like to do ? </p>
     <div class="home-wrapper-cards">
       <% @categories.each do |category| %>
-        <div class="home-card">
+        <div class="preferences-card">
           <span class="checkbox">
-            <label for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
+            <label class="label" for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
               <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
               <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
               </div>

@@ -3,6 +3,7 @@
   background-color: #01AAC1;
   border-width: 0px;
   width: 100%;
+  color: white;
 }
 
 .save-preferences {
@@ -11,4 +12,16 @@
 
 .preferences-big-container {
   background-color: white;
+}
+
+.preferences-card {
+  display: inline-block !important;
+  margin-right: 4px !important;
+  width: 150px;
+  color: black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1) !important;
 }
