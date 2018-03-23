@@ -24,7 +24,7 @@
   <% end %>
 <% end %>
 
-<% if params[:controller] == "trips" %>
+<% if params[:controller] == "trips" || params[:controller] == "trip_activities" %>
     <%= link_to trips_path, {class: "footer-tab active"} do %>
       <i class="fa fa-globe" style="font-size:25px"></i>
       <p>MY TRIPS</p>
@@ -35,6 +35,7 @@
       <p>MY TRIPS</p>
     <% end %>
 <% end %>
+
 
 <%if params[:action] == "gogo" %>
   <%= link_to gogo_path, {class: "footer-tab active"} do %>

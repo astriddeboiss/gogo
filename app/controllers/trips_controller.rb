@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   def index
     @user = current_user
-    @trip = Trip.all.where(user: @user)
+    @trips = Trip.all.where(user: @user)
   end
 
   def create
@@ -35,7 +35,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-   params.require(:trip).permit(:city_id)
+   params.require(:trip).permit(:city_id, :name)
   end
 
 end
