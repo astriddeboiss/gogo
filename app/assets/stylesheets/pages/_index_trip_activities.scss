@@ -1,0 +1,63 @@
+.trip-activities-card {
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  position: relative;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.list-image {
+  height: 50px;
+  width: 50px;
+}
+
+.activity-list {
+  li {
+    list-style-type: none;
+  }
+  position: absolute;
+  left: 50px;
+  top: 0px;
+  padding-left: 10px;
+  padding-top: 2px;
+  i {
+    position: absolute;
+    top: 6px;
+    z-index: 2;
+    left: 220px;
+    text-decoration: none;
+    color: #00649f;
+  }
+}
+
+#activity-list-name {
+  font-size: 18px;
+}
+
+#activity-list-duration {
+  font-size: 12px;
+}
+
+.remove-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 320px;
+  h1 {
+    font-size: 26px;
+  }
+}
+
+#activity-link-to {
+  width: 0px;
+  height: 0px;
+    a {
+    width: 0px;
+    height: 0px;
+    }
+}
+
+#trip-list-number {
+}

@@ -1,16 +1,37 @@
-<h1> All my activities for <%=@trip.city.name %></h1>
 
-<ul>
+<div class="col-sm-12 col-sm-offset-4 remove-padding">
+<h1> All my activities for my trip to <%=@trip.city.name %></h1>
   <% @trip_activities.visited.each do |trip_activity| %>
-    <li> <%= trip_activity.activity.name %> | <%= link_to "Undo", not_visited_path(trip_activity), method: :patch %>
-    </li>
+    <div class="trip-activities-card">
+    <% list_image = cl_image_path trip_activity.activity.photo, height: 50, width: 50, crop: :fill%>
+      <div class="list-image" style="background-image: url('<%= list_image %>');"></div>
+      <div class="activity-list">
+        <li id="activity-list-name"><%= trip_activity.activity.name %></li>
+        <li id="activity-list-duration"><%= trip_activity.activity.duration %> min</li>
+        <li id="activity-link-to"><%= link_to not_visited_path(trip_activity), method: :patch do %>
+          <i class="fa fa-check-square"></i>
+          <% end %>
+        </li>
+      </div>
+    </div>
   <% end %>
 
   <% @trip_activities.not_visited.each do |trip_activity| %>
-    <li> <%= trip_activity.activity.name %> | <%= link_to "Done", visited_path(trip_activity), method: :patch %>
-    </li>
+    <div class="trip-activities-card">
+    <% list_image = cl_image_path trip_activity.activity.photo, height: 50, width: 50, crop: :fill%>
+      <div class="list-image" style="background-image: url('<%= list_image %>');"></div>
+      <div class="activity-list">
+        <li id="activity-list-name"><%= trip_activity.activity.name %></li>
+        <li id="activity-list-duration"><%= trip_activity.activity.duration %> min</li>
+        <li id="activity-link-to"><%= link_to visited_path(trip_activity), method: :patch do %>
+          <i class="fa fa-square"></i>
+          <% end %>
+        </li>
+      </div>
+    </div>
+
   <% end %>
-</ul>
+</div>
 
 <div
   id="map"

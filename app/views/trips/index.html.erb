@@ -1,21 +1,19 @@
 
+<div class="col-sm-12 col-sm-offset-4 remove-padding">
+<div class="container-complete-list">
 <% if @trips == nil %>
   <h1> You haven't created any trips yet</h1>
   <%= link_to "Create my first trip", root_path %>
 <% else %>
-  <% @trips.each do |trip| %>
-   <!--  <%= trip.name %> -->
-     <div class="card-trip">
-      <% if trip.name %>
-        <h3>You're trip <%= link_to trip.name, trip_trip_activities_path(trip) %></h3>
-      <% else %>
-        <h3>You're trip to <%= link_to trip.city.name, trip_trip_activities_path(trip) %></h3>
-      <% end %> Your Activities
-      <% trip.activities.each do |activity| %>
-       <ul>
-       <li> <%= activity.name %> </li>
-      </ul>
-       <% end %>
-     </div>
+  <h1>Here is the list of all your trips</h1>
+  <ul class="trip-list">
+  <% @trips.each_with_index do |trip, index| %>
+  <div class="wrapper-trip-list-item">
+    <li><%= link_to trip.name, trip_trip_activities_path(trip) %></li>
+    <p><%= trip.city.name%></li>
+  </div>
   <% end %>
+  </ul>
 <% end %>
+</div>
+</div>
