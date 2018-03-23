@@ -1,9 +1,19 @@
+
 <% if @trips == nil %>
   <h1> You haven't created any trips yet</h1>
   <%= link_to "Create my first trip", root_path %>
 <% else %>
   <% @trips.each do |trip| %>
-    <%= trip.name %>
-     <%= trip.id %>
+   <!--  <%= trip.name %> -->
+     <div class="card-trip">
+      <% if trip.name %>
+        <h3><%= link_to trip.name, trip_trip_activities_path(trip) %></h3>
+      <% else %>
+        <h3>You're trip to <%= link_to trip.city.name, trip_trip_activities_path(trip) %></h3>
+      <% end %>
+       <% trip.activities.each do |activity| %>
+        <%= activity.name %>
+       <% end %>
+     </div>
   <% end %>
 <% end %>

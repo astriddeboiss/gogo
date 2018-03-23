@@ -1,13 +1,14 @@
 class TripsController < ApplicationController
   def index
     @user = current_user
-    @trip = Trip.all.where(user: @user)
+    @trips = Trip.all.where(user: @user)
   end
 
   def create
     # City.near([params[:longitude], params[:latitude]], 50)
     @trip = Trip.new(trip_params)
     @trip.user = current_user
+    @trip.save
     if @trip.save
       if current_user.user_preferences
         redirect_to new_trip_trip_activity_path(@trip)
@@ -35,7 +36,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-   params.require(:trip).permit(:city_id)
+   params.require(:trip).permit(:city_id, :name)
   end
 
 end
