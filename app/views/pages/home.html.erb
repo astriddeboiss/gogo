@@ -37,8 +37,7 @@
      </div>
       <div class="home-name-trip">
         <%= f.input :name %>
-        <%= f.button :submit %>
-        <p>hello</p>
+        <%= f.submit class: "btn btn-primary btn-create-trip" %>
       </div>
   </div>
 <% end %>
@@ -46,7 +45,7 @@
 
 
 
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<%= link_to "Sign out", destroy_user_session_path, class:"btn-sign-out", method: :delete %>
 
 
 
