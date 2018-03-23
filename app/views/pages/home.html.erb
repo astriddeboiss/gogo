@@ -1,12 +1,5 @@
 <div class="home-background">
 
-  <div>
-    <% if !current_user %>
-      <h2><%= link_to "Sign in to use the app",  user_session_path %></h2>
-    <% end %>
-  </div>
-
-
 <!-- <h2> Your current GPS coordinates</h2> -->
 <form action="<%= trips_path %>" method="POST" id="geoloc">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -44,8 +37,14 @@
 </div>
 
 
+ <div>
+    <% if !current_user %>
+      <%= link_to "Sign in to use the app",  user_session_path%>
+    <% else %>
+      <%= link_to "Sign out", destroy_user_session_path, class:"btn-sign-out", method: :delete %>
+    <% end %>
+  </div>
 
-<%= link_to "Sign out", destroy_user_session_path, class:"btn-sign-out", method: :delete %>
 
 
 
