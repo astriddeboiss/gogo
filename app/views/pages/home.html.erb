@@ -1,12 +1,6 @@
 
-<div class="home-background">
-<div>
-    <% if !current_user %>
-      <%= link_to "Sign in to use the app",  user_session_path%>
-    <% else %>
-      <%= link_to "Sign out", destroy_user_session_path, class:"btn", method: :delete %>
-    <% end %>
-  </div>
+<div class="home-background col-xs-12 col-xs-offset-4">
+  <%= render 'shared/header' %>
 
 <!-- <h2> Your current GPS coordinates</h2> -->
 <form action="<%= trips_path %>" method="POST" id="geoloc">
@@ -16,7 +10,12 @@
 </form>
 
 
-<div class="home-banner"> <h1>Create a trip </h1> <p>Choose your city</p>
+<div class="home-banner">
+  <p class="home-title-wrapper">
+    <span id="home-title">Plan your next city trip!<span id="home-emoji"><i class="em em-raised_hands"></i></span></span>
+  <p id="question-1">Where to next?</p>
+  </p>
+
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
   <div class="form-group radio_buttons required trip_city">
@@ -37,11 +36,20 @@
         <% end %>
      </div>
       <div class="home-name-trip">
-        <%= f.input :name, label: "Name of your trip"%>
-        <%= f.submit class: "btn btn-primary btn-create-trip" %>
+        <%= f.input :name, label: "Name your trip:", class: "name-trip", placeholder: "e.g., Girls' weekend in Rome"%>
+        <%= f.submit class: "btn btn-primary btn-create-trip btn-home-page" %>
       </div>
   </div>
 <% end %>
+
+    <div>
+    <% if user_signed_in? == true %>
+      <div class="sign-out-link">
+      <%= link_to "Sign out", destroy_user_session_path, class:"btn", method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>
 
 

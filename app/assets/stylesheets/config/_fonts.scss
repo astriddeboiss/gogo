@@ -1,11 +1,14 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700|Nunito:400,700|Open Sans:400,600|Lato");
+@import url("https://afeld.github.io/emoji-css/emoji.css");
 
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Montserrat", "Helvetica", "sans-serif";
+$logo-font: "Nunito", "sans-serif";
+$text-font: "Open Sans", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
+// To use a font file .woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
 //   src: font-url('FontFile.eot');
