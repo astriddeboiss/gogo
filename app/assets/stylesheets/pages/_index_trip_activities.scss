@@ -12,6 +12,10 @@
 .list-image {
   height: 50px;
   width: 50px;
+
+
+.mark-list {
+
 }
 
 .activity-list {
@@ -44,7 +48,6 @@
 .remove-padding {
   padding-left: 10px;
   padding-right: 10px;
-  width: 320px;
   h1 {
     font-size: 26px;
   }
@@ -59,5 +62,6 @@
     }
 }
 
-#trip-list-number {
+.container-trip-activities-list {
+  width: 350px;
 }

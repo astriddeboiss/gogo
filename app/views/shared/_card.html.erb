@@ -1,9 +1,10 @@
-<div class="card">
+<div class="activity-card">
   <div class="card-content" id="activity-<%= activity.id %>" data-side="recto">
     <%= render "shared/card_recto", activity: activity %>
   </div>
-  <div class="icon-card" id="arrow-<%= activity.id %>" data-activity-id="<%= activity.id %>"><i class="fa fa-angle-right"></i></div>
-  <!-- <div id="heart-on-card"><i class="fa fa-heart"></i></div> -->
+  <div class="icon-card" id="arrow-<%= activity.id %>" data-activity-id="<%= activity.id %>">
+    <i class="fa fa-angle-right"></i>
+  </div>
 </div>
 
 <script>
