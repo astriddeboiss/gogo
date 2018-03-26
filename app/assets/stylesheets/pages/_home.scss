@@ -7,9 +7,55 @@
   background-position: center;
   color: white;
   overflow-y:hidden;
-  height: calc 100vh;
+  height: calc(100vh - 60px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  color: black;
+  font-size: 20px;
+  margin-top: 0px;
+}
+
+.home-title-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+p.home-title-wrapper {
+  margin-bottom: 0px;
+}
+
+#question-1 {
+  font-family: $text-font;
+  font-size: 26px;
+  text-align: left;
+  color: $default-text-color;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+p#question-1 {
+  margin-top: 0px;
+}
+
+#home-title {
+  font-size: 48px;
+  font-family: $logo-font;
+  color: $sea-blue;
+  text-align: left;
+    i {
+      margin-left: 10px;
+      margin-bottom: 20px;
+    }
+    font-weight: 700;
+}
+
+#home-emoji {
+  font-size: 36px;
 }
 
 .home-banner {
@@ -17,16 +63,13 @@
 }
 
 .home-wrapper-cards {
-  height: 250px !important;
-
+  height: 170px !important;
   white-space: nowrap !important;
   overflow-x: scroll !important;
-  padding-bottom: 30px !important;
   margin-bottom: -30px !important;
   box-sizing: border-box;
   margin-left: 8px;
   margin-right: 8px;
-  padding-top: 50px;
   background-color: white;
 
   input[type="checkbox"] {
@@ -38,12 +81,6 @@
   }
 }
 
-.home-background {
-  color: black;
-  font-size: 20px;
-  padding-left: 10px;
-  margin-top: 0px;
-}
 
 .form-group {
   overflow: hidden;
@@ -51,18 +88,25 @@
 }
 
 .home-card {
-
   display: inline-block !important;
   margin-right: 4px !important;
   width: 150px;
+  height: 155px;
   color: black;
   background-color: white;
   display: flex;
   flex-direction: column;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1) !important;
 }
 
+.home-card-banner {
+  width:100%;
+  height:120px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  background-position: center;
+}
 .home-card:focus {
   opacity:0.5;
 }
@@ -79,30 +123,48 @@
   padding: 0px;
 }
 
-.home-card-banner {
-  width:100%;
-  height:120px;
-  border-radius: 3px;
-  background-position: center;
-}
 
 .home-name-trip {
-  margin-top:30px;
+  margin-top: 40px;
+    label {
+  font-family: $text-font;
+  font-size: 26px;
+  text-align: left !important;
+  color: $default-text-color;
+  font-weight: lighter;
+  width: 375px;
+    }
+    .btn {
+      border-radius: 50px;
+      font-weight: bold;
+      background-color: $dark-green;
+      font-family: $logo-font;
+    }
+    .btn:hover {
+      background-color: $dark-green;
+    }
+}
 
-
+.sign-in-link {
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
 }
 
 .home-text-container {
-  margin-bottom: 15px;
-  padding-left: 10px;
-  line-height: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 35px;
 }
 
 .home-card-text {
-  text-align: left !important;
-  font-size: 15px;
-  font-weight: 550;
-  color: black;
+  text-align: center !important;
+  font-size: 14px;
+  font-family: Lato;
+  font-weight: bold;
+  color: $default-text-color;
+  text-transform: uppercase;
+  height: 15px;
 }
 
 .trip_city .radio_buttons {

@@ -1,15 +1,16 @@
-
 .footer {
   background: white;
   display: flex;
-  border-top: solid 1px;
   position: fixed !important;
   z-index: 10000;
-  height:60px;
+  height: 60px;
   bottom:0;
   left:0;
   right:0;
+  box-shadow: 0 0px 3px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
 }
+
 .footer a {
   color: black;
 }
