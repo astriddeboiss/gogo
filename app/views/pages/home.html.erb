@@ -11,10 +11,7 @@
 
 
 <div class="home-banner">
-  <p class="home-title-wrapper">
-    <span id="home-title">Plan your next city trip!<span id="home-emoji"><i class="em em-raised_hands"></i></span></span>
-  <p id="question-1">Where to next?</p>
-  </p>
+    <span class="page-title">Plan your next city trip</span>
 
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
@@ -36,8 +33,8 @@
         <% end %>
      </div>
       <div class="home-name-trip">
-        <%= f.input :name, label: "Name your trip:", class: "name-trip", placeholder: "e.g., Girls' weekend in Rome"%>
-        <%= f.submit class: "btn btn-primary btn-create-trip btn-home-page" %>
+        <%= f.input :name, label: "Name your trip:", class: "name-trip", placeholder: "Girls' weekend in Rome"%>
+        <%= f.submit "CHOOSE YOUR PREFERENCES", class: "btn-cta" %>
       </div>
   </div>
 <% end %>
