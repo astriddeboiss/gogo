@@ -1,6 +1,6 @@
 .header {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: $background;
   transition: all 0.3s ease;
   height: 60px;
   padding: 0px 0px;
@@ -20,23 +20,9 @@
   padding-left: 0px;
 }
 
-#title-1 {
+#logo {
   font-family: $logo-font;
   font-weight: 700;
-  font-size: 38px;
-  color: $light-green;
-}
-
-#title-2 {
-  font-family: $logo-font;
-  font-weight: 700;
-  font-size: 38px;
-  color: $dark-green;
-}
-
-#title-dot {
-  font-family: $logo-font;
-  font-weight: 700;
-  font-size: 38px;
-  color: $sea-blue;
+  font-size: 30px;
+  color: $default-text-color;
 }
