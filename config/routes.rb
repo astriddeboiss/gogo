@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   get 'pages/preferences'
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
 
