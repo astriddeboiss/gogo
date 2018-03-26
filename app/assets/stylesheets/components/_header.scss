@@ -18,6 +18,7 @@
 .wrapper-header {
   padding-right: 0px;
   padding-left: 0px;
+  position: relative;
 }
 
 #logo {
@@ -25,4 +26,25 @@
   font-weight: 700;
   font-size: 30px;
   color: $default-text-color;
+  margin-bottom: 10px;
+}
+
+.sign-in {
+  margin-bottom: 0px;
+  width: 60px;
+  z-index: 1;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: $body-font;
+  line-height: 1em;
+  letter-spacing: 0.2px;
+  color: $default-text-color;
+}
+
+.sign-in:hover {
+  color: $default-text-color;
+  text-decoration: none;
 }
