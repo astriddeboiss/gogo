@@ -11,10 +11,7 @@
 
 
 <div class="home-banner">
-  <p class="home-title-wrapper">
-    <span id="home-title">Plan your next city trip!<span id="home-emoji"><i class="em em-raised_hands"></i></span></span>
-  <p id="question-1">Where to next?</p>
-  </p>
+    <span class="page-title">Plan your next city trip</span>
 
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
@@ -25,7 +22,7 @@
     <input type="hidden" name="trip[city_id]" value="">
      <div class="home-wrapper-cards">
         <% City.all.each do |city| %>
-         <div class="home-card">
+         <div class="preferences-card">
            <span class="radio">
              <label class="label" for="trip_city_id_<%= city.id %>">
                <input class="radio_buttons required" type="radio" value="<%= city.id %>" name="trip[city_id]" id="trip_city_id_<%= city.id %>">
