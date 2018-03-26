@@ -13,7 +13,7 @@
   margin-left: 0px;
   padding-right: 0px;
   padding-left: 0px;
-  color: black;
+  color: $sea-blue;
   font-size: 20px;
   margin-top: 0px;
 }
@@ -27,35 +27,6 @@
 
 p.home-title-wrapper {
   margin-bottom: 0px;
-}
-
-#question-1 {
-  font-family: $text-font;
-  font-size: 26px;
-  text-align: left;
-  color: $default-text-color;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-p#question-1 {
-  margin-top: 0px;
-}
-
-#home-title {
-  font-size: 48px;
-  font-family: $logo-font;
-  color: $sea-blue;
-  text-align: left;
-    i {
-      margin-left: 10px;
-      margin-bottom: 20px;
-    }
-    font-weight: 700;
-}
-
-#home-emoji {
-  font-size: 36px;
 }
 
 .home-banner {
@@ -80,7 +51,6 @@ p#question-1 {
     border: 2px solid $blue;
   }
 }
-
 
 .form-group {
   overflow: hidden;

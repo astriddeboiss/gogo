@@ -1,6 +1,6 @@
 
 <div class="col-sm-12 col-sm-offset-4 remove-padding">
-<h1> All my activities for my trip to <%=@trip.city.name %></h1>
+<div class="page-title"> All my activities for my trip to <%=@trip.city.name %></div>
   <% @trip_activities.visited.each do |trip_activity| %>
     <div class="trip-activities-card">
     <% list_image = cl_image_path trip_activity.activity.photo, height: 50, width: 50, crop: :fill%>
