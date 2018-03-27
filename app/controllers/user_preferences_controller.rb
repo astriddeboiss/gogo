@@ -3,23 +3,11 @@ class UserPreferencesController < ApplicationController
     @user_preferences = UserPreference.all
   end
 
-  def new
-    @user_preference = UserPreference.new
-    @categories = Category.all
-    @cities = City.all
-  end
-
   def create
-    @user = current_user
-    @user.categories.destroy_all
-    params[:user_preference][:category_id].each do |params|
-     unless params.empty?
-       @user_preference = UserPreference.new
-       @user_preference.category = Category.find(params)
-       @user_preference.user = current_user
-       @user_preference.save
-     end
-    end
-    redirect_to root_path
+    @trip = Trip.find(params[:trip_id])
+    @user_preference = UserPreference.new(category: Category.find(params[:cat].to_i), trip: @trip)
+    @user_preference.user = current_user
+    @user_preference.save
+    redirect_to select_preferences_trip_path(@trip)
   end
 end

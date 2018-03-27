@@ -9,10 +9,16 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
-        redirect_to new_trip_user_preference_path(@trip)
+        redirect_to select_preferences_trip_path(@trip)
     else
       redirect_to root_path
     end
+  end
+
+
+  def select_preferences
+    @trip = Trip.find(params[:id])
+    @categories = Category.all
   end
 
   def show
@@ -35,3 +41,4 @@ class TripsController < ApplicationController
   end
 
 end
+

@@ -5,13 +5,7 @@
   <h4> <strong>  Last name :</strong> <%= current_user.last_name %></h4>
   <h4> <strong>  Email :</strong> <%= current_user.email %></h4>
   <%= link_to "Change password", edit_user_password_path %>
-  <h2 class="page-title"> My preferences </h2>
-  <% @categories = current_user.categories  %>
-  <ul><% @categories.each do |category|%>
-    <li> <%= category.name %> </li>
-  <% end %></ul>
- <%= link_to "Edit my preferences",profile_path %>
-</div>
+
 
 
 
