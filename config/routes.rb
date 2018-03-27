@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'activities/index'
 
   get 'pages/user_preferences'
-  resources :user_preferences, only: [:edit, :update]
   resources :signup_user_preferences, only: [:new, :create], controller: "user_preferences/sign_up"
   resources :profile_user_preferences, only: [:new, :create], controller: "user_preferences/edit_profile"
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
 
   resources :trips, only: [:create, :index, :show] do
+    resources :user_preferences, only: [:index, :new, :create]
     resources :trip_activities, only: [:index, :new, :create]
   end
 
