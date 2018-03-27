@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
+gem 'omniauth-facebook'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -20,6 +22,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem "geocoder"
 gem 'acts_as_votable', '~> 0.11.1'
+gem 'rest-client', '~> 1.8'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

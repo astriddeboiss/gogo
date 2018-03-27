@@ -3,7 +3,7 @@
 
 .home-background {
   text-align: center;
-  background-color: white;
+  background-color: $background;
   background-position: center;
   color: white;
   overflow-y:hidden;
@@ -13,7 +13,7 @@
   margin-left: 0px;
   padding-right: 0px;
   padding-left: 0px;
-  color: black;
+  color: $sea-blue;
   font-size: 20px;
   margin-top: 0px;
 }
@@ -29,48 +29,20 @@ p.home-title-wrapper {
   margin-bottom: 0px;
 }
 
-#question-1 {
-  font-family: $text-font;
-  font-size: 26px;
-  text-align: left;
-  color: $default-text-color;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-p#question-1 {
-  margin-top: 0px;
-}
-
-#home-title {
-  font-size: 48px;
-  font-family: $logo-font;
-  color: $sea-blue;
-  text-align: left;
-    i {
-      margin-left: 10px;
-      margin-bottom: 20px;
-    }
-    font-weight: 700;
-}
-
-#home-emoji {
-  font-size: 36px;
-}
-
 .home-banner {
   background-color: white;
 }
 
 .home-wrapper-cards {
-  height: 170px !important;
+  height: 240px !important;
   white-space: nowrap !important;
   overflow-x: scroll !important;
   margin-bottom: -30px !important;
   box-sizing: border-box;
   margin-left: 8px;
   margin-right: 8px;
-  background-color: white;
+  margin-top: 10px;
+  background-color: $background;
 
   input[type="checkbox"] {
     display: none;
@@ -80,7 +52,6 @@ p#question-1 {
     border: 2px solid $blue;
   }
 }
-
 
 .form-group {
   overflow: hidden;
@@ -102,13 +73,36 @@ p#question-1 {
 
 .home-card-banner {
   width:100%;
-  height:120px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  height:220px;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
   background-position: center;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.35));
+      opacity: .6;
+    }
 }
+
 .home-card:focus {
   opacity:0.5;
+}
+
+.home-card-text {
+  text-align: center !important;
+  font-size: 14px;
+  font-family: $text-font;
+  font-weight: bold;
+  color: white;
+  height: 15px;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
 }
 
 .radio {
@@ -145,27 +139,7 @@ p#question-1 {
     }
 }
 
-.sign-in-link {
-  font-size: 14px;
-  color: rgba(0,0,0,0.5);
-}
 
-.home-text-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 35px;
-}
-
-.home-card-text {
-  text-align: center !important;
-  font-size: 14px;
-  font-family: Lato;
-  font-weight: bold;
-  color: $default-text-color;
-  text-transform: uppercase;
-  height: 15px;
-}
 
 .trip_city .radio_buttons {
   display: none
@@ -195,4 +169,11 @@ p#question-1 {
   opacity: 0.7
 }
 
+.sign-in-link {
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+}
 
+.flex {
+  display: flex;
+}

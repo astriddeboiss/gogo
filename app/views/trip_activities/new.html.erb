@@ -1,8 +1,7 @@
+<div class="container-trip-activities">
 <%= simple_form_for [@trip, @trip_activity] do |f| %>
-<div class="container-new-trip-activities">
   <div class="form-group check_boxes required trip_activity_activity">
     <label class="control-label check_boxes required">
-    <h1 style="text-align: center; margin-top: 0px; margin-bottom: 0px; font-size: 24px;">Please select your activities!</h1>
       <abbr title="required"></abbr>
     </label>
     <input name="trip_activity[activity_id][]" value="" type="hidden">
@@ -18,7 +17,7 @@
       </div>
     </div>
   </div>
-  <%= f.submit "See my itinerary", class: "btn btn-primary" %>
+  <%= f.submit "SEE MY ITINERARY", class: "btn-cta" %>
 </div>
 <%   end %>
-
+</div>

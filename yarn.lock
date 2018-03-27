@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@rails/webpacker@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.3.1.tgz#cc327dbdd5380c75468e769b52ea09b6616b4529"
+"@rails/webpacker@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.4.1.tgz#10859330fa3fc9c7f4be637dd30cb009fef4513c"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -2184,6 +2184,10 @@ find-up@^2.0.0, find-up@^2.1.0:
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
   dependencies:
     locate-path "^2.0.0"
+
+flatpickr@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.4.2.tgz#11bdf588305f823f45d30584268d620b60ac523b"
 
 flatten@^1.0.2:
   version "1.0.2"

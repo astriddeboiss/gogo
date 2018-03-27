@@ -38,16 +38,16 @@
 <% end %>
 
 
-<%if params[:action] == "gogo" %>
-  <%= link_to gogo_path, {class: "footer-tab active"} do %>
-      <i class="fa fa-map" style="font-size:25px"></i>
-      <p>GO NOW!</p>
-    <% end %>
+<%if params[:action] == "gogo" || params[:action] == "choice_trip" %>
+  <a href="#" class="footer-tab active" id="go-now">
+    <i class="fa fa-map" style="font-size:25px"></i>
+    <p>GO NOW</p>
+  </a>
   <% else %>
-     <%= link_to gogo_path, {class: "footer-tab"} do %>
-      <i class="fa fa-map" style="font-size:25px"></i>
-      <p>GO NOW!</p>
-  <% end %>
+  <a href="#" class="footer-tab" id="go-now">
+    <i class="fa fa-map" style="font-size:25px"></i>
+    <p>GO NOW</p>
+  </a>
 <% end %>
 
 </div>
