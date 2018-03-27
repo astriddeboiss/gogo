@@ -1,9 +1,8 @@
-<% photo_path = cl_image_path activity.photo, height: 230, width: 290, crop: :fill%>
-<div class="card-banner" style="background-image: url('<%= photo_path %>');"></div>
-<ul class="item-description">
+<% photo_path = cl_image_path activity.photo, height: 350, width: 290, crop: :fill%>
+<div class="activity-card-banner" style="background-image: url('<%= photo_path %>');"></div>
+<ul class="item-description-recto">
   <div id="title-space">
-    <p id="activity-name"> <%= activity.name %> </p>
-    <p id="city-name"><%= activity.city.name %> | Visit time: <%= activity.duration %>min </p>
-    <div id="explore-button"><div id="explore-text">Explore</div></div>
+    <p id="activity-name-recto"> <%= activity.name %> </p>
+    <p id="city-name-recto"><%= activity.city.name %> | Visit time: <%= activity.duration %>min </p>
   </div>
 </ul>
