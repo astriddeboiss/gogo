@@ -1,19 +1,21 @@
-puts 'Cleaning database...'
+require 'open-uri'
+
+puts 'Cleaning TripActivity...'
 TripActivity.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning Activity...'
 Activity.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning UserPreference...'
 UserPreference.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning Category...'
 Category.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning Trip...'
 Trip.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning City...'
 City.destroy_all
 
 
@@ -73,8 +75,6 @@ Category.create!(categories_attributes)
 puts 'Finished!'
 
 
-
-
 puts 'Creating cities...'
 cities_attributes = [
   {
@@ -101,195 +101,168 @@ cities_attributes = [
 City.create!(cities_attributes)
 puts 'Finished!'
 
-
-
 puts 'Creating activities...'
-activities_attributes = [
+
+seed_array = [
   {
-    name: "Colosseum",
-    description: "The Colosseum or Coliseum, also known as the Flavian Amphitheatre, is an oval amphitheatre in the centre of the city of Rome, Italy. Built of travertine, tuff, and brick-faced concrete, it is the largest amphitheatre ever built.",
-    remote_photo_url: "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg",
-    address: "Piazza del Colosseo, 1, 00184 Roma RM, Italy",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,18),
-    duration: 60,
-    category: Category.limit(4)[3],
-    city: City.first
+    name: "Museums & Galleries",
+    url: "https://www.tripadvisor.fr/Attractions-g187147-Activities-c49-t1,161-Paris_Ile_de_France.html",
+    duration: [90, 180]
   },
   {
-    name: "Pantheon",
-    description: "The Pantheon is a former Roman temple, now a church, in Rome, Italy, on the site of an earlier temple commissioned by Marcus Agrippa during the reign of Augustus (27 BC – 14 AD).",
-    remote_photo_url: "http://www.polomusealelazio.beniculturali.it/getImage.php?id=543&w=800&h=600&f=0&.jpg",
-    address: "Piazza della Rotonda, 00186 Roma RM, Italy",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,18),
-    duration: 45,
-    category: Category.limit(4)[3],
-    city: City.first
+    name: "Parks & Gardens",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c61-Paris_Ile_de_France.html',
+    duration: [30, 60]
   },
+
   {
-    name: "Spanish Steps",
-    description: "The Spanish Steps are a set of steps in Rome, Italy, climbing a steep slope between the Piazza di Spagna at the base and Piazza Trinità dei Monti, dominated by the Trinità dei Monti church at the top.",
-    remote_photo_url: "http://romeonsegway.com/wp-content/plugins/widgetkit/cache/gallery/759/spanish3-935e4d033a.jpg",
-    address: "Piazza di Spagna, 00187 Roma RM, Italy",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,18),
-    duration: 30,
-    category: Category.limit(4)[3],
-    city: City.first
+  name: "Panoramic Views",
+  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t39-Paris_Ile_de_France.html'
+   duration: [30, 90]
   },
+
   {
-    name: "Vatican Museums",
-    description: "The Vatican Museums are Christian and art museums located within the city boundaries of the Vatican City.",
-    remote_photo_url: "https://fthmb.tqn.com/Co3D8RIK9e-jO4xs1DfdL4h0lW0=/960x0/filters:no_upscale()/GettyImages-125834407-5930dffc3df78c08ab574afa.jpg",
-    address: "Viale Vaticano, 00165 Roma RM, Italy",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,16),
-    duration: 120,
-    category: Category.first,
-    city: City.first
+    name: "Monuments & Must-See",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-Paris_Ile_de_France.html',
+    duration: [30, 180]
   },
+
   {
-    name: "Galleria Borghese",
-    description: "The Galleria Borghese is an art gallery in Rome, Italy, housed in the former Villa Borghese Pinciana.",
-    remote_photo_url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/91/aa/77/achterzijde-van-galleria.jpg",
-    address: "Piazzale Scipione Borghese, 5, 00197 Roma RM, Italy",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,18),
-    duration: 60,
-    category: Category.first,
-    city: City.first
+    name: "Historical Neighbourhoods",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t34-Paris_Ile_de_France.html',
+    duration: [30, 120]
   },
+
   {
-    name: "Eiffel Tower",
-    description: "The Eiffel Tower is a wrought iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower.",
-    remote_photo_url: "http://img.jakpost.net/c/2017/02/10/2017_02_10_21340_1486708892._large.jpg",
-    address: "Champ de Mars, 5 Avenue Anatole France, 75007 Paris",
-    opens_at: DateTime.new(2018,1,1,9.5),
-    closes_at: DateTime.new(2018,1,1,23),
-    duration: 120,
-    category: Category.limit(4)[3],
-    city: City.limit(2)[1]
+    name: "Markets",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t142-Paris_Ile_de_France.html',
+    duration: [60, 90]
   },
+
   {
-    name: "The Louvre",
-    description: "The Louvre Palace is a former royal palace located on the Right Bank of the Seine in Paris, between the Tuileries Gardens and the church of Saint-Germain l'Auxerrois.",
-    remote_photo_url: "https://cdn.getyourguide.com/img/tour_img-659439-148.jpg",
-    address: "Rue de Rivoli, 75001 Paris",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,18),
-    duration: 60,
-    category: Category.limit(4)[3],
-    city: City.limit(2)[1]
+    name: "Shows & Concerts",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c58-Paris_Ile_de_France.html',
+    duration: [60, 120]
   },
+
   {
-    name: "Sacré-Cœur",
-    description: "The Basilica of the Sacred Heart of Paris, commonly known as Sacré-Cœur Basilica and often simply Sacré-Cœur, is a Roman Catholic church and minor basilica, dedicated to the Sacred Heart of Jesus, in Paris, France.",
-    remote_photo_url: "https://en.parisinfo.com/var/otcp/sites/images/media/1.-photos/02.-sites-culturels-630-x-405/sacre-coeur-630x405-c-thinkstock3/37144-1-fre-FR/Sacre-Coeur-630x405-C-Thinkstock.jpg",
-    address: "35 Rue du Chevalier de la Barre, 75018 Paris",
-    opens_at: DateTime.new(2018,1,1,9),
-    closes_at: DateTime.new(2018,1,1,18),
-    duration: 60,
-    category: Category.limit(4)[3],
-    city: City.limit(2)[1]
+    name: "Shopping Areas",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t138-Paris_Ile_de_France.html',
+    duration: [30, 180]
   },
-  {
-    name: "Le Marais",
-    description: "Le Marais is a historic district in Paris, France. Long the aristocratic district of Paris, it hosts many outstanding buildings of historic and architectural importance. It spreads across parts of the 3rd and 4th arrondissements in Paris.",
-    remote_photo_url: "http://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2014/11/RS-shutterstock_236049502-f4d6a4a0cfd4.jpg",
-    address: "Le Marais, Paris",
-    opens_at: DateTime.new(2018,1,1,0),
-    closes_at: DateTime.new(2018,1,1,24),
-    duration: 60,
-    category: Category.limit(4)[3],
-    city: City.limit(5)[4]
-  },
-  {
-    name: "Montmartre",
-    description: "Montmartre is a large hill in Paris's 18th arrondissement. It is 130 m high and gives its name to the surrounding district, part of the Right Bank in the northern section of the city.",
-    remote_photo_url: "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_657,w_1000,x_0,y_0/c_limit,f_auto,fl_lossy,q_80,w_1080/shutterstock_215389222_o7ys8m.jpg",
-    address: "Montmartre, Paris",
-    opens_at: DateTime.new(2018,1,1,0),
-    closes_at: DateTime.new(2018,1,1,24),
-    duration: 60,
-    category: Category.limit(4)[3],
-    city: City.limit(5)[4]
-  }
 ]
-Activity.create!(activities_attributes)
-puts 'Finished!'
 
-puts 'Creating Users...'
-users_attributes = [
-  {
-    first_name: "Brigitte",
-    last_name: "Macron",
-    email: "brigitte@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Zinedine",
-    last_name: "Zidane",
-    email: "zidane@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Elon",
-    last_name: "Musk",
-    email: "elon@gmail.com",
-    password: "secret"
-  }
-]
-User.create!(users_attributes)
-puts 'Finished!'
+seed_array.each do |seed_array_item|
+  puts "Creating activity for #{seed_array_item[:name]}..."
+  url = open(seed_array_item[:url])
+  category = Category.find_by_name(seed_array_item[:name])
+  activities_serialized = open(url).read
+  activities = Nokogiri::HTML(activities_serialized)
+  activities.search(".listing_title a").each do |activity|
 
 
-puts 'Creating Users...'
-users_attributes = [
-  {
-    first_name: "Victor",
-    last_name: "Sardet",
-    email: "victor@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Simone",
-    last_name: "Basse",
-    email: "simone@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Pierre",
-    last_name: "Collier",
-    email: "pierre@gmail.com",
-    password: "secret"
-  }
-]
-User.create!(users_attributes)
-puts 'Finished!'
+   unless activity.attributes["href"].value.nil?
 
-puts 'Creating User Preferences...'
-user_preferences_attributes = [
-  {
-    user: User.new(email: "marie@gmail.com", password: "secret"),
-    category: Category.first
-  }
-]
-UserPreference.create!(user_preferences_attributes)
-puts 'Finished!'
+      activity_url = activity.attributes["href"].value
+      activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
+      activity_doc = Nokogiri::HTML(activity_serialized)
 
 
+      name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
+      # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
 
-puts 'Creating Trips...'
-trips_attributes = [
-  {
-    name: "#{User.first.first_name}'s trip in #{City.first.name}",
-    city: City.first,
-    user: User.first
-  }
-]
-Trip.create!(trips_attributes)
-puts 'Finished!'
+      description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
+      # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
+
+      duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
+      # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
+
+      photo = activity_doc.search(".carousel_images img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
+      address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
+      opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
+      closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
+      city = City.find_by_name("Paris")
+      a = Activity.create(name: name, description: description, photo: photo, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
+      puts "#{a.name} created!"
+    end
+  end
+end
+puts 'Finished Scrap activities'
+
+
+# puts 'Creating Users...'
+# users_attributes = [
+#   {
+#     first_name: "Brigitte",
+#     last_name: "Macron",
+#     email: "brigitte@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Zinedine",
+#     last_name: "Zidane",
+#     email: "zidane@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Elon",
+#     last_name: "Musk",
+#     email: "elon@gmail.com",
+#     password: "secret"
+#   }
+# ]
+# User.create!(users_attributes)
+# puts 'Finished!'
+
+
+# puts 'Creating Users...'
+# users_attributes = [
+#   {
+#     first_name: "Victor",
+#     last_name: "Sardet",
+#     email: "victor2@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Simone",
+#     last_name: "Basse",
+#     email: "simone2@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Pierre",
+#     last_name: "Collier",
+#     email: "pierre1@gmail.com",
+#     password: "secret"
+#   }
+# ]
+# User.create!(users_attributes)
+# puts 'Finished!'
+
+# puts 'Creating User Preferences...'
+# user_preferences_attributes = [
+#   {
+#     user: User.new(email: "marc1@gmail.com", password: "secret"),
+#     category: Category.first
+#   }
+# ]
+# UserPreference.create!(user_preferences_attributes)
+# puts 'Finished!'
+
+
+
+# puts 'Creating Trips...'
+# trips_attributes = [
+#   {
+#     name: "#{User.first.first_name}'s trip in #{City.first.name}",
+#     city: City.first,
+#     user: User.first
+#   }
+# ]
+# Trip.create!(trips_attributes)
+# puts 'Finished!'
+
+
 
 
 
