@@ -6,16 +6,28 @@
 </ul>
 
 
-<%# liste = TripActivity.find(trip_id = X) %>
-<%# liste.each do |activity| %>
-  <%# filtre = [] %>
+<% liste = Trip.find(params[:trip]).activities %>
+
+<ul>
+<% filtre = [] %>
+<% liste.each do |activity| %>
+
   <%# trajet = GOOGLE %>
-  <%# visite = activity.duration %>
-  <%# ouverture = activity.opens_at %>
-  <%# fermeture = activity.closes_at %>
-  <%# debut = Time.now + trajet  %>
-  <%# fin = debut + visite %>
-  <%# if debut > ouverture || fin < fermeture %>
-    <%# filtre << activity %>
-  <%# end %>
-<%# end %>
+  <li><%= visite_min = activity.duration %> </li>
+  <li><%= ouverture_hour = activity.opens_at.hour %> </li>
+  <li><%= ouverture_min = activity.opens_at.min %> </li>
+  <li><%= fermeture_hour = activity.closes_at.hour %> </li>
+  <li><%= fermeture_min = activity.closes_at.min %> </li>
+  <% debut_hour = Time.now.hour  %>
+  <% debut_min = Time.now.min  %>
+  <% fin_min = (debut_min + visite_min%60)%60 %>
+  <% fin_hour = debut_hour + visite_min.div(60) + (debut_min + visite_min%60).div(60)%>
+
+  <% if debut_hour > ouverture_hour || (debut_hour == ouverture_hour && debut_min > ouverture_min) %>
+    <% if fin_hour < fermeture_hour || (fin_hour == fermeture_hour && fin_min > fermeture_min) %>
+      <% filtre << activity %>
+    <% end %>
+  <% end %>
+<% end %>
+<% raise %>
+</ul>

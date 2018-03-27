@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "choice_trip", to: "pages#choice_trip"
 
-  get "gogo", to: "pages#gogo"
+  post "gogo", to: "pages#gogo"
 
   get "profile", to: "pages#profile"
 
