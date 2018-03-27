@@ -1,4 +1,3 @@
-
 <div class="home-background col-xs-12 col-xs-offset-4">
 
 <!-- <h2> Your current GPS coordinates</h2> -->
@@ -32,21 +31,16 @@
         <% end %>
      </div>
       <div class="home-name-trip">
-        <%= f.input :name, label: "Name your trip:", class: "name-trip", placeholder: "Girls' weekend in Rome"%>
-        <%= f.input :starts_at, as: :date, class: "name-trip"%>
-        <%= f.input :ends_at, as: :date, class: "name-trip"%>
-        <%= f.submit "CHOOSE YOUR PREFERENCES", class: "btn-cta" %>
+        <%= f.input :name, class: "name-trip", placeholder: "Name your trip", label: false %>
+        <!-- <label for="starts_at">Select your dates</label> -->
+        <div class="flex">
+          <%= f.input :starts_at, as: :string, label: false, required: false, input_html: { class: "flatpicker", placeholder: "Trip start date" } %>
+           <%= f.input :ends_at, as: :string, label: false, required: false, input_html: { class: "flatpicker", placeholder: "Trip end date" } %>
+        </div>
+        <%= f.submit "CREATE YOUR TRIP", class: "btn-cta" %>
       </div>
   </div>
 <% end %>
-
-    <div>
-    <% if user_signed_in? == true %>
-      <div class="sign-out-link">
-      <%= link_to "Sign out", destroy_user_session_path, class:"btn", method: :delete %>
-      </div>
-    <% end %>
-  </div>
 </div>
 </div>
 
