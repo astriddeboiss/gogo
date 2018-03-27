@@ -1,21 +1,19 @@
-<%= simple_form_for (@user_preference), url: profile_user_preferences_path do |f| %>
-  <%#= f.association :category, as: :check_boxes %>
   <div>
-     <h2> Edit my preferences for my next trips </h2>
-      <p> What do you like to do ? </p>
     <div class="home-wrapper-cards">
       <% @categories.each do |category| %>
         <div class="home-card">
+          <%= link_to trip_user_preferences_path(@trip, cat:category.id), method: "post" do %>
           <span class="checkbox">
             <label for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
               <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
-              <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
-              </div>
-              <div class="home-text-container">
-                <div class="home-card-text">
-                  <%= category.name %>
+                <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
                 </div>
-              </div>
+                <div class="home-text-container">
+                  <div class="home-card-text">
+                    <%= category.name %>
+                  </div>
+                </div>
+              <% end %>
             </label>
           </span>
         </div>
@@ -23,8 +21,4 @@
     </div>
   </div>
 
-
-<%= f.submit "SAVE MY PREFERENCES", class: "btn-cta" %>
-  <% end %>
-
-
+  <%= link_to "SEE THE ACTIVITIES WE SUGGEST",  new_trip_trip_activity_path(@trip), class: "btn-cta" %>
