@@ -10,9 +10,11 @@ function geoloc() {
 
 function display() {
   const gogo = document.querySelector("#GOGO");
-  gogo.addEventListener("click", (event) => {
-    geoloc();
-});
+  if (gogo) {
+    gogo.addEventListener("click", (event) => {
+      geoloc();
+    });
+  }
 };
 
 export { display };

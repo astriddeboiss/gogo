@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   get 'activities/index'
 
   get 'pages/user_preferences'
-  resources :signup_user_preferences, only: [:new, :create], controller: "user_preferences/sign_up"
-  resources :profile_user_preferences, only: [:new, :create], controller: "user_preferences/edit_profile"
 
   get 'pages/preferences'
 
