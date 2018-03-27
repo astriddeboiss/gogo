@@ -1,4 +1,4 @@
-.card {
+.activity-card {
   width: 290px;
   height: 350px;
   margin: 0 auto;
@@ -26,7 +26,7 @@
   input.required {
     position: absolute;
     top: 5px;
-    left: 310px;
+    left: 295px;
     z-index: 2;
   }
 }
@@ -38,25 +38,42 @@
   overflow-x: scroll !important;
 }
 
-.card-banner {
+.activity-card-banner {
   width: 100%;
-  height: 230px;
+  height: 350px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4));
+      }
 }
 
 
-.item-description {
+.item-description-recto {
   list-style-type: none;
   padding-left: 10px;
   justify-content: space-around;
   padding-right: 10px;
   white-space:normal !important;
   word-wrap: break-word;
+  position: absolute;
+  margin-bottom: 5px;
+  bottom: 5px;
 }
 
-#title-space {
-  padding-top: 10px;
+.item-description-verso {
+  list-style-type: none;
+  padding-left: 10px;
+  justify-content: space-around;
+  padding-right: 10px;
+  white-space:normal !important;
+  word-wrap: break-word;
 }
 
 p#activity-name {
@@ -71,11 +88,40 @@ p#activity-name {
   margin-bottom: 2px;
 }
 
+#city-name {
+  color: rgba(57,57,57,0.8);
+  font-weight: 400;
+  font-family: $body-font;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+p#activity-name-recto {
+  font-weight: 500;
+  color: white;
+  font-size: 23px;
+  font-family: $body-font;
+  letter-spacing: 0.3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 2px;
+}
+
+#city-name-recto {
+  color: white;
+  font-weight: 400;
+  font-family: $body-font;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+
 #explore-button {
-  background-color: rgba(117, 1, 95,0.1);
   height: 30px;
   width: 80px;
-  border-radius: 2px;
+  border-radius: 10px;
+  border: 1px solid white;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -86,18 +132,11 @@ p#activity-name {
 
 #explore-text {
   text-transform: uppercase;
-  color: rgba(117, 1, 95, 1);
+  color: white;
   font-size: 12px;
   font-weight: lighter;
 }
 
-#city-name {
-  color: rgba(57,57,57,0.8);
-  font-weight: 400;
-  font-family: $body-font;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
 
 #activity-duration {
   color: rgba(57,57,57,0.8);
@@ -106,7 +145,7 @@ p#activity-name {
   font-size: 14px;
 }
 
-.card-link {
+.activity-card-link {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -123,9 +162,19 @@ p#activity-name {
 
 .icon-card {
   position: absolute;
+  bottom: 33px;
+  right: 10px;
+  font-size: 30px;
+}
+
+.icon-card-recto {
+  position: absolute;
   top: 310px;
   right:10px;
   font-size: 24px;
+  color: white;
+  border-radius: 30px;
+  border: 1px solid white;
 }
 
 #activity-name-description {
@@ -146,7 +195,7 @@ p#activity-name {
   padding-top: 5px;
 }
 
-#card-description {
+#activity-card-description {
   padding-top: 10px;
   padding-right: 10px;
   font-size: 16px;
@@ -168,45 +217,21 @@ div#heart-on-card:focus {
   color: red;
 }
 
-
-label.required {
-  font-size: 24px;
-  font-family: $body-font;
-  font-weight: 400;
-  margin-bottom: 0px;
-  width: 100%;
-    h1 {
-      text-align: center;
-      margin-top: 0px;
-      margin-bottom: 0px;
-      font-size: 24px;
-    }
-}
-
-label {
-  padding-left: 0px;
-}
-
-i.fa.fa-angle-right {
-  width: 40px;
-  height: 35px;
-  text-align: center;
-}
-
 i.fa.fa-angle-left {
   width: 40px;
   height: 35px;
   text-align: center;
 }
 
-.container-new-trip-activities {
-  margin: 0 auto;
-  label {
-    text-align: center;
-  }
+i.fa.fa-angle-right {
+  width: 40px;
+  height: 35px;
+  text-align: center;
+  color: white;
 }
 
-.card-trip {
+
+.activity-card-trip {
   padding-top: 10px;
   padding-right: 10px;
   font-size: 16px;
@@ -214,6 +239,17 @@ i.fa.fa-angle-left {
   height: 230px;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+}
+
+.container-trip-activities {
+  label {
+    padding-left: 10px;
+  }
+}
+
+.activity-info-button {
+  font-size: 12px;
+  color: white;
 }
 
 

@@ -6,9 +6,13 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  get "choice_trip", to: "pages#choice_trip"
+
   get "gogo", to: "pages#gogo"
 
   get "profile", to: "pages#profile"
+
+  post "cityfind", to: "pages#city_find"
 
   resources :trips, only: [:create, :index, :show] do
     resources :user_preferences, only: [:index, :new, :create]
