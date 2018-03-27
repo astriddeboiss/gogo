@@ -1,3 +1,3 @@
 import "bootstrap";
-import { display } from '../components/geoloc';
-display();
+import { getCoordinates } from '../components/geoloc';
+getCoordinates();
