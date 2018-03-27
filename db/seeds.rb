@@ -117,7 +117,7 @@ seed_array = [
 
   {
   name: "Panoramic Views",
-  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t39-Paris_Ile_de_France.html'
+  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t39-Paris_Ile_de_France.html',
    duration: [30, 90]
   },
 
