@@ -1,21 +1,21 @@
 require 'open-uri'
 
-puts 'Cleaning database...'
+puts 'Cleaning TripActivity...'
 TripActivity.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning Activity...'
 Activity.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning UserPreference...'
 UserPreference.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning Category...'
 Category.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning Trip...'
 Trip.destroy_all
 
-puts 'Cleaning database...'
+puts 'Cleaning City...'
 City.destroy_all
 
 
@@ -95,107 +95,164 @@ puts 'Finished!'
 
 puts 'Creating activities...'
 
-show_activities_url = "https://www.tripadvisor.fr/Attraction_Products-g187147-zfg11872-Paris_Ile_de_France.html"
-show_activities_serialized = open(show_activities_url).read
+seed_array = [
+  {
+    name: "Museums & Galleries",
+    url: "https://www.tripadvisor.fr/Attractions-g187147-Activities-c49-t1,161-Paris_Ile_de_France.html",
+    duration: [90, 180]
+  },
+  {
+    name: "Parks & Gardens",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c61-Paris_Ile_de_France.html',
+    duration: [30, 60]
+  },
 
-activities = Nokogiri::HTML(show_activities_serialized)
-activities.search(".listing_title a").each do |activity|
-  puts "----------------------"
-  puts activity.attributes
-  puts "----------------------"
-  unless activity.attributes["onclick"].value.match(/(\/AttractionProductDetail\-.+\.html)/).nil?
-    activity_url = activity.attributes["onclick"].value.match(/(\/AttractionProductDetail\-.+\.html)/)[1]
-    activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
-    activity_doc = Nokogiri::HTML(activity_serialized)
+  # {
+  #   name: "Panoramic Views",
+  #   url:'https://www.tripadvisor.fr/Attraction_Products-g187147-zfc11887-zfg11865-Paris_Ile_de_France.html',
+  # duration: [30, 180]
+  # },
 
-    name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
-    description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
-    duration = activity_doc.search("#DETAILS").empty? ? "varies" : activity_doc.search("#DETAILS").text.split[3]
-    binding.pry
-    # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
-    photo = "http://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2014/11/RS-shutterstock_236049502-f4d6a4a0cfd4.jpg"
-    address = "Champ de Mars, 5 Avenue Anatole France, 75007 Paris"
-    opens_at = DateTime.new(2018,1,1,9)
-    closes_at =  DateTime.new(2018,1,1,18)
-    category =  Category.limit(4)[3]
-    city = City.find_by_name("Paris")
-    Activity.create(name: name, description: description, photo: photo, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
+  {
+    name: "Monuments & Must-See",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-Paris_Ile_de_France.html',
+    duration: [30, 180]
+  },
+
+  {
+    name: "Historical Neighbourhoods",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t34-Paris_Ile_de_France.html',
+    duration: [30, 120]
+  },
+
+  {
+    name: "Markets",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t142-Paris_Ile_de_France.html',
+    duration: [60, 90]
+  },
+
+  {
+    name: "Shows & Concerts",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c58-Paris_Ile_de_France.html',
+    duration: [60, 120]
+  },
+
+  {
+    name: "Shopping Areas",
+    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t138-Paris_Ile_de_France.html',
+    duration: [30, 180]
+  },
+]
+
+seed_array.each do |seed_array_item|
+  puts "Creating activity for #{seed_array_item[:name]}..."
+  url = open(seed_array_item[:url])
+  category = Category.find_by_name(seed_array_item[:name])
+  activities_serialized = open(url).read
+  activities = Nokogiri::HTML(activities_serialized)
+  activities.search(".listing_title a").each do |activity|
+
+
+   unless activity.attributes["href"].value.nil?
+
+      activity_url = activity.attributes["href"].value
+      activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
+      activity_doc = Nokogiri::HTML(activity_serialized)
+
+
+      name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
+      # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
+
+      description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
+      # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
+
+      duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
+      # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
+
+      photo = activity_doc.search(".carousel_images img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
+      address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
+      opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
+      closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
+      city = City.find_by_name("Paris")
+      a = Activity.create(name: name, description: description, photo: photo, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
+      puts "#{a.name} created!"
+    end
   end
 end
 puts 'Finished Scrap activities'
 
 
-puts 'Creating Users...'
-users_attributes = [
-  {
-    first_name: "Brigitte",
-    last_name: "Macron",
-    email: "brigitte@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Zinedine",
-    last_name: "Zidane",
-    email: "zidane@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Elon",
-    last_name: "Musk",
-    email: "elon@gmail.com",
-    password: "secret"
-  }
-]
-User.create!(users_attributes)
-puts 'Finished!'
+# puts 'Creating Users...'
+# users_attributes = [
+#   {
+#     first_name: "Brigitte",
+#     last_name: "Macron",
+#     email: "brigitte@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Zinedine",
+#     last_name: "Zidane",
+#     email: "zidane@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Elon",
+#     last_name: "Musk",
+#     email: "elon@gmail.com",
+#     password: "secret"
+#   }
+# ]
+# User.create!(users_attributes)
+# puts 'Finished!'
 
 
-puts 'Creating Users...'
-users_attributes = [
-  {
-    first_name: "Victor",
-    last_name: "Sardet",
-    email: "victor@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Simone",
-    last_name: "Basse",
-    email: "simone@gmail.com",
-    password: "secret"
-  },
-  {
-    first_name: "Pierre",
-    last_name: "Collier",
-    email: "pierre@gmail.com",
-    password: "secret"
-  }
-]
-User.create!(users_attributes)
-puts 'Finished!'
+# puts 'Creating Users...'
+# users_attributes = [
+#   {
+#     first_name: "Victor",
+#     last_name: "Sardet",
+#     email: "victor2@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Simone",
+#     last_name: "Basse",
+#     email: "simone2@gmail.com",
+#     password: "secret"
+#   },
+#   {
+#     first_name: "Pierre",
+#     last_name: "Collier",
+#     email: "pierre1@gmail.com",
+#     password: "secret"
+#   }
+# ]
+# User.create!(users_attributes)
+# puts 'Finished!'
 
-puts 'Creating User Preferences...'
-user_preferences_attributes = [
-  {
-    user: User.new(email: "marie@gmail.com", password: "secret"),
-    category: Category.first
-  }
-]
-UserPreference.create!(user_preferences_attributes)
-puts 'Finished!'
+# puts 'Creating User Preferences...'
+# user_preferences_attributes = [
+#   {
+#     user: User.new(email: "marc1@gmail.com", password: "secret"),
+#     category: Category.first
+#   }
+# ]
+# UserPreference.create!(user_preferences_attributes)
+# puts 'Finished!'
 
 
 
-puts 'Creating Trips...'
-trips_attributes = [
-  {
-    name: "#{User.first.first_name}'s trip in #{City.first.name}",
-    city: City.first,
-    user: User.first
-  }
-]
-Trip.create!(trips_attributes)
-puts 'Finished!'
+# puts 'Creating Trips...'
+# trips_attributes = [
+#   {
+#     name: "#{User.first.first_name}'s trip in #{City.first.name}",
+#     city: City.first,
+#     user: User.first
+#   }
+# ]
+# Trip.create!(trips_attributes)
+# puts 'Finished!'
 
 
 
