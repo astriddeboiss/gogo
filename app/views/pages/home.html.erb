@@ -1,6 +1,5 @@
 
 <div class="home-background col-xs-12 col-xs-offset-4">
-  <%= render 'shared/header' %>
 
 <!-- <h2> Your current GPS coordinates</h2> -->
 <form action="<%= trips_path %>" method="POST" id="geoloc">
@@ -11,10 +10,7 @@
 
 
 <div class="home-banner">
-  <p class="home-title-wrapper">
-    <span id="home-title">Plan your next city trip!<span id="home-emoji"><i class="em em-raised_hands"></i></span></span>
-  <p id="question-1">Where to next?</p>
-  </p>
+    <span class="page-title">Plan your next city trip</span>
 
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
@@ -25,7 +21,7 @@
     <input type="hidden" name="trip[city_id]" value="">
      <div class="home-wrapper-cards">
         <% City.all.each do |city| %>
-         <div class="home-card">
+         <div class="preferences-card">
            <span class="radio">
              <label class="label" for="trip_city_id_<%= city.id %>">
                <input class="radio_buttons required" type="radio" value="<%= city.id %>" name="trip[city_id]" id="trip_city_id_<%= city.id %>">
@@ -36,8 +32,10 @@
         <% end %>
      </div>
       <div class="home-name-trip">
-        <%= f.input :name, label: "Name your trip:", class: "name-trip", placeholder: "e.g., Girls' weekend in Rome"%>
-        <%= f.submit class: "btn btn-primary btn-create-trip btn-home-page" %>
+        <%= f.input :name, label: "Name your trip:", class: "name-trip", placeholder: "Girls' weekend in Rome"%>
+        <%= f.input :starts_at, as: :date, class: "name-trip"%>
+        <%= f.input :ends_at, as: :date, class: "name-trip"%>
+        <%= f.submit "CHOOSE YOUR PREFERENCES", class: "btn-cta" %>
       </div>
   </div>
 <% end %>

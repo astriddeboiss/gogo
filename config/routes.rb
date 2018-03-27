@@ -2,21 +2,26 @@ Rails.application.routes.draw do
   get 'activities/index'
 
   get 'pages/user_preferences'
-  resources :user_preferences, only: [:edit, :update]
   resources :signup_user_preferences, only: [:new, :create], controller: "user_preferences/sign_up"
   resources :profile_user_preferences, only: [:new, :create], controller: "user_preferences/edit_profile"
 
   get 'pages/preferences'
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
+
+  get "choice_trip", to: "pages#choice_trip"
 
   get "gogo", to: "pages#gogo"
 
   get "profile", to: "pages#profile"
 
+  post "cityfind", to: "pages#city_find"
+
   resources :trips, only: [:create, :index, :show] do
+    resources :user_preferences, only: [:index, :new, :create]
     resources :trip_activities, only: [:index, :new, :create]
   end
 

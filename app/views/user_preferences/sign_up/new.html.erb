@@ -1,30 +1,41 @@
-<div class="preferences-big-container">
+<div class="preferences-big-container col-xs-12">
+
+  <div class="header-home">
+    <div class="logo-home-container">
+      <h1 id="logo-home">gogo.</h1>
+    </div>
+  <div>
+<% if !current_user %>
+      <%= link_to "Sign in", user_session_path, class: "sign-in-home" %>
+    <% else %>
+      <%= link_to "Sign out", destroy_user_session_path, class: "sign-in-home", method: :delete %>
+<% end %>
+  </div>
+  </div>
+
+
 <%= simple_form_for (@user_preference), url: signup_user_preferences_path do |f| %>
   <%#= f.association :category, as: :check_boxes %>
-  <div>
-     <h2> Tell us your preferences when you travel</h2>
-      <p> What do you like to do ? </p>
+
+
     <div class="home-wrapper-cards">
       <% @categories.each do |category| %>
         <div class="preferences-card">
           <span class="checkbox">
             <label class="label" for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
-              <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
+              <% photo_path = cl_image_path category.photo, height: 220, width: 250, crop: :fill%>
               <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
               </div>
-              <div class="home-text-container">
-                <div class="home-card-text">
-                  <%= category.name %>
-                </div>
+              <div class="home-card-text">
+                <%= category.name %>
               </div>
             </label>
           </span>
         </div>
       <% end %>
     </div>
-  </div>
 <div class="save-preferences">
-  <%= f.submit "Save my preferences", class: "preferences-button" %>
+  <%= f.submit "SAVE MY PREFERENCES", class: "btn-cta"%>
 </div>
   <% end %>
 </div>
