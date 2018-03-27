@@ -115,11 +115,11 @@ seed_array = [
     duration: [30, 60]
   },
 
-  # {
-  #   name: "Panoramic Views",
-  #   url:'https://www.tripadvisor.fr/Attraction_Products-g187147-zfc11887-zfg11865-Paris_Ile_de_France.html',
-  # duration: [30, 180]
-  # },
+  {
+  name: "Panoramic Views",
+  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t39-Paris_Ile_de_France.html'
+   duration: [30, 90]
+  },
 
   {
     name: "Monuments & Must-See",
