@@ -1,9 +1,17 @@
 
-  <h2 class="page-title"> My profile </h2>
-  <h4> <strong>  First name :</strong> <%= current_user.first_name %></h4>
-  <h4> <strong>  Last name :</strong> <%= current_user.last_name %></h4>
-  <h4> <strong>  Email :</strong> <%= current_user.email %></h4>
-  <%= link_to "Change password", edit_user_password_path %>
+  <div class="profile-container">
+    <div class="profile-title page-title"> My profile </div>
+    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+    <div class="profile-elements">
+        <ul>
+          <li><strong>  First name :</strong> <%= current_user.first_name %></li>
+          <li><strong>  Last name :</strong> <%= current_user.last_name %></li>
+          <li> <strong>  Email :</strong> <%= current_user.email %></li>
+        </ul>
+    </div>
+      <%= link_to "Change password", edit_user_password_path %>
 
+  </div>
 
 <%= render 'shared/footer' %>
