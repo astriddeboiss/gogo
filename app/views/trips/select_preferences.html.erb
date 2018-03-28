@@ -6,7 +6,7 @@
           <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
           <div class="category-card" style="background-image: url('<%= photo_path %>');">
             <div>
-              <%= category.name %>
+              <h6><%= category.name %></h6>
             </div>
             <%= link_to '', trip_user_preferences_path(@trip, cat:category.id), method: "post", class: "category-card-link" %>
           </div>
