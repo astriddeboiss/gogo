@@ -2,12 +2,12 @@ class TripActivitiesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @trip_activities = TripActivity.where(trip_id: @trip)
-    # @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
-    @markers = @trip_activities.map do |trip_activity|
+    @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
+    @markers = @activities.map do |activity|
       {
-        lat: trip_activity.activity.latitude,
-        lng: trip_activity.activity.longitude,
-        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { trip_activity: trip_activity }) }
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { activity: activity }) }
       }
     end
   end
