@@ -1,5 +1,11 @@
 <div class="item-description-verso">
   <p id="activity-name-description"> <%= activity.name %> </p>
   <p id="activity-address-description"><%= activity.address %> </p>
-  <p id="activity-card-description"> <%= activity.description %> </p>
+  <p id="activity-card-description">
+    <% if activity.description.length > 200 %>
+    <%= activity.description.first(200) + " (...)"%>
+    <% else %>
+    <%= activity.description %>
+    <% end %>
+
 </div>
