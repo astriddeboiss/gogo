@@ -177,13 +177,15 @@ seed_array.each do |seed_array_item|
       duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
       # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
 
-      photo = activity_doc.search(".carousel_images img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
+      photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
       address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
       opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
       closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
       city = City.find_by_name("Paris")
-      a = Activity.create(name: name, description: description, photo: photo, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
-      puts "#{a.name} created!"
+      new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
+      new_activity.remote_photo_url = photo
+      new_activity.save
+      puts "#{new_activity.name} created!"
     end
   end
 end
