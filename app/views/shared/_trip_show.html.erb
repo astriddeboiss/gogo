@@ -1,8 +1,5 @@
 
 
-<div class="col-xs-12 remove-padding">
-<h1 class="page-title"> All my activities for my trip to <%=@trip.city.name %></h1>
-
 <!-- Tab links -->
   <div class="tab trip-activities-tabs-container">
     <div class="tabs-wrapper">
@@ -14,7 +11,7 @@
 <!-- Tab content -->
   <div id="trip-activities-list" class="tabcontent">
     <div class="container-trip-activities-list">
-    <% @trip_activities.visited.each do |trip_activity| %>
+    <% trip_activities.visited.each do |trip_activity| %>
       <div class="trip-activities-card">
         <div id=""><%= link_to not_visited_path(trip_activity), method: :patch do %>
           <div class="mark-list-done">
@@ -33,7 +30,7 @@
       </div>
     <% end %>
 
-    <% @trip_activities.not_visited.each do |trip_activity| %>
+    <% trip_activities.not_visited.each do |trip_activity| %>
       <div class="trip-activities-card">
         <div id=""><%= link_to visited_path(trip_activity), method: :patch do %>
           <div class="mark-list"></div>
@@ -57,7 +54,7 @@
   id="map"
   style="width: 100%;
   height: 300px;margin-top: 20px;"
-  data-markers="<%= @markers.to_json %>"
+  data-markers="<%= markers.to_json %>"
 ></div>
 
   </div>
