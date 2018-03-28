@@ -30,3 +30,5 @@
   <% end %>
 <% end %>
 </ul>
+
+<%= render "shared/trip_show", trip: Trip.find(params[:trip]), trip_activities: filtre, markers: @markers %>
