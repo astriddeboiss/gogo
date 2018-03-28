@@ -5,16 +5,14 @@
         <div class="col-xs-6">
           <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
           <div class="category-card" style="background-image: url('<%= photo_path %>');">
-            <div>
-              <h6><%= category.name %></h6>
-            </div>
+              <h6><%= category.name.upcase %></h6>
             <%= link_to '', trip_user_preferences_path(@trip, cat:category.id), method: "post", class: "category-card-link" %>
           </div>
         </div>
       <% end %>
       <div class="col-xs-12">
         <div class="padded-1">
-          <%= link_to "SEE THE ACTIVITIES WE SUGGEST",  new_trip_trip_activity_path(@trip), class: "btn btn-cta" %>
+          <%= link_to "CHOOSE YOUR PREFERENCES",  new_trip_trip_activity_path(@trip), class: "btn btn-cta" %>
         </div>
       </div>
     </div>
