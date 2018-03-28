@@ -30,7 +30,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application'%>  <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body >
+  <body class="margin-bottom-all" >
     <% unless current_page?(root_path) %>
       <%= render 'shared/header' %>
     <% end %>
