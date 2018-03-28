@@ -5,9 +5,9 @@ class UserPreferencesController < ApplicationController
 
   def create
     @trip = Trip.find(params[:trip_id])
-    @user_preference = UserPreference.new(category: Category.find(params[:cat].to_i), trip: @trip)
+    @category = Category.find(params[:cat].to_i)
+    @user_preference = UserPreference.new(category: @category, trip: @trip)
     @user_preference.user = current_user
     @user_preference.save
-    redirect_to select_preferences_trip_path(@trip)
   end
 end
