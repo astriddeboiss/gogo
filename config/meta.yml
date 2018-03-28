@@ -1,0 +1,5 @@
+meta_product_name: "Gogo App"
+meta_title: "Gogo is more than city guide"
+meta_description: "Your city companion, discover amazing places that suits your preferecences "
+meta_image: "cover.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@gogoapp"   # required for Twitter Cards
