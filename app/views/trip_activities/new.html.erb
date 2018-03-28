@@ -7,7 +7,7 @@
     <input name="trip_activity[activity_id][]" value="" type="hidden">
     <div class="wrapper-card-container">
       <div class="wrapper-cards">
-      <% @activities.each do |activity| %>
+      <% @activities.shuffle.each do |activity| %>
         <span class="checkbox">
         <label for="trip_activity_activity_id_<%= activity.id %>">
           <input class="check_boxes required" value="<%= activity.id %>" name="trip_activity[activity_id][]" id="trip_activity_activity_id_<%= activity.id %>" type="checkbox"> <%=  render "shared/card", activity: activity %>

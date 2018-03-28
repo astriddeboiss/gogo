@@ -57,6 +57,7 @@ class TripActivitiesController < ApplicationController
     address_components = Geocoder.search("#{lat}, #{lng}").first.data["address_components"]
     city_hash = address_components.detect {|element| element.has_key?("types") && element["types"] == ["locality", "political"]}
     city = City.find_by_name(city_hash["long_name"])
+
     user = current_user
     @trip = Trip.find_by "starts_at <= ? AND ends_at >= ? AND city_id = ? AND user_id = ?", Time.now, Time.now, city.id, user.id
      raise
