@@ -83,12 +83,16 @@ h1#logo-home {
   height: 60px;
 }
 
+h6 {
+  color: white;
+  margin:2px;
+  padding:2px;
+  text-align: center;
+}
 
-
-
-
-
-
-
+.category-card {
+  font-family: $title-font;
+  background-repeat: no-repeat;
+}
 
 
