@@ -19,4 +19,37 @@
   padding-right: 0px;
 }
 
+.header-home {
+  background-image: url("https://source.unsplash.com/r4RbzA82VdA/1600x900");
+  background-size: cover;
+  height: 240px;
+  width: 100%;
+}
 
+.logo-home-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+}
+
+.category-card {
+  font-family: $text-font;
+  background-size: cover;
+  background-repeat: no-repeat;
+  h6 {
+    color: white;
+    margin:2px;
+    padding:2px;
+    font-family: $title-font;
+    text-align: center;
+  }
+}
+.category-selected {
+  opacity: 0.3;
+}
+
+.col-xs-6 {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}

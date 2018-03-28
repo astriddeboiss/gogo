@@ -6,7 +6,7 @@
 <!-- Tab links -->
   <div class="tab trip-activities-tabs-container">
     <div class="tabs-wrapper">
-      <button class="tablinks" onclick="openCity(event, 'trip-activities-list')">List</button>
+      <button class="tablinks active" onclick="openCity(event, 'trip-activities-list')">List</button>
       <button class="tablinks" onclick="openCity(event, 'trip-activities-map')">Map</button>
     </div>
   </div>
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <div id="trip-activities-map" class="tabcontent">
+  <div id="trip-activities-map" class="tabcontent" style="display:none;">
   <div
   id="map"
   style="width: 100%;
@@ -83,6 +83,11 @@
 
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(cityName).style.display = "block";
+    if (cityName == 'trip-activities-map') {
+      const theMap = document.getElementById('map');
+      theMap.style.width = '100%';
+      theMap.style.height = '500px';
+    }
     evt.currentTarget.className += " active";
 }
 </script>

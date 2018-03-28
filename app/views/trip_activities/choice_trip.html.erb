@@ -1,0 +1,11 @@
+<p>choice</p>
+
+
+<%= form_tag gogo_path, method: :post do %>
+<%= select_tag :trip,
+  options_from_collection_for_select(@choices, "id", "name"),
+  class: "form-control",
+  placeholder: "Chose your trip"
+  %>
+<%= submit_tag "toto", class: 'btn btn-primary' %>
+<% end %>

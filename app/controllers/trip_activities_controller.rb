@@ -2,12 +2,12 @@ class TripActivitiesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @trip_activities = TripActivity.where(trip_id: @trip)
-    # @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
-    @markers = @trip_activities.map do |trip_activity|
+    @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
+    @markers = @activities.map do |activity|
       {
-        lat: trip_activity.activity.latitude,
-        lng: trip_activity.activity.longitude,
-        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { trip_activity: trip_activity }) }
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { activity: activity }) }
       }
     end
   end
@@ -43,6 +43,35 @@ class TripActivitiesController < ApplicationController
     @trip_activity.mark_as_done = false
     @trip_activity.save
     redirect_to trip_trip_activities_path(@trip_activity.trip)
+  end
+
+  def gogo
+    # require 'rest_client'
+    # url = "https://www.googleapis.com/geolocation/v1/geolocate?key=#{ENV["GOOGLE_API_SERVER_KEY"]}"
+    # response = RestClient.post url, {}
+    # serialized_response = JSON.parse(response)
+    # lat = serialized_response.first.last["lat"]
+    # lng = serialized_response.first.last["lng"]
+    lat = params[:latitude]
+    lng = params[:longitude]
+    address_components = Geocoder.search("#{lat}, #{lng}").first.data["address_components"]
+    city_hash = address_components.detect {|element| element.has_key?("types") && element["types"] == ["locality", "political"]}
+    city = City.find_by_name(city_hash["long_name"])
+    @choices = Trip.where(city: city, user: current_user)
+    @trip = Trip.where(ci)
+  end
+
+   def gogo
+
+    :trip # le trip choisi
+    @choices #les trips de la ville ou je me trouve
+
+    # retrouver intelligemment l'instance de trip actuelle du current_user
+    # construire @trip_activities avec tes critères de filtre
+    @trip_activities = trip.trip_activities
+  end
+
+  def city_find
   end
 
   private

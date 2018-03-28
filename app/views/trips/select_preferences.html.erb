@@ -1,24 +1,21 @@
-  <div>
-    <div class="home-wrapper-cards">
+<div class="bottom-margin-60">
+  <div class="container">
+    <div class="row">
       <% @categories.each do |category| %>
-        <div class="home-card">
-          <%= link_to trip_user_preferences_path(@trip, cat:category.id), method: "post" do %>
-          <span class="checkbox">
-            <label for="user_preference_category_id_<%= category.id %>"><input class="check_boxes required" type="checkbox" value="<%= category.id %>" name="user_preference[category_id][]" id="user_preference_category_id_<%= category.id %>">
-              <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
-                <div class="home-card-banner" style="background-image: url('<%= photo_path %>');">
-                </div>
-                <div class="home-text-container">
-                  <div class="home-card-text">
-                    <%= category.name %>
-                  </div>
-                </div>
-              <% end %>
-            </label>
-          </span>
+        <div class="col-xs-6">
+          <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
+          <div class="category-card<%= ' category-selected' if current_user.categories.include?(category) %>" id="category_<%= category.id %>" style="background-image: url('<%= photo_path %>');">
+            <h6><%= category.name.upcase %></h6>
+            <%= link_to '', trip_user_preferences_path(@trip, cat:category.id), method: "post", remote: true, class: "category-card-link" %>
+          </div>
         </div>
       <% end %>
+      <div class="col-xs-12">
+        <div class="padded-1">
+          <%= link_to "CHOOSE YOUR PREFERENCES",  new_trip_trip_activity_path(@trip), class: "btn btn-cta" %>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
-  <%= link_to "SEE THE ACTIVITIES WE SUGGEST",  new_trip_trip_activity_path(@trip), class: "btn-cta" %>
