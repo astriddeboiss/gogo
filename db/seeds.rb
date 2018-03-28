@@ -106,7 +106,7 @@ puts 'Creating activities...'
 seed_array = [
   {
     name: "Museums & Galleries",
-    url: "https://www.tripadvisor.fr/Attractions-g187147-Activities-c49-t1,161-Paris_Ile_de_France.html",
+    url: "https://www.tripadvisor.fr/Attractions-g187147-Activities-c49-t1,28-zfn7236763,29460,7236764-Paris_Ile_de_France.html",
     duration: [90, 180]
   },
   {
@@ -117,7 +117,7 @@ seed_array = [
 
   {
   name: "Panoramic Views",
-  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t39-Paris_Ile_de_France.html',
+  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t13,120,166,39,2-Paris_Ile_de_France.html',
    duration: [30, 90]
   },
 
