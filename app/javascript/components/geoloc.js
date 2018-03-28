@@ -6,7 +6,7 @@ function sendData(json) {
   // const request = new XMLHttpRequest();
   // request.open("POST", "/choice_trip")
   // request.send(coordinatesData);
-  window.location = `/choice_trip?latitude=${json.lat}&longitude=${json.lng}`
+  window.location = `/gogo?latitude=${json.lat}&longitude=${json.lng}`
 }
 
 function getCoordinates() {

@@ -46,6 +46,9 @@ class TripActivitiesController < ApplicationController
   end
 
   def gogo
+    # retrouver intelligemment l'instance de trip actuelle du current_user
+    # construire @trip_activities avec tes critères de filtre
+    @trip_activities = trip.trip_activities
   end
 
   def choice_trip
