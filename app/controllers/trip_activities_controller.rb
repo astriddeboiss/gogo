@@ -46,12 +46,6 @@ class TripActivitiesController < ApplicationController
   end
 
   def gogo
-    # retrouver intelligemment l'instance de trip actuelle du current_user
-    # construire @trip_activities avec tes critères de filtre
-    @trip_activities = trip.trip_activities
-  end
-
-  def choice_trip
     # require 'rest_client'
     # url = "https://www.googleapis.com/geolocation/v1/geolocate?key=#{ENV["GOOGLE_API_SERVER_KEY"]}"
     # response = RestClient.post url, {}
@@ -63,7 +57,11 @@ class TripActivitiesController < ApplicationController
     address_components = Geocoder.search("#{lat}, #{lng}").first.data["address_components"]
     city_hash = address_components.detect {|element| element.has_key?("types") && element["types"] == ["locality", "political"]}
     city = City.find_by_name(city_hash["long_name"])
-    @choices = Trip.where(city: city, user: current_user)
+    user = current_user
+    @trip = Trip.find_by "starts_at <= ? AND ends_at >= ? AND city_id = ? AND user_id = ?", Time.now, Time.now, city.id, user.id
+     raise
+    @filter = open_activities(@trip)
+
   end
 
   def city_find
@@ -74,4 +72,19 @@ class TripActivitiesController < ApplicationController
   def params_trip_activity
     params.require(:trip_activity).permit(:trip, :activity)
   end
-end
+
+  def open_activities(trip)
+    visit_min = activity.duration
+    opening_hour = activity.opens_at.hour
+    opening_min = activity.opens_at.min
+    closing_hour = activity.closes_at.hour
+    closing_min = activity.closes_at.min
+    begining_hour = Time.now.hour
+    begining_min = Time.now.min
+    ending_min = (begining_min + visit_min%60)%60
+    ending_hour = begining_hour + visit_min.div(60) + (begining_min + visit_min%60).div(60)
+    return TripActivity.where "trip_id = ? AND begining_hour > ? ",trip.
+    # return TripActivity.where "trip_id = ? AND clothing_hour > Activity.find.opens_at.hour", trip.id
+  end
+
+# endAND fin_hour < closing_hour || (fin_hour == closing_hour && fin_min > closing_min)

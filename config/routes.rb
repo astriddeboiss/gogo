@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get "choice_trip", to: "trip_activities#choice_trip"
+  get "gogo", to: "trip_activities#gogo"
 
   post "gogo", to: "trip_activities#gogo"
 
