@@ -1,5 +1,4 @@
 
-<div class="container-profile">
   <h2 class="page-title"> My profile </h2>
   <h4> <strong>  First name :</strong> <%= current_user.first_name %></h4>
   <h4> <strong>  Last name :</strong> <%= current_user.last_name %></h4>
@@ -7,3 +6,4 @@
   <%= link_to "Change password", edit_user_password_path %>
 
 
+<%= render 'shared/footer' %>
