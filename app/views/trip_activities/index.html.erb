@@ -1,7 +1,6 @@
 
 
-<div class="col-xs-12 remove-padding">
-<h1 class="page-title"> All my activities for my trip to <%=@trip.city.name %></h1>
+<div class="col-xs-12 remove-padding bottom-margin-60">
 
 <!-- Tab links -->
   <div class="tab trip-activities-tabs-container">
@@ -11,12 +10,13 @@
     </div>
   </div>
 
+<h1 class="page-title-small"> All my activities for my trip to <%=@trip.city.name %></h1>
 <!-- Tab content -->
   <div id="trip-activities-list" class="tabcontent">
     <div class="container-trip-activities-list">
     <% @trip_activities.visited.each do |trip_activity| %>
       <div class="trip-activities-card">
-        <div id=""><%= link_to not_visited_path(trip_activity), method: :patch do %>
+        <div id="to-do-link"><%= link_to not_visited_path(trip_activity), method: :patch do %>
           <div class="mark-list-done">
           <img src="https://res.cloudinary.com/dp9rm52pu/image/upload/v1522138790/noun_149010_cc.png" alt="">
           </div>
@@ -27,7 +27,13 @@
             <img src="<%= list_image %>" alt="">
           </div>
           <div class="activity-list">
-            <li id="activity-list-name"><%= trip_activity.activity.name %></li>
+            <li id="activity-list-name">
+              <% if trip_activity.activity.name.length > 23 %>
+              <%= trip_activity.activity.name.first(23) + "..." %>
+              <% else %>
+              <%= trip_activity.activity.name %>
+              <% end %>
+              </li>
             <li id="activity-list-duration"><%= trip_activity.activity.duration %> min</li>
           </div>
       </div>
@@ -35,8 +41,10 @@
 
     <% @trip_activities.not_visited.each do |trip_activity| %>
       <div class="trip-activities-card">
-        <div id=""><%= link_to visited_path(trip_activity), method: :patch do %>
-          <div class="mark-list"></div>
+        <div id="to-do-link"><%= link_to visited_path(trip_activity), method: :patch do %>
+          <div class="mark-list">
+            <div>TO DO</div>
+          </div>
         <% end %>
         </div>
         <% list_image = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
@@ -44,7 +52,13 @@
           <img src="<%= list_image %>" alt="">
         </div>
         <div class="activity-list">
-          <li id="activity-list-name"><%= trip_activity.activity.name %></li>
+          <li id="activity-list-name">
+            <% if trip_activity.activity.name.length > 23 %>
+            <%= trip_activity.activity.name.first(23) + "..." %>
+            <% else %>
+              <%= trip_activity.activity.name %>
+            <% end %>
+            </li>
           <li id="activity-list-duration"><%= trip_activity.activity.duration %> min</li>
         </div>
       </div>
