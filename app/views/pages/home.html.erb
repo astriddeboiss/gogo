@@ -1,4 +1,4 @@
-<div class="home-background col-xs-12 col-xs-offset-4">
+<div class="home-background col-xs-12">
 
 <!-- <h2> Your current GPS coordinates</h2> -->
 <form action="<%= trips_path %>" method="POST" id="geoloc">
@@ -8,9 +8,26 @@
 </form>
 
 
-<div class="home-banner">
-    <span class="page-title">Plan your next city trip</span>
+<div class="preferences-big-container">
+  <div class="header-home">
+    <div class="logo-home-container">
+      <h1 id="logo-home">gogo.</h1>
+    </div>
+  <div>
+<% if !current_user %>
+      <%= link_to "Sign in", user_session_path, class: "sign-in-home" %>
+    <% else %>
+   <%= link_to "Sign out", destroy_user_session_path, class: "sign-in-home", method: :delete %>
+<% end %>
+</div>
+</div>
+</div>
 
+<div class="home-banner">
+  <div class="home-page-text">
+    <p id="tagline-home">Plan your next city Trip</p>
+    <p id="question-home">Where would you like to go?</p>
+  </div>
 <% @trip = Trip.new %>
 <%= simple_form_for @trip do |f| %>
   <div class="form-group radio_buttons required trip_city">
@@ -31,17 +48,16 @@
         <% end %>
      </div>
       <div class="home-name-trip">
-        <%= f.input :name, class: "name-trip", placeholder: "Name your trip", label: false %>
+        <%= f.input :name, class: "name-trip", placeholder: "Trip name: e.g., Girls' trip in Rome", label: false %>
         <!-- <label for="starts_at">Select your dates</label> -->
         <div class="flex">
           <%= f.input :starts_at, as: :string, label: false, required: false, input_html: { class: "flatpicker", placeholder: "Trip start date" } %>
-           <%= f.input :ends_at, as: :string, label: false, required: false, input_html: { class: "flatpicker", placeholder: "Trip end date" } %>
+           <%= f.input :ends_at, as: :string, label: false, required: false, input_html: { class: "flatpicker", placeholder: "Trip end date"} %>
         </div>
-        <%= f.submit "CREATE YOUR TRIP", class: "btn btn-cta" %>
+        <%= f.submit "Create your trip", class: "btn-cta" %>
       </div>
   </div>
 <% end %>
-</div>
 </div>
 
 

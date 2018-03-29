@@ -19,63 +19,6 @@
   padding-right: 0px;
 }
 
-.preferences-card {
-  display: inline-block !important;
-  margin-right: 4px !important;
-  width: 250px;
-  height: 220px;
-  color: black;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  border-radius: 1px;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1) !important;
-    .checkbox {
-      margin-top: 0px;
-    }
-  position: relative;
-}
-
-#logo-home {
-  font-family: $logo-font;
-  font-weight: 700;
-  font-size: 30px;
-  color: white;
-}
-
-h1#logo-home {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.sign-in-home {
-  margin-bottom: 0px;
-  width: 60px;
-  z-index: 1;
-  position: absolute;
-  top: 3px;
-  right: 10px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: $body-font;
-  line-height: 1em;
-  letter-spacing: 0.2px;
-  color: white;
-}
-
-.sign-in-home:hover {
-  color: white;
-  text-decoration: none;
-}
-
-.header-home {
-  background-image: url("https://source.unsplash.com/r4RbzA82VdA/1600x900");
-  background-size: cover;
-  height: 240px;
-  width: 100%;
-}
-
 .logo-home-container {
   display: flex;
   justify-content: space-around;
@@ -83,16 +26,23 @@ h1#logo-home {
   height: 60px;
 }
 
-h6 {
-  color: white;
-  margin:2px;
-  padding:2px;
-  text-align: center;
-}
-
 .category-card {
-  font-family: $title-font;
+  font-family: $text-font;
+  background-size: cover;
   background-repeat: no-repeat;
+  h6 {
+    color: white;
+    margin:2px;
+    padding:2px;
+    font-family: $title-font;
+    text-align: center;
+  }
+}
+.category-selected {
+  opacity: 0.3;
 }
 
-
+.col-xs-6 {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
