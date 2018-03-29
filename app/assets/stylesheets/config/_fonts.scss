@@ -1,16 +1,9 @@
 // Import Google fonts
-
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700|Nunito:100,300,400,700|Open Sans:400,600|Lato:400,700|Roboto:100,300,400,700|Raleway:400,500,600");
-@import url("https://afeld.github.io/emoji-css/emoji.css");
-
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,500,700|Work+Sans:300,400,500");
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$default-font: "Roboto", "Helvetica", "sans-serif";
-$title-font: "Raleway", "Helvetica", "sans-serif";
-$headers-font: "Roboto", "Helvetica", "sans-serif";
-$logo-font: "Nunito", "sans-serif";
-$text-font: "Nunito", "sans-serif";
+$headers-font: 'Rubik', "sans-serif"; // Titles: 500, Logo: 700
+$body-font: 'Work Sans', "sans-serif"; // Regular text: 400 for subtitles & 300 for base text
 
 // To use a font file .woff) uncomment following lines
 // @font-face {
