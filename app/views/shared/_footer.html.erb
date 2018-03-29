@@ -24,7 +24,7 @@
   <% end %>
 <% end %>
 
-<% if params[:controller] == "trips" || params[:controller] == "trip_activities" %>
+<% if params[:action] == "index"  %>
     <%= link_to trips_path, {class: "footer-tab active"} do %>
       <i class="fa fa-globe" style="font-size:25px"></i>
       <p>MY TRIPS</p>
@@ -37,7 +37,7 @@
 <% end %>
 
 
-<%if params[:action] == "gogo" || params[:action] == "choice_trip" %>
+<%if params[:action] == "gogo" %>
   <a href="#" class="footer-tab active" id="go-now">
     <i class="fa fa-map" style="font-size:25px"></i>
     <p>GO NOW</p>
