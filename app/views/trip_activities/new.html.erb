@@ -1,4 +1,8 @@
-<p class="page-title" style="margin-top: 10px; margin-bottom: 0px;line-height: 1.2;">Please select activities you would like to do in <%= @city.name %></p>
+<div class="wrapper-header">
+  <div class="header">
+    <h1 class="page-title">Select your activities</h1>
+  </div>
+</div>
 <div class="container-trip-activities">
 <%= simple_form_for [@trip, @trip_activity] do |f| %>
   <div class="form-group check_boxes required trip_activity_activity" style="height: 390px;">

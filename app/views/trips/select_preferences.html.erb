@@ -1,11 +1,17 @@
-<div class="bottom-margin-60">
-  <div class="container">
+<div class="wrapper-header">
+  <div class="header">
+    <h1 class="page-title">Select your preferences</h1>
+  </div>
+</div>
+
+  <div class="container bottom-margin-60">
     <div class="row">
       <% @categories.each do |category| %>
         <div class="col-xs-6">
           <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
           <div class="category-card<%= ' category-selected' if current_user.categories.include?(category) %>" id="category_<%= category.id %>" style="background-image: url('<%= photo_path %>');">
             <h6><%= category.name %></h6>
+            <i class="fa fa-check-circle checked"></i>
             <% if current_user.categories.include?(category) %>
               <%= link_to '', user_preference_path(UserPreference.where(user: current_user, category: category).first, cat:category.id), method: "delete", remote: true, class: "category-card-link" %>
             <% else %>
@@ -14,12 +20,8 @@
           </div>
         </div>
       <% end %>
-      <div class="col-xs-12">
-        <div class="padded-1">
-          <%= link_to "CHOOSE YOUR PREFERENCES",  new_trip_trip_activity_path(@trip), class: "btn-cta adjustment" %>
-        </div>
-      </div>
     </div>
+    <%= link_to "CHOOSE YOUR PREFERENCES",  new_trip_trip_activity_path(@trip), class: "btn-cta adjustment" %>
   </div>
-</div>
+
 
