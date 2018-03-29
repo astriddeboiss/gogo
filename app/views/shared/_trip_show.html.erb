@@ -11,6 +11,7 @@
 <!-- Tab content -->
   <div id="trip-activities-list" class="tabcontent <%= "hidden" if params[:active_tab] == "map" %>">
     <div class="container-trip-activities-list">
+
       <% trip_activities.visited.each do |trip_activity| %>
         <div class="trip-activities-card">
           <div id=""><%= link_to not_visited_path(trip_activity), method: :patch do %>
@@ -18,6 +19,7 @@
             <img src="https://res.cloudinary.com/dp9rm52pu/image/upload/v1522138790/noun_149010_cc.png" alt="">
             </div>
           <% end %>
+
           </div>
             <% list_image = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
             <div class="list-image" >
