@@ -32,8 +32,8 @@
 
     <% trip_activities.not_visited.each do |trip_activity| %>
       <div class="trip-activities-card">
-        <div id=""><%= link_to visited_path(trip_activity), method: :patch do %>
-          <div class="mark-list"></div>
+        <div id="to-do-link"><%= link_to visited_path(trip_activity), method: :patch do %>
+          <div class="mark-list">To Do</div>
         <% end %>
         </div>
         <% list_image = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
@@ -46,7 +46,6 @@
         </div>
       </div>
     <% end %>
-    </div>
   </div>
   <div id="trip-activities-map" class="tabcontent <%= "hidden" unless params[:active_tab] == "map" %>" style="<%= "display:none;" unless params[:active_tab] == "map" %>">
   <div
