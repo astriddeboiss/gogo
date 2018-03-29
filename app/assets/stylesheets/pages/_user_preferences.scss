@@ -10,36 +10,28 @@
   margin-top: 50px;
 }
 
-.preferences-big-container {
-  background-color: $background;
-}
-
-.preferences-big-container.col-xs-12 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.logo-home-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 60px;
-}
-
 .category-card {
-  font-family: $text-font;
+  font-family: $body-font;
   background-size: cover;
   background-repeat: no-repeat;
   h6 {
     color: white;
     margin:2px;
     padding:2px;
-    font-family: $title-font;
+    font-family: $headers-font;
     text-align: center;
   }
 }
 .category-selected {
-  background-color: rgba(0,0,0,0.5);
+  &:before {
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+  }
 }
 
 .col-xs-6 {
