@@ -7,3 +7,6 @@ import "../plugins/flatpickr"
 import { display } from '../components/geoloc';
 display();
 
+import { selectCity } from '../components/city_card';
+selectCity();
+
