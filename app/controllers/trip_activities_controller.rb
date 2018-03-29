@@ -60,7 +60,6 @@ class TripActivitiesController < ApplicationController
 
     user = current_user
     @trip = Trip.find_by "starts_at <= ? AND ends_at >= ? AND city_id = ? AND user_id = ?", Time.now, Time.now, city.id, user.id
-     raise
     @filter = open_activities(@trip)
 
   end
@@ -84,8 +83,8 @@ class TripActivitiesController < ApplicationController
     begining_min = Time.now.min
     ending_min = (begining_min + visit_min%60)%60
     ending_hour = begining_hour + visit_min.div(60) + (begining_min + visit_min%60).div(60)
-    return TripActivity.where "trip_id = ? AND begining_hour > ? ",trip.
+    # return TripActivity.where "trip_id = ? AND begining_hour > ? ", trip.
     # return TripActivity.where "trip_id = ? AND clothing_hour > Activity.find.opens_at.hour", trip.id
   end
-
+end
 # endAND fin_hour < closing_hour || (fin_hour == closing_hour && fin_min > closing_min)
