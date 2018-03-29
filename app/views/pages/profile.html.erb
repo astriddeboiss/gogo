@@ -10,8 +10,10 @@
           <li> <strong>  Email :</strong> <%= current_user.email %></li>
         </ul>
     </div>
-      <%= link_to "Change password", edit_user_password_path %>
-
+      <%= link_to "Change password", edit_user_password_path, class: "btn" %>
+    <div>
+      <%= link_to "Sign out", destroy_user_session_path, class: "btn", method: :delete %>
+    </div>
   </div>
 
 <%= render 'shared/footer' %>
