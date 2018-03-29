@@ -71,7 +71,10 @@ class TripActivitiesController < ApplicationController
         infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { activity: activity }) }
       }
     end
-
+    @markers << {
+      lat: lat,
+      lng: lng
+    }
   end
 
   def city_find
