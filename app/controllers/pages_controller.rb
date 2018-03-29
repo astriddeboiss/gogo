@@ -8,7 +8,6 @@ class PagesController < ApplicationController
   def profile
   end
 
-
 end
 
 city = Geocoder.search('#{lat}, #{lng}')
