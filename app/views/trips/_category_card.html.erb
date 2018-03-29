@@ -1,0 +1,8 @@
+<div class="category-card<%= ' category-selected' if current_user.categories.include?(@category) %>" id="category_<%= @category.id %>" style="background-image: url('<%= cl_image_path @category.photo, height: 150, width: 200, crop: :fill %>');">
+  <h6><%= @category.name %></h6>
+  <% if current_user.categories.include?(@category) %>
+    <%= link_to '', user_preference_path(UserPreference.where(user: current_user, category: @category).first, cat:@category.id), method: "delete", remote: true, class: "category-card-link" %>
+  <% else %>
+    <%= link_to '', trip_user_preferences_path(@trip, cat: @category.id), method: "post", remote: true, class: "category-card-link" %>
+  <% end %>
+</div>

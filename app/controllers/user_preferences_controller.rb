@@ -10,4 +10,11 @@ class UserPreferencesController < ApplicationController
     @user_preference.user = current_user
     @user_preference.save
   end
+
+  def destroy
+    @category = Category.find(params[:cat].to_i)
+    @user_preference= UserPreference.find(params[:id])
+    @trip = @user_preference.trip
+    @user_preference.destroy
+  end
 end

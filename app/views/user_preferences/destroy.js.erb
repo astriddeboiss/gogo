@@ -1,5 +1,5 @@
-function selectCategory() {
+function unSelectCategory() {
   const categoryCard = document.getElementById('category_<%= @category.id %>');
   categoryCard.outerHTML = "<%= j render 'trips/category_card'%>"
 }
-selectCategory();
+unSelectCategory();
