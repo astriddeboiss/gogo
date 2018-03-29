@@ -60,6 +60,7 @@ class TripActivitiesController < ApplicationController
 
     user = current_user
     @trip = Trip.find_by "starts_at <= ? AND ends_at >= ? AND city_id = ? AND user_id = ?", Time.now, Time.now, city.id, user.id
+
     begining_hour = Time.now.hour
     @trip_activities = TripActivity.joins(:activity).where "trip_activities.trip_id = ? AND extract(hour from activities.opens_at) <= ? AND activities.duration/60 + ? <= extract(hour from activities.closes_at)",@trip.id, begining_hour, begining_hour
     @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
@@ -70,6 +71,7 @@ class TripActivitiesController < ApplicationController
         infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { activity: activity }) }
       }
     end
+
   end
 
   def city_find
@@ -81,6 +83,8 @@ class TripActivitiesController < ApplicationController
     params.require(:trip_activity).permit(:trip, :activity)
   end
 
+
 end
+
 
 
