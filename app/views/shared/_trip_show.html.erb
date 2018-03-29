@@ -18,9 +18,9 @@
           </div>
         <% end %>
         </div>
-          <% list_image = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
-          <div class="list-image" >
-            <img src="<%= list_image %>" alt="">
+          <% list_category = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
+          <div class="list-category" >
+            <img src="<%= list_category %>" alt="">
           </div>
           <div class="activity-list">
             <li id="activity-list-name"><%= trip_activity.activity.name %></li>
@@ -32,12 +32,14 @@
     <% trip_activities.not_visited.each do |trip_activity| %>
       <div class="trip-activities-card">
         <div id="to-do-link"><%= link_to visited_path(trip_activity), method: :patch do %>
-          <div class="mark-list">To Do</div>
+          <div class="mark-list list-category-not-done">
+            <img src="https://res.cloudinary.com/dp9rm52pu/image/upload/v1522138790/noun_149010_cc.png" alt="">
+          </div>
         <% end %>
         </div>
-        <% list_image = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
-        <div class="list-image" >
-          <img src="<%= list_image %>" alt="">
+        <% list_category = cl_image_path trip_activity.activity.category.icon, height: 30, width: 30, crop: :fill%>
+        <div class="list-category" >
+          <img src="<%= list_category %>" alt="">
         </div>
         <div class="activity-list">
           <li id="activity-list-name"><%= trip_activity.activity.name %></li>

@@ -22,6 +22,18 @@
     text-align: center;
   }
 }
+
+.checked {
+  opacity: 0;
+  font-size: 20px;
+}
+
+.checked-act {
+  opacity: 0;
+  font-size: 20px;
+}
+
+
 .category-selected {
   &:before {
     position: absolute;
@@ -30,7 +42,22 @@
     top: 0px;
     left: 0px;
     right: 0px;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.2));
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  }
+  .checked {
+    opacity: 1;
+    color: white;
+    position: relative;
+    top: 8px;
+    left: 85px;
+  }
+  .checked-act {
+    opacity: 1;
+    color: white;
+    top: 8px;
+    left: 260px;
+    z-index: 2;
+    position: relative;
   }
 }
 
