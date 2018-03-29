@@ -60,7 +60,17 @@ class TripActivitiesController < ApplicationController
 
     user = current_user
     @trip = Trip.find_by "starts_at <= ? AND ends_at >= ? AND city_id = ? AND user_id = ?", Time.now, Time.now, city.id, user.id
-    @filter = open_activities(@trip)
+
+    begining_hour = Time.now.hour
+    @trip_activities = TripActivity.joins(:activity).where "trip_activities.trip_id = ? AND extract(hour from activities.opens_at) <= ? AND activities.duration/60 + ? <= extract(hour from activities.closes_at)",@trip.id, begining_hour, begining_hour
+    @activities = @trip.activities.where.not(latitude: nil, longitude: nil)
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { activity: activity }) }
+      }
+    end
 
   end
 
@@ -73,18 +83,8 @@ class TripActivitiesController < ApplicationController
     params.require(:trip_activity).permit(:trip, :activity)
   end
 
-  def open_activities(trip)
-    visit_min = activity.duration
-    opening_hour = activity.opens_at.hour
-    opening_min = activity.opens_at.min
-    closing_hour = activity.closes_at.hour
-    closing_min = activity.closes_at.min
-    begining_hour = Time.now.hour
-    begining_min = Time.now.min
-    ending_min = (begining_min + visit_min%60)%60
-    ending_hour = begining_hour + visit_min.div(60) + (begining_min + visit_min%60).div(60)
-    # return TripActivity.where "trip_id = ? AND begining_hour > ? ", trip.
-    # return TripActivity.where "trip_id = ? AND clothing_hour > Activity.find.opens_at.hour", trip.id
-  end
+
 end
-# endAND fin_hour < closing_hour || (fin_hour == closing_hour && fin_min > closing_min)
+
+
+
