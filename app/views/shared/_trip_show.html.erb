@@ -3,13 +3,13 @@
 <!-- Tab links -->
   <div class="tab trip-activities-tabs-container">
     <div class="tabs-wrapper">
-      <button class="tablinks active" onclick="openCity(event, 'trip-activities-list')">List</button>
-      <button class="tablinks" onclick="openCity(event, 'trip-activities-map')">Map</button>
+      <button class="tablinks <%= "active" unless params[:active_tab] == "map" %>" onclick="openCity(event, 'trip-activities-list')">List</button>
+      <button class="tablinks <%= "active" if params[:active_tab] == "map" %>" onclick="openCity(event, 'trip-activities-map')">Map</button>
     </div>
   </div>
 
 <!-- Tab content -->
-  <div id="trip-activities-list" class="tabcontent">
+  <div id="trip-activities-list" class="tabcontent <%= "hidden" if params[:active_tab] == "map" %>">
     <div class="container-trip-activities-list">
     <% trip_activities.visited.each do |trip_activity| %>
       <div class="trip-activities-card">
@@ -48,8 +48,7 @@
     <% end %>
     </div>
   </div>
-
-  <div id="trip-activities-map" class="tabcontent" style="display:none;">
+  <div id="trip-activities-map" class="tabcontent <%= "hidden" unless params[:active_tab] == "map" %>" style="<%= "display:none;" unless params[:active_tab] == "map" %>">
   <div
   id="map"
   style="width: 100%;
@@ -70,6 +69,7 @@
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("hidden");
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
