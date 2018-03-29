@@ -97,8 +97,7 @@ p.home-title-wrapper {
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.5));
-      opacity: .6;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
     }
 }
 
@@ -235,7 +234,7 @@ h1#logo-home {
   right: 10px;
   text-align: center;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 400;
   font-family: $body-font;
   line-height: 1em;
   letter-spacing: 0.2px;
@@ -248,12 +247,12 @@ h1#logo-home {
 }
 
 .header-home {
-  background-image: url("https://source.unsplash.com/En3dXXE2-GA/1200x500");
+  background-image: url("https://source.unsplash.com/1Dq56G9fBXs/1200x500");
   height: 210px;
   width: 100%;
   position: relative;
   background-size: cover;
-  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3) !important;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2) !important;
     &:before {
     position: absolute;
     content: '';

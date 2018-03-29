@@ -3,36 +3,36 @@
   <% if params[:action] == "profile" %>
     <%= link_to profile_path, {class: "footer-tab active"} do %>
       <i class="fa fa-user" style="font-size:25px"></i>
-      <p>PROFIL</p>
+      <p>Profile</p>
     <% end %>
   <% else %>
     <%= link_to profile_path, {class: "footer-tab"} do %>
       <i class="fa fa-user" style="font-size:25px"></i>
-      <p>PROFIL</p>
+      <p>Profile</p>
     <% end %>
   <% end %>
 
 <% if params[:action] == "home" %>
     <%= link_to root_path, {class: "footer-tab active"} do %>
       <i class="fa fa-search" style="font-size:25px"></i>
-      <p>EXPLORE</p>
+      <p>Explore</p>
     <% end %>
   <% else %>
     <%= link_to root_path, {class: "footer-tab"} do %>
       <i class="fa fa-search" style="font-size:25px"></i>
-      <p>EXPLORE</p>
+      <p>Explore</p>
   <% end %>
 <% end %>
 
 <% if params[:action] == "index"  %>
     <%= link_to trips_path, {class: "footer-tab active"} do %>
       <i class="fa fa-globe" style="font-size:25px"></i>
-      <p>MY TRIPS</p>
+      <p>My trips</p>
     <% end %>
   <% else %>
     <%= link_to trips_path, {class: "footer-tab"} do %>
       <i class="fa fa-globe" style="font-size:25px"></i>
-      <p>MY TRIPS</p>
+      <p>My trips</p>
     <% end %>
 <% end %>
 
@@ -40,12 +40,12 @@
 <%if params[:action] == "gogo" %>
   <a href="#" class="footer-tab active" id="go-now">
     <i class="fa fa-map" style="font-size:25px"></i>
-    <p>GO NOW</p>
+    <p>Go now</p>
   </a>
   <% else %>
   <a href="#" class="footer-tab" id="go-now">
     <i class="fa fa-map" style="font-size:25px"></i>
-    <p>GO NOW</p>
+    <p>Go now</p>
   </a>
 <% end %>
 

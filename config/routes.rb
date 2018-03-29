@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get :select_preferences, on: :member
   end
   resources :user_preferences, only: :destroy
+  resources :activities, only: [ :show ]
   patch 'trip_activities/:id/visited', to: 'trip_activities#visited', as: :visited
   patch 'trip_activities/:id/not_visited', to: 'trip_activities#not_visited', as: :not_visited
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
