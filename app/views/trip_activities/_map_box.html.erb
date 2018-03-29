@@ -1,6 +1,19 @@
-<div>
-  <%#= link_to trip_activity.activity.name, activity_path(trip_activity.activity) %>
-  <%= activity.name %>
-  <%#= image_tag "museum.jpg" %>
+<div class="activity-card in-infowindow">
+  <%= link_to "", activity_path(activity, {trip: params[:trip_id]}), class: "infowindow-card-link" %>
+  <div class="card-content" id="activity-<%= activity.id %>" data-side="recto">
+    <% photo_path = cl_image_path activity.photo, height: 200, width: 200, crop: :fill%>
+    <div class="activity-card-banner" style="background-image: url('<%= photo_path %>');"></div>
+    <ul class="item-description-recto">
+      <div id="title-space">
+        <p id="activity-name-recto"> <%= activity.name %> </p>
+        <p id="city-name-recto"><%= activity.city.name %> | Visit time: <%= activity.duration %>min </p>
+      </div>
+    </ul>
+  </div>
 </div>
+
+  <%#= link_to trip_activity.activity.name, activity_path(trip_activity.activity) %>
+<!--   <%#= render "shared/card", activity: activity %>
+ -->  <%#= image_tag "museum.jpg" %>
+
 

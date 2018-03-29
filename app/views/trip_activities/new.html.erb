@@ -1,6 +1,7 @@
-<div class="container-trip-activities">
+<p class="page-title" style="margin-top: 10px; margin-bottom: 0px;line-height: 1.2;">Please select activities you would like to do in <%= @city.name %></p>
+<div class="container-trip-activities" style="text-align: center;">
 <%= simple_form_for [@trip, @trip_activity] do |f| %>
-  <div class="form-group check_boxes required trip_activity_activity">
+  <div class="form-group check_boxes required trip_activity_activity" style="height: 390px;">
     <label class="control-label check_boxes required">
       <abbr title="required"></abbr>
     </label>
@@ -17,9 +18,13 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
   <div class="margin_left">
     <%= f.submit "SEE MY ITINERARY", class: "btn-cta" %>
   </div>
+=======
+  <%= f.submit "SEE MY ITINERARY", class: "btn-cta" %>
+>>>>>>> 721b0878f77be38710a482d47f540b108f6ea33a
 </div>
 <%   end %>
 </div>
