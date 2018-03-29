@@ -8,13 +8,13 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get "choice_trip", to: "pages#choice_trip"
+  get "gogo", to: "trip_activities#gogo"
 
-  post "gogo", to: "pages#gogo"
+  post "gogo", to: "trip_activities#gogo"
 
   get "profile", to: "pages#profile"
 
-  post "cityfind", to: "pages#city_find"
+  post "cityfind", to: "trip_activities#city_find"
 
   resources :trips, only: [:create, :index, :show] do
     resources :user_preferences, only: [:index, :new, :create]

@@ -1,5 +1,9 @@
 
 
+<h1 class="page-title"> All my activities for my trip to <%= @trip.city.name %></h1>
+
+
+
 <div class="col-xs-12 remove-padding bottom-margin-60">
 
 <!-- Tab links -->
@@ -106,3 +110,5 @@
 }
 </script>
 
+
+<%= render "shared/trip_show", trip: @trip, trip_activities: @trip_activities, markers: @markers %>
