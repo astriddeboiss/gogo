@@ -2,11 +2,4 @@
   <div class="header">
     <h1 id="logo">gogo.</h1>
   </div>
-  <div>
-<% if !current_user %>
-      <%= link_to "Sign in", user_session_path, class: "sign-in" %>
-    <% else %>
-      <%= link_to "Sign out", destroy_user_session_path, class: "sign-in", method: :delete %>
-<% end %>
-  </div>
 </div>

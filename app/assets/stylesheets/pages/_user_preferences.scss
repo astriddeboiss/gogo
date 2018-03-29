@@ -1,3 +1,5 @@
+
+
 .preferences-button {
   border-radius: 4px;
   background-color: #01AAC1;
@@ -14,12 +16,16 @@
   font-family: $body-font;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
   h6 {
+    font-size: 21px !important;
     color: white;
     margin:2px;
     padding:2px;
     font-family: $headers-font;
-    text-align: center;
   }
 }
 
