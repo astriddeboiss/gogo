@@ -1,5 +1,5 @@
 <p class="page-title" style="margin-top: 10px; margin-bottom: 0px;line-height: 1.2;">Please select activities you would like to do in <%= @city.name %></p>
-<div class="container-trip-activities" style="text-align: center;">
+<div class="container-trip-activities">
 <%= simple_form_for [@trip, @trip_activity] do |f| %>
   <div class="form-group check_boxes required trip_activity_activity" style="height: 390px;">
     <label class="control-label check_boxes required">
@@ -11,7 +11,7 @@
       <% @activities.shuffle.each do |activity| %>
         <span class="checkbox">
         <label for="trip_activity_activity_id_<%= activity.id %>">
-          <input class="check_boxes required" value="<%= activity.id %>" name="trip_activity[activity_id][]" id="trip_activity_activity_id_<%= activity.id %>" type="checkbox"> <%=  render "shared/card", activity: activity %>
+          <input class="check_boxes required" value="<%= activity.id %>" name="trip_activity[activity_id][]" id="trip_activity_activity_id_<%= activity.id %>" type="checkbox" style="display: none;"> <%=  render "shared/card", activity: activity %>
         </label>
       </span>
       <% end %>

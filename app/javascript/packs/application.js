@@ -10,3 +10,6 @@ display();
 import { selectCity } from '../components/city_card';
 selectCity();
 
+import { replaceCheckbox } from '../components/replace_checkbox';
+replaceCheckbox();
+
