@@ -51,7 +51,7 @@
 </div>
 
   <div id="trip-activities-map" class="tabcontent <%= "hidden" unless params[:active_tab] == "map" %>" style="<%= "display:none;" unless params[:active_tab] == "map" %>">
-    <div id="map" style="width: 100%; height: 300px;margin-top: 20px;" data-markers="<%= markers.to_json %>"></div>
+    <div id="map" style="width: 100%; height: calc(100vh - 180px);margin-top: 0px;" data-markers="<%= markers.to_json %>"></div>
   </div>
 
 
