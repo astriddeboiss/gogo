@@ -1,3 +1,24 @@
-<%= link_to "back", trip_trip_activities_path(@last_trip_visited, {active_tab: "map"}) %>
+<div class="item-description-verso">
+<% if request.referer.include?('gogo') %>
+    <%= link_to "back", gogo_path(@last_trip_visited, {active_tab: "map", latitude: params[:latitude], longitude: params[:longitude]}) %>
+<% else %>
+  <%= link_to "back", trip_trip_activities_path(@last_trip_visited, {active_tab: "map"}) %>
+<% end %>
+</div>
+<div class="item-description-verso">
+  <p id="activity-name-description"> <%= @activity.name %> </p>
+  <p id="activity-adress-description"> Visit duration <%= @activity.duration %> mins </p>
+  <p id="activity-address-description"><%= @activity.address%> </p>
+  <p id="activity-card-description">
+    <% if @activity.description.length > 500 %>
+    <%= @activity.description.first(500) + " (...)"%>
+    <% else %>
+    <%= @activity.description %>
+    <%= @activity.photo %>
+    <% end %>
+</div>
+
+<!--
 <h1><%= @activity.name %></h1>
 <p><%= @activity.description %></p>
+ -->

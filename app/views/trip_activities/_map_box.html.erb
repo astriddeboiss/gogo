@@ -1,5 +1,5 @@
 <div class="activity-card in-infowindow">
-  <%= link_to "", activity_path(activity, {trip: params[:trip_id]}), class: "infowindow-card-link" %>
+  <%= link_to "", activity_path(activity, {trip: (params[:trip_id] || @trip.id ), latitude: params[:latitude], longitude: params[:longitude]}), class: "infowindow-card-link" %>
   <div class="card-content" id="activity-<%= activity.id %>" data-side="recto">
     <% photo_path = cl_image_path activity.photo, height: 200, width: 200, crop: :fill%>
     <div class="activity-card-banner" style="background-image: url('<%= photo_path %>');"></div>

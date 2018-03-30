@@ -73,7 +73,8 @@ class TripActivitiesController < ApplicationController
     end
     @markers << {
       lat: lat,
-      lng: lng
+      lng: lng,
+      icon: ActionController::Base.helpers.asset_path('antoine.png')
     }
   end
 
