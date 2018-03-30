@@ -321,50 +321,7 @@ n.save
 
 puts "vuitton ok"
 
-# seed_array.each do |seed_array_item|
-#   puts "Creating activity for #{seed_array_item[:name]}..."
-#   url = open(seed_array_item[:url])
-#   category = Category.find_by_name(seed_array_item[:name])
-#   activities_serialized = open(url).read
-#   activities = Nokogiri::HTML(activities_serialized)
-#   activities.search(".listing_title a").each do |activity|
-
-
-#    unless activity.attributes["href"].value.nil?
-
-#       activity_url = activity.attributes["href"].value
-#       activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
-#       activity_doc = Nokogiri::HTML(activity_serialized)
-
-
-#       name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
-#       # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
-
-#       description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
-#       # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
-
-#       duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
-#       # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
-#       begin
-#         photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
-#       rescue => e
-#         puts e
-#         photo = "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
-#       end
-#       address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
-#       opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
-#       closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
-#       city = City.find_by_name("Paris")
-#       new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
-#       new_activity.remote_photo_url = photo
-#       new_activity.save
-#       puts "#{new_activity.name} created!"
-#     end
-#   end
-# end
-# puts 'Finished Scrap activities'
-
-
+# each_pair { |name, val|  }
 
 # puts 'Creating Users...'
 # users_attributes = [
