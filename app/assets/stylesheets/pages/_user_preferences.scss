@@ -34,6 +34,10 @@
   font-size: 30px;
 }
 
+.checked-category {
+  opacity: 0;
+  font-size: 30px;
+}
 
 .checked-act {
   opacity: 0;
@@ -65,6 +69,16 @@
     left: 260px;
     z-index: 2;
     position: relative;
+  }
+  .checked-category {
+    opacity: 1;
+    color: white;
+    font-size: 30px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    bottom: 50px;
+    left: 150px;
   }
 }
 
