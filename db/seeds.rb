@@ -122,54 +122,54 @@ puts 'Finished!'
 
 puts 'Creating activities...'
 
-seed_array = [
-  {
-    name: "Museums & Galleries",
-    url: "https://www.tripadvisor.fr/Attractions-g187147-Activities-c49-t1,28-zfn7236763,29460,7236764-Paris_Ile_de_France.html",
-    duration: [90, 180]
-  },
-  {
-    name: "Parks & Gardens",
-    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c61-Paris_Ile_de_France.html',
-    duration: [30, 60]
-  },
+# seed_array = [
+#   {
+#     name: "Museums & Galleries",
+#     url: "https://www.tripadvisor.fr/Attractions-g187147-Activities-c49-t1,28-zfn7236763,29460,7236764-Paris_Ile_de_France.html",
+#     duration: [90, 180]
+#   },
+#   {
+#     name: "Parks & Gardens",
+#     url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c61-Paris_Ile_de_France.html',
+#     duration: [30, 60]
+#   },
 
-  {
-  name: "Panoramic Views",
-  url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t13,120,166,39,2-Paris_Ile_de_France.html',
-   duration: [30, 90]
-  },
+#   {
+#   name: "Panoramic Views",
+#   url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t13,120,166,39,2-Paris_Ile_de_France.html',
+#    duration: [30, 90]
+#   },
 
-  {
-    name: "Monuments & Must-See",
-    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-Paris_Ile_de_France.html',
-    duration: [30, 180]
-  },
+#   {
+#     name: "Monuments & Must-See",
+#     url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-Paris_Ile_de_France.html',
+#     duration: [30, 180]
+#   },
 
-  {
-    name: "Historical Neighbourhoods",
-    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t34-Paris_Ile_de_France.html',
-    duration: [30, 120]
-  },
+#   {
+#     name: "Historical Neighbourhoods",
+#     url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c47-t34-Paris_Ile_de_France.html',
+#     duration: [30, 120]
+#   },
 
-  {
-    name: "Markets",
-    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t142-Paris_Ile_de_France.html',
-    duration: [60, 90]
-  },
+#   {
+#     name: "Markets",
+#     url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t142-Paris_Ile_de_France.html',
+#     duration: [60, 90]
+#   },
 
-  {
-    name: "Shows & Concerts",
-    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c58-Paris_Ile_de_France.html',
-    duration: [60, 120]
-  },
+#   {
+#     name: "Shows & Concerts",
+#     url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c58-Paris_Ile_de_France.html',
+#     duration: [60, 120]
+#   },
 
-  {
-    name: "Shopping Areas",
-    url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t138-Paris_Ile_de_France.html',
-    duration: [30, 180]
-  },
-]
+#   {
+#     name: "Shopping Areas",
+#     url: 'https://www.tripadvisor.fr/Attractions-g187147-Activities-c26-t138-Paris_Ile_de_France.html',
+#     duration: [30, 180]
+#   },
+# ]
 
 b=Activity.new(name:"Fondation Vuitton", description:"La Fondation d'entreprise Louis Vuitton, anciennement Fondation d'entreprise Louis Vuitton pour la création1, lancée en octobre 2006, a été créée par le groupe LVMH et ses maisons. Elle a pour objectif de promouvoir l’art et la culture et de pérenniser les actions de mécénat engagées depuis 1990 par le groupe.
 Le bâtiment, conçu par l'architecte Frank Gehry, est situé au Jardin d'acclimatation, dans le bois de Boulogne à Paris. Ce projet qui se veut une réplique à la fondation Pinault installée à Venise, est l'expression médiatique de la concurrence entre Bernard Arnault, le patron du numéro un mondial du luxe, et son rival François Pinault.")
@@ -256,7 +256,7 @@ h.address="Bankside, London SE1 9TG, UK"
 h.save
 
 i=Activity.new(name:"Lloyd's building", description:"The Lloyd's building (sometimes known as the Inside-Out Building)[2] is the home of the insurance institution Lloyd's of London. It is located on the former site of East India House in Lime Street, in London's main financial district, the City of London. The building is a leading example of radical Bowellism architecture in which the services for the building, such as ducts and lifts, are located on the exterior to maximise space in the interior. Twenty-five years after completion in 1986, the building received Grade I listing in 2011; it was the youngest structure ever to obtain this status. It is said by Historic England to be universally recognised as one of the key buildings of the modern epoch.")
-i_image_url="http://c8.alamy.com/comp/ADB9M8/lloyds-building-city-of-london-1986-the-barrel-vaulted-main-atrium-ADB9M8.jpg"
+i_image_url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Lloyds_building_taken_2011.jpg/250px-Lloyds_building_taken_2011.jpg"
 i.remote_photo_url=i_image_url
 i.duration=60
 i.category_id=Category.find_by(name:"Contemporary Architecture").id
