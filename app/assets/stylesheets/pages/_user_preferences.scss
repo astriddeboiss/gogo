@@ -20,12 +20,14 @@
   align-items:center;
   justify-content: center;
   text-align: center;
-  h6 {
-    font-size: 21px !important;
-    color: white;
-    margin:2px;
-    padding:2px;
-    font-family: $headers-font;
+  &:before {
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4), rgba(0,0,0,0));
   }
 }
 
@@ -37,6 +39,7 @@
 .checked-category {
   opacity: 0;
   font-size: 30px;
+  display: none;
 }
 
 .checked-act {
@@ -53,7 +56,7 @@
     top: 0px;
     left: 0px;
     right: 0px;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3));
   }
   .checked {
     opacity: 1;
@@ -73,13 +76,24 @@
   .checked-category {
     opacity: 1;
     color: white;
-    font-size: 30px;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    bottom: 50px;
-    left: 150px;
+    font-size: 20px;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    display:block;
   }
+}
+
+#category-card-title {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  top: 45px;
+  font-size: 18px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .col-xs-6 {
