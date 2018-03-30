@@ -8,10 +8,10 @@
     <div class="row">
       <% @categories.each do |category| %>
         <div class="col-xs-6">
+          <h6 id="category-card-title"><%= category.name %></h6>
           <% photo_path = cl_image_path category.photo, height: 150, width: 200, crop: :fill%>
           <div class="category-card<%= ' category-selected' if current_user.categories.include?(category) %>" id="category_<%= category.id %>" style="background-image: url('<%= photo_path %>');">
             <i class="fa fa-check-circle checked-category"></i>
-            <h6><%= category.name %></h6>
             <% if current_user.categories.include?(category) %>
               <%= link_to '', user_preference_path(UserPreference.where(user: current_user, category: category).first, cat:category.id), method: "delete", remote: true, class: "category-card-link" %>
             <% else %>
