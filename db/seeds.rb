@@ -251,6 +251,8 @@ puebla=Activity.new(name:"Pavillion Puebla", description:"Le Pavillion Puebla �
 puebla_image_url="https://u.tfstatic.com/restaurant_photos/081/67081/169/612/le-pavillon-puebla-l-arrivee-3769f.jpg"
 puebla.remote_photo_url=puebla_image_url
 puebla.duration=240
+puebla.opens_at="10:00".to_time
+puebla.closes_at="23:55".to_time
 puebla.category_id=Category.find_by(name:"Cool Bars").id
 puebla.city_id=City.find_by(name:"Paris").id
 puebla.address="Parc des Buttes Chaumont, Avenue Darcel, 75019 Paris"
@@ -262,6 +264,8 @@ perchoir=Activity.new(name:"Le Perchoir", description:"Le Perchoir – Au 6ème 
 perchoir_image_url="https://1.bp.blogspot.com/-pk3uEcxfqlI/V6wX7BPVL9I/AAAAAAAAQzU/4ArKvHT2Gzkh9I_GlzhNpC86im1__qiEQCLcB/s400/Le%2Bperchoir%252C%2Bce%2Bn%25E2%2580%2599est%2Bpas%2Bque%2Bpour%2Bles%2Boiseaux%2B%2521%2B%25281%2529.jpg"
 perchoir.remote_photo_url=perchoir_image_url
 perchoir.duration=240
+perchoir.opens_at="18:00".to_time
+perchoir.closes_at="23:55".to_time
 perchoir.category_id=Category.find_by(name:"Cool Bars").id
 perchoir.city_id=City.find_by(name:"Paris").id
 perchoir.address="14 Rue Crespin du Gast, 75011 Paris"
@@ -273,6 +277,8 @@ cafea=Activity.new(name:"Le Café A", description:"Le Café A – Le Café A est
 cafea_image_url="http://blog.privateaser.com/wp-content/uploads/2016/07/jardin-privé.jpg"
 cafea.remote_photo_url=cafea_image_url
 cafea.duration=240
+cafea.opens_at="21:00".to_time
+cafea.closes_at="23:55".to_time
 cafea.category_id=Category.find_by(name:"Cool Bars").id
 cafea.city_id=City.find_by(name:"Paris").id
 cafea.address="148 Rue du Faubourg Saint-Martin, 75010 Paris"
@@ -284,6 +290,8 @@ mercerie=Activity.new(name:"La Mercerie", description:"La Mercerie – La Mercer
 mercerie_image_url="http://blog.toryburch.com/wp-content/uploads/2018/02/FWFall2018_La-Mercerie_960_slide1.jpg"
 mercerie.remote_photo_url=cafea_image_url
 mercerie.duration=240
+mercerie.opens_at="12:00".to_time
+mercerie.closes_at="23:55".to_time
 mercerie.category_id=Category.find_by(name:"Cool Bars").id
 mercerie.city_id=City.find_by(name:"Paris").id
 mercerie.address="98 Rue Oberkampf, 75011 Paris"
@@ -370,50 +378,7 @@ n.save
 
 
 
-# seed_array.each do |seed_array_item|
-#   puts "Creating activity for #{seed_array_item[:name]}..."
-#   url = open(seed_array_item[:url])
-#   category = Category.find_by_name(seed_array_item[:name])
-#   activities_serialized = open(url).read
-#   activities = Nokogiri::HTML(activities_serialized)
-#   activities.search(".listing_title a").each do |activity|
-
-
-#    unless activity.attributes["href"].value.nil?
-
-#       activity_url = activity.attributes["href"].value
-#       activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
-#       activity_doc = Nokogiri::HTML(activity_serialized)
-
-
-#       name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
-#       # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
-
-#       description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
-#       # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
-
-#       duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
-#       # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
-#       begin
-#         photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
-#       rescue => e
-#         puts e
-#         photo = "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
-#       end
-#       address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
-#       opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
-#       closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
-#       city = City.find_by_name("Paris")
-#       new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
-#       new_activity.remote_photo_url = photo
-#       new_activity.save
-#       puts "#{new_activity.name} created!"
-#     end
-#   end
-# end
-# puts 'Finished Scrap activities'
-
-
+# each_pair { |name, val|  }
 
 # puts 'Creating Users...'
 # users_attributes = [
