@@ -94,16 +94,16 @@ cities_attributes = [
     remote_photo_url: 'https://www.dentons.com/-/media/images/website/background-images/offices/rome/rome_1900x1500.jpg'
   },
   {
-    name: "Paris",
-    remote_photo_url: 'https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg'
-  },
-  {
     name: "Barcelona",
     remote_photo_url: 'https://www.goldcar.es/assets/img/oficinas/background/BCN.jpg'
   },
   {
     name: "London",
     remote_photo_url: 'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2015/05/28/big-ben-london-england.jpg.rend.hgtvcom.1280.960.suffix/1491582155388.jpg'
+  },
+  {
+    name: "Paris",
+    remote_photo_url: 'https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg'
   },
   {
     name: "Amsterdam",
