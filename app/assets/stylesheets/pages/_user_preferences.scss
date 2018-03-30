@@ -65,14 +65,6 @@
     top: 10px;
     left: 105px;
   }
-  .checked-act {
-    opacity: 1;
-    color: white;
-    top: 8px;
-    left: 260px;
-    z-index: 2;
-    position: relative;
-  }
   .checked-category {
     opacity: 1;
     color: white;
@@ -83,6 +75,27 @@
     display:block;
   }
 }
+
+.category-selected-activity {
+  &:before {
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+  }
+  .checked-act {
+    opacity: 1;
+    color: white;
+    top: 8px;
+    left: 260px;
+    z-index: 2;
+    position: relative;
+  }
+}
+
 
 #category-card-title {
   position: absolute;
