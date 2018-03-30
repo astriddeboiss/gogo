@@ -7,7 +7,6 @@
   background-position: center;
   color: white;
   overflow-y:hidden;
-  height: calc(100vh - 60px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   margin-left: 0px;
@@ -30,7 +29,7 @@ p.home-title-wrapper {
 }
 
 .home-wrapper-cards {
-  height: 260px !important;
+  height: 230px !important;
   white-space: nowrap !important;
   overflow-x: scroll !important;
   margin-bottom: -30px !important;
@@ -58,7 +57,7 @@ p.home-title-wrapper {
   display: inline-block !important;
   margin-right: 4px !important;
   width: 270px;
-  height: 250px;
+  height: 220px;
   color: black;
   background-color: white;
   display: flex;
@@ -75,7 +74,7 @@ p.home-title-wrapper {
   display: inline-block !important;
   margin-right: 4px !important;
   width: 270px;
-  height: 250px;
+  height: 220px;
   color: black;
   background-color: white;
   display: flex;
@@ -86,7 +85,7 @@ p.home-title-wrapper {
 
 .home-card-banner {
   width:100%;
-  height:250px;
+  height:220px;
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   background-position: center;
@@ -232,7 +231,7 @@ h1#logo-home {
 
 .header-home {
   background-image: url("https://source.unsplash.com/1Dq56G9fBXs/1200x500");
-  height: 230px;
+  height: 200px;
   width: 100%;
   position: relative;
   background-size: cover;

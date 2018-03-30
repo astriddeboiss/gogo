@@ -1,8 +1,7 @@
 // body {
 //   background-color: $background !important;
 // }
-.bottom-margin-60 {
-  margin-bottom: 60px;
+div#app-content {
+    height: calc(100vh - 60px);
+    overflow: scroll;
 }
-
-
