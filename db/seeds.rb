@@ -28,10 +28,16 @@ a_icon_url="http://res.cloudinary.com/dp9rm52pu/image/upload/v1522364683/noun_13
 a.remote_photo_url=a_image_url
 a.remote_icon_url=a_icon_url
 a.save
-
-
-
 puts "Contemporary Architecture done"
+
+w=Category.new(name:"Cool Bars", description:"Cool bars are places where you would bring a friend for a drink.")
+w_image_url= "http://laliste.net/wp-content/uploads/2016/05/18-bars-et-restaurants-insolites-26.jpg"
+w_icon_url="http://res.cloudinary.com/dp9rm52pu/image/upload/v1522408325/noun_1496811_cc.png"
+w.remote_photo_url=w_image_url
+w.remote_icon_url=w_icon_url
+w.save
+
+puts "Cool bars done"
 
 categories_attributes = [
   {
@@ -231,53 +237,94 @@ f.category_id=Category.find_by(name:"Contemporary Architecture").id
 f.city_id=City.find_by(name:"Paris").id
 f.address="37 quai Branly, Paris, 75007"
 f.save
-
-
-
 puts "vuittton ok"
 
-seed_array.each do |seed_array_item|
-  puts "Creating activity for #{seed_array_item[:name]}..."
-  url = open(seed_array_item[:url])
-  category = Category.find_by_name(seed_array_item[:name])
-  activities_serialized = open(url).read
-  activities = Nokogiri::HTML(activities_serialized)
-  activities.search(".listing_title a").each do |activity|
+puebla=Activity.new(name:"Pavillion Puebla", description:"Le Pavillion Puebla – Dans le Parc des Buttes Chaumont, au niveau de l’Avenue Darcel, une grande maison recouverte de lierre à laquelle on accède par une volée d’escaliers de pierre, vous êtes au  Pavillon Puebla. Au cœur de cet écrin de végétation, vous trouverez un restaurant, deux terrasses, deux bars, des constructions de bois, des fauteuils marocains, une balançoire… et la paix. Entre les voûtes Napoléoniennes et les toiles épaisses tendues sur les murs, on y sert des pizzas et des plats raffinés sur les tables.")
+puebla_image_url="https://u.tfstatic.com/restaurant_photos/081/67081/169/612/le-pavillon-puebla-l-arrivee-3769f.jpg"
+puebla.remote_photo_url=puebla_image_url
+puebla.duration=240
+puebla.category_id=Category.find_by(name:"Cool Bars").id
+puebla.city_id=City.find_by(name:"Paris").id
+puebla.address="Parc des Buttes Chaumont, Avenue Darcel, 75019 Paris"
+puebla.save
+
+puts 'Puebla done'
+
+perchoir=Activity.new(name:"Le Perchoir", description:"Le Perchoir – Au 6ème et 7ème étage d’un immeuble industriel, vous trouverez un toit-terrasse, un grand bar, un restaurant, des cours de sport, une cabane à snack, .  Vous verrez des oiseaux, le Sacré-Cœur, des cheminées, des plants de tomates, des vignes, une pergola, des coussins moelleux.")
+perchoir_image_url="https://1.bp.blogspot.com/-pk3uEcxfqlI/V6wX7BPVL9I/AAAAAAAAQzU/4ArKvHT2Gzkh9I_GlzhNpC86im1__qiEQCLcB/s400/Le%2Bperchoir%252C%2Bce%2Bn%25E2%2580%2599est%2Bpas%2Bque%2Bpour%2Bles%2Boiseaux%2B%2521%2B%25281%2529.jpg"
+perchoir.remote_photo_url=perchoir_image_url
+perchoir.duration=240
+perchoir.category_id=Category.find_by(name:"Cool Bars").id
+perchoir.city_id=City.find_by(name:"Paris").id
+perchoir.address="14 Rue Crespin du Gast, 75011 Paris"
+perchoir.save
+
+puts 'Perchoir done'
+
+cafea=Activity.new(name:"Le Café A", description:"Le Café A – Le Café A est situé dans l’ancien couvent des Récollets à Paris dans le 10ème arrondissement, à proximité de la gare de l’Est. Il offre un cadre privilégié dans un écrin de verdure, en plein cœur de Paris et dans un lieu historique. Il se compose d’un cloître, d’un jardin et de différents espaces intérieurs dont une ancienne chapelle. Il abrite également le Centre des Récollets, des résidences d’artistes et de chercheurs, la Maison de l’Architecture et l’Ordre des Architectes en Île de France.")
+cafea_image_url="http://blog.privateaser.com/wp-content/uploads/2016/07/jardin-privé.jpg"
+cafea.remote_photo_url=cafea_image_url
+cafea.duration=240
+cafea.category_id=Category.find_by(name:"Cool Bars").id
+cafea.city_id=City.find_by(name:"Paris").id
+cafea.address="148 Rue du Faubourg Saint-Martin, 75010 Paris"
+cafea.save
+
+puts 'Cafe A done'
+
+mercerie=Activity.new(name:"La Mercerie", description:"La Mercerie – La Mercerie est situé dans la trépidante rue Oberkampf, la Mercerie, bar iconique du quartier, rassemble dès l'apéro, les gourmands autour de planches savoureuses et de pizzas faites maison, dans une ambiance joyeuse et effervescente, et ce jusqu'au bout de la nuit. ")
+mercerie_image_url="http://blog.toryburch.com/wp-content/uploads/2018/02/FWFall2018_La-Mercerie_960_slide1.jpg"
+mercerie.remote_photo_url=cafea_image_url
+mercerie.duration=240
+mercerie.category_id=Category.find_by(name:"Cool Bars").id
+mercerie.city_id=City.find_by(name:"Paris").id
+mercerie.address="98 Rue Oberkampf, 75011 Paris"
+mercerie.save
+
+puts 'Mercerie done'
+
+# seed_array.each do |seed_array_item|
+#   puts "Creating activity for #{seed_array_item[:name]}..."
+#   url = open(seed_array_item[:url])
+#   category = Category.find_by_name(seed_array_item[:name])
+#   activities_serialized = open(url).read
+#   activities = Nokogiri::HTML(activities_serialized)
+#   activities.search(".listing_title a").each do |activity|
 
 
-   unless activity.attributes["href"].value.nil?
+#    unless activity.attributes["href"].value.nil?
 
-      activity_url = activity.attributes["href"].value
-      activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
-      activity_doc = Nokogiri::HTML(activity_serialized)
+#       activity_url = activity.attributes["href"].value
+#       activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
+#       activity_doc = Nokogiri::HTML(activity_serialized)
 
 
-      name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
-      # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
+#       name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
+#       # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
 
-      description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
-      # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
+#       description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
+#       # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
 
-      duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
-      # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
-      begin
-        photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
-      rescue => e
-        puts e
-        photo = "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
-      end
-      address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
-      opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
-      closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
-      city = City.find_by_name("Paris")
-      new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
-      new_activity.remote_photo_url = photo
-      new_activity.save
-      puts "#{new_activity.name} created!"
-    end
-  end
-end
-puts 'Finished Scrap activities'
+#       duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
+#       # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
+#       begin
+#         photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
+#       rescue => e
+#         puts e
+#         photo = "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
+#       end
+#       address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
+#       opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
+#       closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
+#       city = City.find_by_name("Paris")
+#       new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
+#       new_activity.remote_photo_url = photo
+#       new_activity.save
+#       puts "#{new_activity.name} created!"
+#     end
+#   end
+# end
+# puts 'Finished Scrap activities'
 
 
 
