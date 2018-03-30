@@ -231,8 +231,6 @@ e.save
 f=Activity.new(name:"Musée du quai Branly", description:"Le musée du quai Branly – Jacques-Chirac ou musée des arts et civilisations d'Afrique, d'Asie, d'Océanie et des Amériques (civilisations non européennes) est situé au quai Branly dans le 7e arrondissement de Paris, le long du quai de la Seine qui lui a donné son nom et au pied de la tour Eiffel. Le projet, porté par Jacques Chirac et réalisé par Jean Nouvel, a été inauguré le 20 juin 2006. La fréquentation se situe à près de 1 500 000 visiteurs en 2014 et a franchi en 2013 le cap des 10 millions depuis son ouverture, ce qui le place parmi les plus fréquentés au monde dans sa catégorie.")
 f_image_url="http://br.france.fr/sites/default/files/quai_branly_c_flickr_-_cc_timothy_brown_.jpg"
 f.remote_photo_url=f_image_url
-f.latitude=48.51
-f.longitude=2.17
 f.duration=160
 f.category_id=Category.find_by(name:"Contemporary Architecture").id
 f.city_id=City.find_by(name:"Paris").id
@@ -242,8 +240,6 @@ f.save
 g=Activity.new(name:"City Information Centre", description:"Situated opposite the South Transept of St Paul’s Cathedral, the City of London Information Centre introduces a dynamic contemporary structure to an area of exceptional architectural and urban heritage. In form, the building combines simplicity and efficiency of structure with a distinctive visual impact. The triangular plan has evolved from analysis of principal pedestrian flows across the site, while the orientation and profile establish an intriguing dialogue with St Paul’s as the building looks up to its prestigious neighbour and opens out to welcome people approaching it. A folded metallic envelope evokes the aerodynamic profile of a paper aeroplane, seamlessly wrapping 140m2 of internal accommodation and formed by a steel frame braced with structural ply and clad in 220 pre-finished stainless steel panels.")
 g_image_url="https://www.archdaily.com/200389/city-of-london-information-centre-make-architects/50174abd28ba0d77a8000763-city-of-london-information-centre-make-architects-image"
 g.remote_photo_url=f_image_url
-g.latitude=‎51.5
-g.longitude=‎-0.1
 g.duration=30
 g.category_id=Category.find_by(name:"Contemporary Architecture").id
 g.city_id=City.find_by(name:"London").id
@@ -253,8 +249,6 @@ g.save
 h=Activity.new(name:"Tate Modern", description:"Tate Modern is a modern art gallery located in London. It is Britain's national gallery of international modern art and forms part of the Tate group (together with Tate Britain, Tate Liverpool, Tate St Ives and Tate Online).[2] It is based in the former Bankside Power Station, in the Bankside area of the London Borough of Southwark. Tate holds the national collection of British art from 1900 to the present day and international modern and contemporary art.[3] Tate Modern is one of the largest museums of modern and contemporary art in the world. As with the UK's other national galleries and museums, there is no admission charge for access to the collection displays, which take up the majority of the gallery space, while tickets must be purchased for the major temporary exhibitions.")
 h_image_url="https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2016/06/11/16/web-tate-extension-2.jpg"
 h.remote_photo_url=f_image_url
-h.latitude=‎51.5
-h.longitude=‎0.01
 h.duration=180
 h.category_id=Category.find_by(name:"Contemporary Architecture").id
 h.city_id=City.find_by(name:"London").id
@@ -264,8 +258,6 @@ h.save
 i=Activity.new(name:"Lloyd's building", description:"The Lloyd's building (sometimes known as the Inside-Out Building)[2] is the home of the insurance institution Lloyd's of London. It is located on the former site of East India House in Lime Street, in London's main financial district, the City of London. The building is a leading example of radical Bowellism architecture in which the services for the building, such as ducts and lifts, are located on the exterior to maximise space in the interior. Twenty-five years after completion in 1986, the building received Grade I listing in 2011; it was the youngest structure ever to obtain this status. It is said by Historic England to be universally recognised as one of the key buildings of the modern epoch.")
 i_image_url="http://c8.alamy.com/comp/ADB9M8/lloyds-building-city-of-london-1986-the-barrel-vaulted-main-atrium-ADB9M8.jpg"
 i.remote_photo_url=f_image_url
-i.latitude=‎51.52
-i.longitude=‎-0.08
 i.duration=60
 i.category_id=Category.find_by(name:"Contemporary Architecture").id
 i.city_id=City.find_by(name:"London").id
@@ -276,8 +268,6 @@ j=Activity.new(name:"The Shard", description:"The Shard, also referred to as the
 The Shard's construction began in March 2009; it was topped out on 30 March 2012 and inaugurated on 5 July 2012. Practical completion was achieved in November 2012. The tower's privately operated observation deck, The View from The Shard, was opened to the public on 1 February 2013. The glass-clad pyramidal tower has 72 habitable floors, with a viewing gallery and open-air observation deck on the 72nd floor, at a height of 244 metres (801 ft). The Shard was developed by Sellar Property Group on behalf of LBQ Ltd and is jointly owned by Sellar Property (5%) and the State of Qatar (95%).The Shard is managed by Real Estate Management (UK) Limited on behalf of the owners.")
 j_image_url="https://www.thesun.co.uk/wp-content/uploads/2017/12/nintchdbpict000301546667.jpg?strip=all&w=661"
 j.remote_photo_url=f_image_url
-j.latitude=‎51.52
-j.longitude=‎0.08
 j.duration=45
 j.category_id=Category.find_by(name:"Contemporary Architecture").id
 j.city_id=City.find_by(name:"London").id
@@ -287,8 +277,6 @@ j.save
 k=Activity.new(name:"Greenwich Park", description:"Greenwich Park is a former hunting park in Greenwich and one of the largest single green spaces in south-east London. One of the Royal Parks of London, and the first to be enclosed (in 1433), it covers 74 hectares (180 acres),[1] and is part of the Greenwich World Heritage Site. It commands fine views over the River Thames, the Isle of Dogs and the City of London (Simon Jenkins rated the view of the Royal Hospital with Canary Wharf in the distance as one of the top ten in England). The park is open year-round. It is listed Grade I on the Register of Historic Parks and Gardens.")
 k_image_url="https://www.rmg.co.uk/sites/default/files/styles/slider/public/_38A4548b_Greenwichslider2.jpg?itok=LiIhFXi3"
 k.remote_photo_url=f_image_url
-k.latitude=‎51.4
-k.longitude=‎0.01
 k.duration=60
 k.category_id=Category.find_by(name:"Parks & Gardens").id
 k.city_id=City.find_by(name:"London").id
@@ -298,8 +286,6 @@ k.save
 l=Activity.new(name:"Richmond Park", description:"Richmond Park, in the London Borough of Richmond upon Thames, was created by Charles I in the 17th century[2] as a deer park. The largest of London's Royal Parks, it is of national and international importance for wildlife conservation. The park is a national nature reserve, a Site of Special Scientific Interest and a Special Area of Conservation and is included, at Grade I, on Historic England's Register of Historic Parks and Gardens of special historic interest in England. Its landscapes have inspired many famous artists and it has been a location for several films and TV series.")
 l_image_url="https://us.123rf.com/450wm/anizza/anizza1211/anizza121100131/16418074-paesaggio-invernale-di-richmond-park-%C3%A8-il-pi%C3%B9-grande-parco-dei-parchi-reali-di-londra-e-quasi-tre-volte-pi.jpg?ver=6"
 l.remote_photo_url=f_image_url
-l.latitude=‎51.4
-l.longitude=‎0.22
 l.duration=100
 l.category_id=Category.find_by(name:"Parks & Gardens").id
 l.city_id=City.find_by(name:"London").id
@@ -309,8 +295,6 @@ l.save
 m=Activity.new(name:"Kew Gardens", description:"Kew Gardens is a botanical garden in southwest London that houses the largest and most diverse botanical and mycological collections in the world. Founded in 1840, from the exotic garden at Kew Park in Middlesex, England, its living collections include more than 30,000 different kinds of plants, while the herbarium, which is one of the largest in the world, has over seven million preserved plant specimens. The library contains more than 750,000 volumes, and the illustrations collection contains more than 175,000 prints and drawings of plants. It is one of London's top tourist attractions and is a World Heritage Site. Kew Gardens, together with the botanic gardens at Wakehurst Place in Sussex, are managed by the Royal Botanic Gardens, Kew (brand name Kew), an internationally important botanical research and education institution that employs 750 staff and is a non-departmental public body sponsored by the Department for Environment, Food and Rural Affairs.")
 m_image_url="https://www.virginexperiencedays.co.uk/content/img/product/large/PKEWG2__01.jpg"
 m.remote_photo_url=f_image_url
-m.latitude=‎51.32
-m.longitude=‎0.21
 m.duration=60
 m.category_id=Category.find_by(name:"Parks & Gardens").id
 m.city_id=City.find_by(name:"London").id
@@ -320,8 +304,6 @@ m.save
 n=Activity.new(name:"Hampstead Heath", description:"Hampstead Heath (locally known simply as the Heath) is a large, ancient London park, covering 320 hectares (790 acres). This grassy public space sits astride a sandy ridge, one of the highest points in London, running from Hampstead to Highgate, which rests on a band of London Clay. The heath is rambling and hilly, embracing ponds, recent and ancient woodlands, a lido, playgrounds, and a training track, and it adjoins the former stately home of Kenwood House and its estate. The south-east part of the heath is Parliament Hill, from which the view over London is protected by law. Running along its eastern perimeter are a chain of ponds – including three open-air public swimming pools – which were originally reservoirs for drinking water from the River Fleet. The heath is a Site of Metropolitan Importance for Nature Conservation, and part of Kenwood is a Site of Special Scientific Interest. Lakeside concerts are held there in summer. The heath is managed by the City of London Corporation, and lies mostly within the London Borough of Camden with the adjoining Hampstead Heath Extension and Golders Hill Park in the London Borough of Barnet.")
 n_image_url="https://media-cdn.tripadvisor.com/media/photo-s/11/a9/7c/ec/hampstead-heath.jpg"
 n.remote_photo_url=f_image_url
-n.latitude=‎51.5
-n.longitude=‎-0.21
 n.duration=120
 n.category_id=Category.find_by(name:"Parks & Gardens").id
 n.city_id=City.find_by(name:"London").id
