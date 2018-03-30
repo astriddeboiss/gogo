@@ -28,6 +28,8 @@ a_icon_url="http://res.cloudinary.com/dp9rm52pu/image/upload/v1522364683/noun_13
 a.remote_photo_url=a_image_url
 a.remote_icon_url=a_icon_url
 a.save
+puts "Contemporary Architecture done"
+
 
 puts "Contemporary Architecture done"
 
@@ -39,6 +41,7 @@ w.remote_icon_url=w_icon_url
 w.save
 
 puts "Cool Bars done"
+
 
 categories_attributes = [
   {
@@ -241,7 +244,53 @@ f.category_id=Category.find_by(name:"Contemporary Architecture").id
 f.city_id=City.find_by(name:"Paris").id
 f.address="37 quai Branly, Paris, 75007"
 f.save
+
 puts "#{f.name}"
+
+puebla=Activity.new(name:"Pavillion Puebla", description:"Le Pavillion Puebla – Dans le Parc des Buttes Chaumont, au niveau de l’Avenue Darcel, une grande maison recouverte de lierre à laquelle on accède par une volée d’escaliers de pierre, vous êtes au  Pavillon Puebla. Au cœur de cet écrin de végétation, vous trouverez un restaurant, deux terrasses, deux bars, des constructions de bois, des fauteuils marocains, une balançoire… et la paix. Entre les voûtes Napoléoniennes et les toiles épaisses tendues sur les murs, on y sert des pizzas et des plats raffinés sur les tables.")
+puebla_image_url="https://u.tfstatic.com/restaurant_photos/081/67081/169/612/le-pavillon-puebla-l-arrivee-3769f.jpg"
+puebla.remote_photo_url=puebla_image_url
+puebla.duration=240
+puebla.category_id=Category.find_by(name:"Cool Bars").id
+puebla.city_id=City.find_by(name:"Paris").id
+puebla.address="Parc des Buttes Chaumont, Avenue Darcel, 75019 Paris"
+puebla.save
+
+puts 'Puebla done'
+
+perchoir=Activity.new(name:"Le Perchoir", description:"Le Perchoir – Au 6ème et 7ème étage d’un immeuble industriel, vous trouverez un toit-terrasse, un grand bar, un restaurant, des cours de sport, une cabane à snack, .  Vous verrez des oiseaux, le Sacré-Cœur, des cheminées, des plants de tomates, des vignes, une pergola, des coussins moelleux.")
+perchoir_image_url="https://1.bp.blogspot.com/-pk3uEcxfqlI/V6wX7BPVL9I/AAAAAAAAQzU/4ArKvHT2Gzkh9I_GlzhNpC86im1__qiEQCLcB/s400/Le%2Bperchoir%252C%2Bce%2Bn%25E2%2580%2599est%2Bpas%2Bque%2Bpour%2Bles%2Boiseaux%2B%2521%2B%25281%2529.jpg"
+perchoir.remote_photo_url=perchoir_image_url
+perchoir.duration=240
+perchoir.category_id=Category.find_by(name:"Cool Bars").id
+perchoir.city_id=City.find_by(name:"Paris").id
+perchoir.address="14 Rue Crespin du Gast, 75011 Paris"
+perchoir.save
+
+puts 'Perchoir done'
+
+cafea=Activity.new(name:"Le Café A", description:"Le Café A – Le Café A est situé dans l’ancien couvent des Récollets à Paris dans le 10ème arrondissement, à proximité de la gare de l’Est. Il offre un cadre privilégié dans un écrin de verdure, en plein cœur de Paris et dans un lieu historique. Il se compose d’un cloître, d’un jardin et de différents espaces intérieurs dont une ancienne chapelle. Il abrite également le Centre des Récollets, des résidences d’artistes et de chercheurs, la Maison de l’Architecture et l’Ordre des Architectes en Île de France.")
+cafea_image_url="http://blog.privateaser.com/wp-content/uploads/2016/07/jardin-privé.jpg"
+cafea.remote_photo_url=cafea_image_url
+cafea.duration=240
+cafea.category_id=Category.find_by(name:"Cool Bars").id
+cafea.city_id=City.find_by(name:"Paris").id
+cafea.address="148 Rue du Faubourg Saint-Martin, 75010 Paris"
+cafea.save
+
+puts 'Cafe A done'
+
+mercerie=Activity.new(name:"La Mercerie", description:"La Mercerie – La Mercerie est situé dans la trépidante rue Oberkampf, la Mercerie, bar iconique du quartier, rassemble dès l'apéro, les gourmands autour de planches savoureuses et de pizzas faites maison, dans une ambiance joyeuse et effervescente, et ce jusqu'au bout de la nuit. ")
+mercerie_image_url="http://blog.toryburch.com/wp-content/uploads/2018/02/FWFall2018_La-Mercerie_960_slide1.jpg"
+mercerie.remote_photo_url=cafea_image_url
+mercerie.duration=240
+mercerie.category_id=Category.find_by(name:"Cool Bars").id
+mercerie.city_id=City.find_by(name:"Paris").id
+mercerie.address="98 Rue Oberkampf, 75011 Paris"
+mercerie.save
+
+puts 'Mercerie done'
+
 
 g=Activity.new(name:"City Information Centre", description:"Situated opposite the South Transept of St Paul’s Cathedral, the City of London Information Centre introduces a dynamic contemporary structure to an area of exceptional architectural and urban heritage. In form, the building combines simplicity and efficiency of structure with a distinctive visual impact. The triangular plan has evolved from analysis of principal pedestrian flows across the site, while the orientation and profile establish an intriguing dialogue with St Paul’s as the building looks up to its prestigious neighbour and opens out to welcome people approaching it. A folded metallic envelope evokes the aerodynamic profile of a paper aeroplane, seamlessly wrapping 140m2 of internal accommodation and formed by a steel frame braced with structural ply and clad in 220 pre-finished stainless steel panels.")
 g_image_url="https://images.adsttc.com/media/images/5017/4abd/28ba/0d77/a800/0763/slideshow/stringio.jpg?1427332729"
@@ -319,7 +368,7 @@ n.city_id=City.find_by(name:"London").id
 n.address="49 S End Rd, Hampstead, London"
 n.save
 
-puts "vuitton ok"
+
 
 # seed_array.each do |seed_array_item|
 #   puts "Creating activity for #{seed_array_item[:name]}..."
