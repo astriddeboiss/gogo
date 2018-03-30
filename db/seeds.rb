@@ -242,7 +242,7 @@ f.save
 f=Activity.new(name:"City Information Centre", description:"Situated opposite the South Transept of St Paul’s Cathedral, the City of London Information Centre introduces a dynamic contemporary structure to an area of exceptional architectural and urban heritage. In form, the building combines simplicity and efficiency of structure with a distinctive visual impact. The triangular plan has evolved from analysis of principal pedestrian flows across the site, while the orientation and profile establish an intriguing dialogue with St Paul’s as the building looks up to its prestigious neighbour and opens out to welcome people approaching it. A folded metallic envelope evokes the aerodynamic profile of a paper aeroplane, seamlessly wrapping 140m2 of internal accommodation and formed by a steel frame braced with structural ply and clad in 220 pre-finished stainless steel panels.")
 f_image_url="https://www.archdaily.com/200389/city-of-london-information-centre-make-architects/50174abd28ba0d77a8000763-city-of-london-information-centre-make-architects-image"
 f.remote_photo_url=f_image_url
-f.latitude=‎51.5
+f.latitude=‎ 51.5
 f.longitude=‎ -0.1
 f.duration= 30
 f.category_id=Category.find_by(name:"Contemporary Architecture").id
