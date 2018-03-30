@@ -182,6 +182,7 @@ b.category_id=Category.find_by(name:"Contemporary Architecture").id
 b.city_id=City.find_by(name:"Paris").id
 b.address="8 Avenue du Mahatma Gandhi, 75116 Paris"
 b.save
+puts "#{b.name}"
 
 c=Activity.new(name:"Philharmonie de Paris", description:"La Philharmonie de Paris est un établissement culturel principalement consacré à la musique symphonique, bénéficiant d'un équipement acoustique de haute qualité, mais aussi à la musique de chambre, au jazz ou aux musiques du monde. Ses formations résidentes sont l'Orchestre de Paris et l'Ensemble intercontemporain. Le dessin du projet reprend les formes d’une colline en aluminium couverte de pavés superposés horizontalement coupés d’un aileron vertical pour jouer sur les lignes de perspectives existantes. Il s’érige comme une butte offrant un panorama sur Paris et ses alentours, au-delà du périphérique")
 c_image_url="http://www.cultival.pro/wp-content/uploads/cache/2016/05/nos-partenaires-et-references_philharmonie-800x518/598428472.jpg"
@@ -193,6 +194,7 @@ c.category_id=Category.find_by(name:"Contemporary Architecture").id
 c.city_id=City.find_by(name:"Paris").id
 c.address="221 Avenue Jean Jaurès, 75019 Paris"
 c.save
+puts "#{c.name}"
 
 c=Activity.new(name:"Palais de Justice", description:"C’est par sa transparence, sa clarté, sa précision que ce bâtiment peut aspirer à une valeur symbolique. Une forme pérenne, presque mathématique, radicale, sans arrogance et sans pesanteur. Si notre bâtiment permettait au citoyen d’appréhender la justice avec une certaine sérénité, ce sera parce que ce bâtiment est clair, léger, transparent, lumineux et ouvert sur la ville.")
 c_image_url="https://i0.wp.com/www.parisvox.info/wp-content/uploads/2018/01/nouveau-palais-de-justice-porte-de-clichy-2.jpg?fit=1100%2C1100&ssl=1"
@@ -205,6 +207,7 @@ c.city_id=City.find_by(name:"Paris").id
 c.address="6-10 Avenue de la Porte de Clichy
 75017 Paris"
 c.save
+puts "#{c.name}"
 
 d=Activity.new(name:"La Seine Musicale", description:"La Seine Musicale est un ensemble de bâtiments en forme de vaisseau, consacrés à toute la musique, ouverts à tous les publics et pouvant accueillir des manifestations variées : artistiques, politiques, festives, commerciales etc. Elle est située sur la pointe aval de l'Île Seguin à Boulogne-Billancourt dans les Hauts-de-Seine.")
 d_image_url="https://www.3is.fr/paris/wp-content/uploads/2017/05/seine-musicale.jpg"
@@ -216,6 +219,7 @@ d.category_id=Category.find_by(name:"Contemporary Architecture").id
 d.city_id=City.find_by(name:"Paris").id
 d.address="La Seine Musicale, Île Seguin, 92100 Boulogne-Billancourt"
 d.save
+puts "#{d.name}"
 
 e=Activity.new(name:"Centre Pompidou", description:"Le Centre national d’art et de culture Georges-Pompidou (CNAC) – communément appelé « Centre Georges-Pompidou », « Centre Pompidou » ou « Centre Beaubourg », et familièrement « Beaubourg » – est un établissement polyculturel né de la volonté du président Georges Pompidou, grand amateur d'art moderne, de créer au cœur de Paris une institution culturelle originale entièrement vouée à la création moderne et contemporaine où les arts plastiques voisineraient avec les livres, le design, la musique et le cinéma.")
 e_image_url="https://i.pinimg.com/originals/30/68/71/306871d5003efdb93da70bceacc20b90.jpg"
@@ -227,6 +231,7 @@ e.category_id=Category.find_by(name:"Contemporary Architecture").id
 e.city_id=City.find_by(name:"Paris").id
 e.address="Place Georges-Pompidou, 75004 Paris"
 e.save
+puts "#{e.name}"
 
 f=Activity.new(name:"Musée du quai Branly", description:"Le musée du quai Branly – Jacques-Chirac ou musée des arts et civilisations d'Afrique, d'Asie, d'Océanie et des Amériques (civilisations non européennes) est situé au quai Branly dans le 7e arrondissement de Paris, le long du quai de la Seine qui lui a donné son nom et au pied de la tour Eiffel. Le projet, porté par Jacques Chirac et réalisé par Jean Nouvel, a été inauguré le 20 juin 2006. La fréquentation se situe à près de 1 500 000 visiteurs en 2014 et a franchi en 2013 le cap des 10 millions depuis son ouverture, ce qui le place parmi les plus fréquentés au monde dans sa catégorie.")
 f_image_url="http://br.france.fr/sites/default/files/quai_branly_c_flickr_-_cc_timothy_brown_.jpg"
@@ -236,15 +241,17 @@ f.category_id=Category.find_by(name:"Contemporary Architecture").id
 f.city_id=City.find_by(name:"Paris").id
 f.address="37 quai Branly, Paris, 75007"
 f.save
+puts "#{f.name}"
 
 g=Activity.new(name:"City Information Centre", description:"Situated opposite the South Transept of St Paul’s Cathedral, the City of London Information Centre introduces a dynamic contemporary structure to an area of exceptional architectural and urban heritage. In form, the building combines simplicity and efficiency of structure with a distinctive visual impact. The triangular plan has evolved from analysis of principal pedestrian flows across the site, while the orientation and profile establish an intriguing dialogue with St Paul’s as the building looks up to its prestigious neighbour and opens out to welcome people approaching it. A folded metallic envelope evokes the aerodynamic profile of a paper aeroplane, seamlessly wrapping 140m2 of internal accommodation and formed by a steel frame braced with structural ply and clad in 220 pre-finished stainless steel panels.")
-g_image_url="https://www.archdaily.com/200389/city-of-london-information-centre-make-architects/50174abd28ba0d77a8000763-city-of-london-information-centre-make-architects-image"
+g_image_url="https://images.adsttc.com/media/images/5017/4abd/28ba/0d77/a800/0763/slideshow/stringio.jpg?1427332729"
 g.remote_photo_url=g_image_url
 g.duration=30
 g.category_id=Category.find_by(name:"Contemporary Architecture").id
 g.city_id=City.find_by(name:"London").id
 g.address="St. Paul's Churchyard, London EC4M 8BX, UK"
 g.save
+puts "#{g.name}"
 
 h=Activity.new(name:"Tate Modern", description:"Tate Modern is a modern art gallery located in London. It is Britain's national gallery of international modern art and forms part of the Tate group (together with Tate Britain, Tate Liverpool, Tate St Ives and Tate Online).[2] It is based in the former Bankside Power Station, in the Bankside area of the London Borough of Southwark. Tate holds the national collection of British art from 1900 to the present day and international modern and contemporary art.[3] Tate Modern is one of the largest museums of modern and contemporary art in the world. As with the UK's other national galleries and museums, there is no admission charge for access to the collection displays, which take up the majority of the gallery space, while tickets must be purchased for the major temporary exhibitions.")
 h_image_url="https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2016/06/11/16/web-tate-extension-2.jpg"
@@ -254,6 +261,7 @@ h.category_id=Category.find_by(name:"Contemporary Architecture").id
 h.city_id=City.find_by(name:"London").id
 h.address="Bankside, London SE1 9TG, UK"
 h.save
+puts "#{h.name}"
 
 i=Activity.new(name:"Lloyd's building", description:"The Lloyd's building (sometimes known as the Inside-Out Building)[2] is the home of the insurance institution Lloyd's of London. It is located on the former site of East India House in Lime Street, in London's main financial district, the City of London. The building is a leading example of radical Bowellism architecture in which the services for the building, such as ducts and lifts, are located on the exterior to maximise space in the interior. Twenty-five years after completion in 1986, the building received Grade I listing in 2011; it was the youngest structure ever to obtain this status. It is said by Historic England to be universally recognised as one of the key buildings of the modern epoch.")
 i_image_url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Lloyds_building_taken_2011.jpg/250px-Lloyds_building_taken_2011.jpg"
@@ -263,6 +271,7 @@ i.category_id=Category.find_by(name:"Contemporary Architecture").id
 i.city_id=City.find_by(name:"London").id
 i.address="1 Lime Street, London, UK"
 i.save
+puts "#{i.name}"
 
 j=Activity.new(name:"The Shard", description:"The Shard, also referred to as the Shard of Glass, Shard London Bridge] and formerly London Bridge Tower, is a 95-storey skyscraper, designed by the Italian architect Renzo Piano, in Southwark, London, that forms part of the Shard Quarter development. Standing 309.7 metres (1,016 ft) high, the Shard is the tallest building in the United Kingdom, the tallest building in the European Union, the fourth-tallest building in Europe and the 96th-tallest building in the world. It is also the second-tallest free-standing structure in the United Kingdom, after the concrete tower of the Emley Moor transmitting station. It replaced Southwark Towers, a 24-storey office block built on the site in 1975.
 The Shard's construction began in March 2009; it was topped out on 30 March 2012 and inaugurated on 5 July 2012. Practical completion was achieved in November 2012. The tower's privately operated observation deck, The View from The Shard, was opened to the public on 1 February 2013. The glass-clad pyramidal tower has 72 habitable floors, with a viewing gallery and open-air observation deck on the 72nd floor, at a height of 244 metres (801 ft). The Shard was developed by Sellar Property Group on behalf of LBQ Ltd and is jointly owned by Sellar Property (5%) and the State of Qatar (95%).The Shard is managed by Real Estate Management (UK) Limited on behalf of the owners.")
@@ -312,48 +321,48 @@ n.save
 
 puts "vuitton ok"
 
-seed_array.each do |seed_array_item|
-  puts "Creating activity for #{seed_array_item[:name]}..."
-  url = open(seed_array_item[:url])
-  category = Category.find_by_name(seed_array_item[:name])
-  activities_serialized = open(url).read
-  activities = Nokogiri::HTML(activities_serialized)
-  activities.search(".listing_title a").each do |activity|
+# seed_array.each do |seed_array_item|
+#   puts "Creating activity for #{seed_array_item[:name]}..."
+#   url = open(seed_array_item[:url])
+#   category = Category.find_by_name(seed_array_item[:name])
+#   activities_serialized = open(url).read
+#   activities = Nokogiri::HTML(activities_serialized)
+#   activities.search(".listing_title a").each do |activity|
 
 
-   unless activity.attributes["href"].value.nil?
+#    unless activity.attributes["href"].value.nil?
 
-      activity_url = activity.attributes["href"].value
-      activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
-      activity_doc = Nokogiri::HTML(activity_serialized)
+#       activity_url = activity.attributes["href"].value
+#       activity_serialized = open("https://www.tripadvisor.fr" + activity_url).read
+#       activity_doc = Nokogiri::HTML(activity_serialized)
 
 
-      name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
-      # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
+#       name = activity_doc.search("#HEADING").empty? ? "default" : activity_doc.search("#HEADING").text
+#       # description = activity_doc.search("#SECTION_OVERVIEW").empty? ? "Great Place to visit" : activity_doc.search("#SECTION_OVERVIEW").text
 
-      description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
-      # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
+#       description = activity_doc.search(".partial_entry").empty? ? "Great Place to visit" : activity_doc.search(".partial_entry").text
+#       # duration = activity_doc.search("#DETAILS").empty? ? "60" : activity_doc.search(".detail_section duration").text.split[3]
 
-      duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
-      # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
-      begin
-        photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
-      rescue => e
-        puts e
-        photo = "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
-      end
-      address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
-      opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
-      closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
-      city = City.find_by_name("Paris")
-      new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
-      new_activity.remote_photo_url = photo
-      new_activity.save
-      puts "#{new_activity.name} created!"
-    end
-  end
-end
-puts 'Finished Scrap activities'
+#       duration = ((rand(seed_array_item[:duration][0]..seed_array_item[:duration][1])) / 10) * 10
+#       # photo = activity_doc.search("#BIG_PHOTO_CAROUSEL img").empty? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search("#BIG_PHOTO_CAROUSEL img").first.attributes["src"].value
+#       begin
+#         photo = activity_doc.search(".carousel_images img").nil? ? "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg" : activity_doc.search(".carousel_images img").last.attributes["src"].value
+#       rescue => e
+#         puts e
+#         photo = "https://www.prestotours.com/wp-content/uploads/2015/10/rome-colosseum.jpg"
+#       end
+#       address = activity_doc.search(".street-address").empty? ? "Champ de Mars, 5 Avenue Anatole France, 75007 Paris" : activity_doc.search('.street-address').first.text + " " + activity_doc.search('.locality').first.text
+#       opens_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,9) : activity_doc.search('.time').first.text.to_time
+#       closes_at = activity_doc.search('.time').empty? ? DateTime.new(2018,1,1,18) : activity_doc.search('.time').last.text.to_time
+#       city = City.find_by_name("Paris")
+#       new_activity = Activity.new(name: name, description: description, duration: duration, address: address, closes_at: closes_at, opens_at: opens_at, category: category, city: city)
+#       new_activity.remote_photo_url = photo
+#       new_activity.save
+#       puts "#{new_activity.name} created!"
+#     end
+#   end
+# end
+# puts 'Finished Scrap activities'
 
 
 
