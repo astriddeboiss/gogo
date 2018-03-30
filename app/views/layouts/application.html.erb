@@ -32,11 +32,6 @@
   </head>
 
   <body class="bottom-margin-60" >
-
-    <% unless current_page?(root_path) %>
-      <%= render 'shared/header' %>
-    <div class="bottom-margin-60">
-    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     </div>

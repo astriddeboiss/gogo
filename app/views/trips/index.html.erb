@@ -1,17 +1,20 @@
+<div class="wrapper-header">
+  <div class="header">
+    <h1 class="page-title">Your trips</h1>
+  </div>
+</div>
+
 <div class="col-xs-12 remove-padding bottom-margin-60">
 <div class="container-complete-list">
 <% if @trips.empty? %>
   <h1> You haven't created any trips yet</h1>
   <%= link_to "Create my first trip", root_path %>
 <% else %>
-  <div style="display:flex; justify-content: space-around;">
-    <h1 class="page-title">Here is the list of all your trips</h1>
-  </div>
   <ul class="trip-list">
   <% @trips.each_with_index do |trip, index| %>
     <div class="wrapper-trip-list-item">
-      <% list_image = cl_image_path trip.city.photo, height: 70, width: 70, crop: :fill%>
-      <div class="trip-list-photo" style="background-image: url(' <%= list_image %>')"></div>
+      <% list_category = cl_image_path trip.city.photo, height: 70, width: 70, crop: :fill%>
+      <div class="trip-list-photo" style="background-image: url(' <%= list_category %>')"></div>
       <div class="trip-list-text">
         <li><%= link_to trip.name, trip_trip_activities_path(trip) %></li>
         <p><%= trip.city.name%></p>

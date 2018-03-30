@@ -1,5 +1,7 @@
 <% photo_path = cl_image_path activity.photo, height: 350, width: 290, crop: :fill%>
-<div class="activity-card-banner" style="background-image: url('<%= photo_path %>');"></div>
+<div class="activity-card-banner" style="background-image: url('<%= photo_path %>');">
+  <i class="fa fa-check-circle checked-act"></i>
+</div>
 <ul class="item-description-recto">
   <div id="title-space">
     <p id="activity-name-recto"> <%= activity.name %> </p>

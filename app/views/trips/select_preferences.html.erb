@@ -1,5 +1,10 @@
-<div class="bottom-margin-60">
-  <div class="container">
+<div class="wrapper-header">
+  <div class="header">
+    <h1 class="page-title">Select your preferences</h1>
+  </div>
+</div>
+
+  <div class="container bottom-margin-60">
     <div class="row">
       <% @categories.each do |category| %>
         <div class="col-xs-6">
@@ -14,12 +19,12 @@
           </div>
         </div>
       <% end %>
-      <div class="col-xs-12">
-        <div class="padded-1">
-          <%= link_to "CHOOSE YOUR PREFERENCES",  new_trip_trip_activity_path(@trip), class: "btn-cta adjustment" %>
-        </div>
-      </div>
+    </div>
+    <div class="button-preferences">
+        <%= link_to "CHOOSE YOUR PREFERENCES",  new_trip_trip_activity_path(@trip), class: "btn-cta-preferences" %>
     </div>
   </div>
-</div>
+
+
+
 
