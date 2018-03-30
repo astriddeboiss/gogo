@@ -32,9 +32,9 @@
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
     <div id="app-content">
       <%= yield %>
+      <%= render 'shared/antoine' if current_user%>
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>

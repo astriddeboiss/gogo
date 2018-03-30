@@ -5,3 +5,15 @@ div#app-content {
     height: calc(100vh - 60px);
     overflow: scroll;
 }
+
+.user-avatar {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 3px solid $sea-blue;
+  border-radius: 50%;
+}
+
+#user-avatar-home {
+
+}
