@@ -71,7 +71,11 @@ class TripActivitiesController < ApplicationController
         infoWindow: { content: render_to_string(partial: "trip_activities/map_box", locals: { activity: activity }) }
       }
     end
-
+    @markers << {
+      lat: lat,
+      lng: lng,
+      icon: ActionController::Base.helpers.asset_path('antoine.png')
+    }
   end
 
   def city_find
